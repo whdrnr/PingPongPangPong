@@ -12,7 +12,8 @@ public class GuardBarManager : MonoBehaviour
     Vector3 Touch_Start;
 
     [Header("DangerMove2 관련 변수")]
-    Touch Touch;
+    Vector2 StartTouch_Pos;
+    Vector2 EndTounch_Pos;
 
     public GameObject Danger;
 
@@ -45,13 +46,20 @@ public class GuardBarManager : MonoBehaviour
         {
             Touch Touch = Input.GetTouch(0);
 
-            if(Touch.phase == TouchPhase.Began)
+            if (Touch.phase == TouchPhase.Began)
             {
-                Debug.Log("Began");
+                StartTouch_Pos = Input.GetTouch(0).position;
             }
             if (Touch.phase == TouchPhase.Moved)
             {
-                Debug.Log("Moved");
+                EndTounch_Pos = Input.GetTouch(0).position;
+
+                if (EndTounch_Pos.x < StartTouch_Pos.x)
+                    RotateZ -= RotateSpeed * Time.deltaTime;
+                if (EndTounch_Pos.x > StartTouch_Pos.x)
+                    RotateZ += RotateSpeed * Time.deltaTime;
+
+                Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
             }
             if (Touch.phase == TouchPhase.Stationary)
             {
