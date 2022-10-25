@@ -5,27 +5,27 @@ using UnityEngine.UI;
 
 public class MainMenuView : View
 {
-    public Button ReStart_Btn;
-    public Button Home_Btn;
+    public Button GameStart_Btn;
+
+    [Header("Icon 버튼 관련 참조")]
+    public Button AD_Romove_Btn;
+    public Button SkinChange_Btn;
+    public Button Setting_Btn;
     public Button Ranking_Lock_Btn;
 
     public override void Initalize()
     {
-        Home_Btn.onClick.AddListener(() => Home_Btn_Click());
+        GameStart_Btn.onClick.AddListener(() => GameStart_Btn_Click());
     }
 
-    public void Home_Btn_Click()
+    void GameStart_Btn_Click()
     {
-        UIManager.Show<TitleMenuView>();
+        GameManager.Instance.IsGame = true;
+        GameManager.Instance.PlayGame();
+
+        UIManager.Show<PlayMenuView>();
     }
 
-    public void ReStart_Btn_Click()
-    {
 
-    }
-
-    public void Ranking_Lock_Btn_Click()
-    {
-
-    }
+    
 }
