@@ -20,7 +20,7 @@ public class PongController : MonoBehaviour
 
         Debug.Log("게임 종료");
         GameManager.Instance.IsGame = false;
-        UIManager.Show<OverMenuView>();
+        UIManager.Show<TitleMenuView>();
 
         Destroy(this.gameObject);
     }

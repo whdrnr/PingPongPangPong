@@ -5,18 +5,27 @@ using UnityEngine.UI;
 
 public class MainMenuView : View
 {
-    public Button Start_Btn;
+    public Button ReStart_Btn;
+    public Button Home_Btn;
+    public Button Ranking_Lock_Btn;
 
     public override void Initalize()
     {
-        Start_Btn.onClick.AddListener(() => Start_Btn_Click());
+        Home_Btn.onClick.AddListener(() => Home_Btn_Click());
     }
 
-    void Start_Btn_Click()
+    public void Home_Btn_Click()
     {
-        GameManager.Instance.IsGame = true;
-        GameManager.Instance.PlayGame();
+        UIManager.Show<TitleMenuView>();
+    }
 
-        UIManager.Show<PlayMenuView>();
+    public void ReStart_Btn_Click()
+    {
+
+    }
+
+    public void Ranking_Lock_Btn_Click()
+    {
+
     }
 }
