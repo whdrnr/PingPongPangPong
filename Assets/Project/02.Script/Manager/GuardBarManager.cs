@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -15,16 +13,16 @@ public class GuardBarManager : MonoBehaviour
     Vector2 StartTouch_Pos;
     Vector2 EndTounch_Pos;
 
-    public GameObject Danger;
-
     void Update()
     {
-        DangerMove2();
+        //#게임을 플레이할 떄만 데인저를 움직일 수 있다.
+        if(GameManager.Instance.IsGame == true)
+            DangerMove2();
     }
 
     void DangerMove1()
     {
-        Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
+        //Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
 
         if (Input.GetMouseButtonDown(0))
             Touch_Start = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -59,7 +57,7 @@ public class GuardBarManager : MonoBehaviour
                 if (EndTounch_Pos.x > StartTouch_Pos.x)
                     RotateZ += RotateSpeed * Time.deltaTime;
 
-                Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
+                GameManager.Instance.Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
             }
             if (Touch.phase == TouchPhase.Stationary)
             {

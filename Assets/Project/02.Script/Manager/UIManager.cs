@@ -1,89 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    public View StartView;
-    public View[] Views;
+    [Header("Panel 관련 참조")]
+    public GameObject Lobby_Panel;
+    public GameObject Play_Panel;
 
-    View CurView;
+    [Header("Lobby-Panel 관련 참조")]
+    public GameObject Title_Panel;
+    public GameObject Main_Panel;
 
-    readonly Stack<View> History = new Stack<View>();
+    [Header("Play-Panel의Txt 관련 참조")]
+    public TextMeshProUGUI CurPoint_Txt;
+    public TextMeshProUGUI Wave_Txt;
 
-    private void Start()
+    [Header("Main-Panel의Txt 관련 참조")]
+    public TextMeshProUGUI BeforePoint_Txt;
+
+    public void PlayGame_Btn()
     {
-        for (int i = 0; i < Views.Length; i++)
-        {
-            Views[i].Initalize();
+        Play_Panel.SetActive(true);
+        Lobby_Panel.SetActive(false);
 
-            Views[i].Hide();
-        }
+        GameManager.Instance.IsGame = true;
 
-        if(StartView != null)
-        {
-            Show(StartView, true);
-        }
+        //#Danger, Pong 위치 조정
+        GameObject CurPong = GameObject.FindWithTag("Pong");
+        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * GameManager.Instance.Speed;
+        GameManager.Instance.Danger.transform.position = new Vector3(0, 0.5f, 0);
     }
 
-    public static T GetView<T>() where T : View
-    {
-        for(int i =0; i < UIManager.Instance.Views.Length; i++)
-        {
-            if(UIManager.Instance.Views[i] is T tView)
-            {
-                return tView;
-            }
-        }
-
-        return null;
-    }
-
-    public static void Show<T>(bool _Remember = true) where T : View
-    {
-        for(int i = 0; i < UIManager.Instance.Views.Length; i++)
-        {
-            if (UIManager.Instance.Views[i] is T tView)
-            {
-                if (UIManager.Instance.CurView != null)
-                {
-                    if(_Remember)
-                    {
-                        UIManager.Instance.History.Push(UIManager.Instance.CurView);
-                    }
-
-                    UIManager.Instance.CurView.Hide();
-                }
-
-                UIManager.Instance.Views[i].Show();
-
-                UIManager.Instance.CurView = UIManager.Instance.Views[i];
-            }
-        }
-    }
-
-    public static void Show(View _View, bool _Remember = true)
-    {
-        if(UIManager.Instance.CurView != null)
-        {
-            if(_Remember)
-            {
-                UIManager.Instance.History.Push(UIManager.Instance.CurView);
-            }
-
-            UIManager.Instance.CurView.Hide();
-        }
-
-        _View.Show();
-
-        UIManager.Instance.CurView = _View;
-    }
-
-    public static void ShowLast()
-    {
-        if(UIManager.Instance.History.Count != 0)
-        {
-            Show(UIManager.Instance.History.Pop(), false);
-        }
-    }
+    public void PointUp() => CurPoint_Txt.text = GameManager.Instance.Cur_Socre.ToString();
 }
