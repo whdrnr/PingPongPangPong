@@ -22,6 +22,7 @@ public class GameManager : Singleton<GameManager>
     public int BounceNum = 3; //#튕겨야 하는 횟수
 
     public bool IsGame;
+    public bool IsPause;
 
     //#Wave를 Clear하지 못했을 때
     public IEnumerator GameOver()
@@ -41,18 +42,37 @@ public class GameManager : Singleton<GameManager>
     {
         if(BounceNum == 0)
         {
-            //#웨이브 증가 
-            CurWave++;
-            UIManager.Instance.Wave_Txt.text = CurWave.ToString();
+            StartCoroutine(CountDown());
 
-            //#튕겨야 하는 횟수 증가
-            BounceNum = 2 + CurWave;
+            //#데인저의 각도를 0으로 되돌린다.
+            Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-            //#가드바 내구도 회복
-            GameObject[] Guards = GameObject.FindGameObjectsWithTag("Guard");
-
-            for (int i = 0; i < Guards.Length; i++)
-                Guards[i].GetComponent<GuardBarController>().ResetDurability();
+            GameObject CurPong = GameObject.FindWithTag("Pong");
+            Destroy(CurPong);
         }
+    }
+
+    IEnumerator CountDown()
+    {
+        IsPause = true;
+
+        UIManager.Instance.CurBounce_Txt.text = "3";
+        yield return new WaitForSeconds(1f);
+
+        UIManager.Instance.CurBounce_Txt.text = "2";
+        yield return new WaitForSeconds(1f);
+
+        UIManager.Instance.CurBounce_Txt.text = "1";
+        yield return new WaitForSeconds(1f);
+
+        IsPause = false;
+
+        //#웨이브 증가 
+        CurWave++;
+        UIManager.Instance.Wave_Txt.text = CurWave.ToString();
+
+        //#튕겨야 하는 횟수 증가
+        BounceNum = 2 + CurWave;
+        UIManager.Instance.CurBounce_Txt.text = BounceNum.ToString();
     }
 }

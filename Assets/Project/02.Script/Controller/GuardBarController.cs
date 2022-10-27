@@ -14,6 +14,7 @@ public class GuardBarController : MonoBehaviour
         if(collision.gameObject.CompareTag("Pong"))
         {
             GameManager.Instance.BounceNum--;
+            GameManager.Instance.WaveClear();
             UIManager.Instance.CurBounce_Txt.text = GameManager.Instance.BounceNum.ToString();
 
             //#가드바 상호작용

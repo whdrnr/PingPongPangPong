@@ -16,7 +16,7 @@ public class GuardBarManager : MonoBehaviour
     void Update()
     {
         //#게임을 플레이할 떄만 데인저를 움직일 수 있다.
-        if(GameManager.Instance.IsGame == true)
+        if(GameManager.Instance.IsGame == true && GameManager.Instance.IsPause == false)
             DangerMove2();
     }
 
@@ -53,8 +53,8 @@ public class GuardBarManager : MonoBehaviour
                 EndTounch_Pos = Input.GetTouch(0).position;
 
                 if (EndTounch_Pos.x < StartTouch_Pos.x)
-                    RotateZ -= RotateSpeed * Time.deltaTime;
-                if (EndTounch_Pos.x > StartTouch_Pos.x)
+                    RotateZ += -RotateSpeed * Time.deltaTime;
+                else if (EndTounch_Pos.x > StartTouch_Pos.x)
                     RotateZ += RotateSpeed * Time.deltaTime;
 
                 GameManager.Instance.Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);

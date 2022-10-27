@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349183557be9145408031288a9586277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 100
+  RotateSpeed: 125
 --- !u!4 &868951528
 Transform:
   m_ObjectHideFlags: 0
@@ -1805,9 +1805,10 @@ MonoBehaviour:
   Speed: 3
   Danger: {fileID: 1217916281}
   MaxWave: 0
-  CurWave: 0
+  CurWave: 1
   BounceNum: 3
   IsGame: 0
+  IsPause: 0
 --- !u!4 &1012569694
 Transform:
   m_ObjectHideFlags: 0
@@ -2500,6 +2501,10 @@ PrefabInstance:
     - target: {fileID: 7702980586642163406, guid: 669ace96dee4431488a257a913a675be, type: 3}
       propertyPath: m_Name
       value: Pong
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702980586642163442, guid: 669ace96dee4431488a257a913a675be, type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 669ace96dee4431488a257a913a675be, type: 3}
