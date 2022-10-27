@@ -7,6 +7,7 @@ TagManager:
   - Pong
   - DangerLine
   - Item
+  - Guard
   layers:
   - Default
   - TransparentFX

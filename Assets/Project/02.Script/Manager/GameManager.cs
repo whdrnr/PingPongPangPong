@@ -5,6 +5,9 @@ using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
+     public delegate void GameOverDelegate();
+     public GameOverDelegate gameOverDelegate;
+
     [Header("공 생성 관련 참조")]
     public GameObject Pong;
     public Transform Init_Pos;
@@ -14,44 +17,30 @@ public class GameManager : Singleton<GameManager>
     public GameObject Danger;
 
     [Header("점수 관련 참조")]
-    public int High_Score = 0;
-    public int Cur_Socre = 0;
+    public int MaxWave = 0;
+    public int CurWave = 0;
+    public int BounceNum = 3; //#튕겨야 하는 횟수
 
     public bool IsGame;
 
-    public void PlayGame() 
-    {
-        UIManager.Instance.Play_Panel.SetActive(true);
-        UIManager.Instance.Lobby_Panel.SetActive(false);
-
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
-    }
-
+    //#Wave를 Clear하지 못했을 때
     public IEnumerator GameOver()
     {
         yield return new WaitForSeconds(1f);
-
+        
         IsGame = false;
-        Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-        //#UI On
-        UIManager.Instance.Play_Panel.SetActive(false);
-        UIManager.Instance.Lobby_Panel.SetActive(true);
+        UIManager.Instance.GameOver_Panel.SetActive(true);
 
-        UIManager.Instance.Title_Panel.SetActive(false);
-        UIManager.Instance.Main_Panel.SetActive(true);
-
-        //#점수 관련 참조
-        UIManager.Instance.BeforePoint_Txt.text = Cur_Socre.ToString();
-        UIManager.Instance.CurPoint_Txt.text = "0";
-        Cur_Socre = 0;
-
-        //#공 삭제
         GameObject CurPong = GameObject.FindWithTag("Pong");
         Destroy(CurPong);
+    }
 
-        //#새로운 공 생성
-        GameObject NewPong = Instantiate(Pong, Init_Pos.position, Quaternion.identity);
+    public void WaveClear()
+    {
+        if(BounceNum == 0)
+        {
+            Debug.Log("웨이브 클리어");
+        }
     }
 }
