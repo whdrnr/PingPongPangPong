@@ -13,9 +13,10 @@ public class GuardBarController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pong"))
         {
-            GameManager.Instance.Cur_Socre += 1;
-            UIManager.Instance.PointUp();
+            GameManager.Instance.BounceNum--;
+            UIManager.Instance.CurBounce_Txt.text = GameManager.Instance.BounceNum.ToString();
 
+            //#가드바 상호작용
             Durability -= 1;
             Durability_Txt.text = Durability.ToString();
 
@@ -26,10 +27,15 @@ public class GuardBarController : MonoBehaviour
         }
     }
 
-    public void ResetDurability() => Durability = 4;
-
+    public void ResetDurability()
+    {
+        gameObject.SetActive(true);
+        Durability = 4;
+        Durability_Txt.text = Durability.ToString();
+    }
+     
     void GuardDestory()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 }
