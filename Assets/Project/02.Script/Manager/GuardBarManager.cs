@@ -20,6 +20,7 @@ public class GuardBarManager : MonoBehaviour
             DangerMove1();
     }
 
+
     void DangerMove1()
     {
         if (Input.GetMouseButton(0))
@@ -57,7 +58,7 @@ public class GuardBarManager : MonoBehaviour
             }
             if (Touch.phase == TouchPhase.Stationary)
             {
-                Debug.Log("Stationary");
+                RotateZ = 0;
             }
         }
     }

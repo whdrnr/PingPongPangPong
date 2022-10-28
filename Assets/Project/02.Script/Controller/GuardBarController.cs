@@ -9,6 +9,11 @@ public class GuardBarController : MonoBehaviour
 
     public TextMeshProUGUI Durability_Txt;
 
+    void Start()
+    {
+        GameManager.Instance.gameOverDelegate += ResetDurability;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Pong"))
