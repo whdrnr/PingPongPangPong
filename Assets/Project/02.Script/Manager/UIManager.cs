@@ -34,8 +34,6 @@ public class UIManager : Singleton<UIManager>
         Play_Panel.SetActive(true);
         Lobby_Panel.SetActive(false);
 
-        GM.IsGame = true;
-
         //#Danger, Pong 위치 조정
         GM.StartBall();
         GM.Danger.transform.position = new Vector3(0, 0.5f, 0);
@@ -52,7 +50,7 @@ public class UIManager : Singleton<UIManager>
             Title_Panel.SetActive(false);
             Main_Panel.SetActive(true);
 
-            GameManager.Instance.gameStartDelegate();
+            GameManager.Instance.gameOverDelegate();
         }
     }
 }

@@ -923,7 +923,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &701855201
 GameObject:
@@ -1621,6 +1621,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateSpeed: 125
+  RotateZ: 0
 --- !u!4 &868951528
 Transform:
   m_ObjectHideFlags: 0
@@ -1806,6 +1807,7 @@ MonoBehaviour:
   Danger: {fileID: 1217916281}
   MaxWave: 0
   CurWave: 1
+  BeforeWave: 0
   BounceNum: 3
   IsGame: 0
   IsPause: 0
@@ -2456,7 +2458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7702980586642163404, guid: 669ace96dee4431488a257a913a675be, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7702980586642163404, guid: 669ace96dee4431488a257a913a675be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2501,6 +2503,10 @@ PrefabInstance:
     - target: {fileID: 7702980586642163406, guid: 669ace96dee4431488a257a913a675be, type: 3}
       propertyPath: m_Name
       value: Pong
+      objectReference: {fileID: 0}
+    - target: {fileID: 7702980586642163406, guid: 669ace96dee4431488a257a913a675be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7702980586642163442, guid: 669ace96dee4431488a257a913a675be, type: 3}
       propertyPath: m_BodyType

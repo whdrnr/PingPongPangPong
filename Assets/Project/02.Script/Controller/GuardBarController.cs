@@ -26,7 +26,7 @@ public class GuardBarController : MonoBehaviour
 
             if(Durability == 0)
             {
-                GuardDestory();
+                Debug.Log("°¡µå¹Ù ÆÄ±«µÊ");
             }
         }
     }
@@ -36,10 +36,5 @@ public class GuardBarController : MonoBehaviour
         gameObject.SetActive(true);
         Durability = 4;
         Durability_Txt.text = Durability.ToString();
-    }
-     
-    void GuardDestory()
-    {
-        gameObject.SetActive(false);
     }
 }

@@ -5,7 +5,7 @@ public class GuardBarManager : MonoBehaviour
 {
     [Header("DangerMove1 관련 변수")]
     public float RotateSpeed = 30;
-    float RotateZ;
+    [HideInInspector] public float RotateZ;
 
     Vector3 Touch_Start;
 
@@ -13,13 +13,20 @@ public class GuardBarManager : MonoBehaviour
     Vector2 StartTouch_Pos;
     Vector2 EndTounch_Pos;
 
+    private void Start()
+    {
+        GameManager.Instance.gameOverDelegate += ResetAngle;
+        GameManager.Instance.waveClearDelegate += ResetAngle;
+    }
+
+    public void ResetAngle() => RotateZ = 0;
+
     void Update()
     {
         //#게임을 플레이할 떄만 데인저를 움직일 수 있다.
         if(GameManager.Instance.IsGame == true && GameManager.Instance.IsPause == false)
-            DangerMove1();
+            DangerMove2();
     }
-
 
     void DangerMove1()
     {
@@ -58,7 +65,6 @@ public class GuardBarManager : MonoBehaviour
             }
             if (Touch.phase == TouchPhase.Stationary)
             {
-                RotateZ = 0;
             }
         }
     }

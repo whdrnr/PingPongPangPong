@@ -5,14 +5,14 @@ using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
-     public delegate void GameStartDelegate();
-     public GameStartDelegate gameStartDelegate;
+     public delegate void WaveClearDelegate();
+     public WaveClearDelegate waveClearDelegate;
 
     public delegate void GameOverDelegate();
-    public GameStartDelegate gameOverDelegate;
+    public GameOverDelegate gameOverDelegate;
 
     public delegate void GamePauseDelegate();
-    public GameStartDelegate gamePauseDelegate;
+    public GamePauseDelegate gamePauseDelegate;
 
     [Header("공 생성 관련 참조")]
     public GameObject Pong;
@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager>
     [Header("점수 관련 참조")]
     public int MaxWave = 0;
     public int CurWave = 1;
+    [HideInInspector] public int BeforeWave;
     public int BounceNum = 3; //#튕겨야 하는 횟수
 
     public bool IsGame;
@@ -32,7 +33,7 @@ public class GameManager : Singleton<GameManager>
 
     void Start()
     {
-        gameStartDelegate += ObjectSetting;
+        waveClearDelegate += ObjectSetting;
         gameOverDelegate += ObjectSetting;
     }
 
@@ -53,22 +54,17 @@ public class GameManager : Singleton<GameManager>
             Instantiate(Pong, Init_Pos.position, Quaternion.identity);
     }
 
-    //#Wave를 Clear하지 못했을 때
-    public IEnumerator GameOver()
+    public void StartBall()
     {
-        yield return new WaitForSeconds(1f);
-        
-        IsGame = false;
-        BounceNum = 3;
+        IsGame = true;
 
-        UIManager.Instance.GameOver_Panel.SetActive(true);
-
-        gameOverDelegate();
+        GameObject CurPong = GameObject.FindWithTag("Pong");
+        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
     }
 
     public void HitGuard()
     {
-        if(BounceNum == 0)
+        if (BounceNum == 1)
         {
             StartCoroutine(WaveClear());
         }
@@ -79,21 +75,27 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void StartBall()
+
+    //#Wave를 Clear하지 못했을 때
+    public IEnumerator GameOver()
     {
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
+        yield return new WaitForSeconds(1f);
+        
+        IsGame = false;
+
+        //#초기화
+        BounceNum = 3;
+        CurWave = 1;
+
+        UIManager.Instance.GameOver_Panel.SetActive(true);
     }
 
+    //#Wave를 Clear 했을 때
     IEnumerator WaveClear()
     {
         IsPause = true;
 
-        ObjectSetting();
-
-         //#웨이브 증가 
-         CurWave++;
-         UIManager.Instance.Wave_Txt.text = CurWave.ToString();
+        waveClearDelegate();
 
         //#카운트 다운
         UIManager.Instance.CurBounce_Txt.text = "3";
@@ -104,6 +106,10 @@ public class GameManager : Singleton<GameManager>
 
         UIManager.Instance.CurBounce_Txt.text = "1";
         yield return new WaitForSeconds(1f);
+
+        //#웨이브 증가 
+        CurWave++;
+        UIManager.Instance.Wave_Txt.text = CurWave.ToString();
 
         //#튕겨야 하는 횟수 증가
         BounceNum = 2 + CurWave;
