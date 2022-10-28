@@ -5,8 +5,14 @@ using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
-     public delegate void GameOverDelegate();
-     public GameOverDelegate gameOverDelegate;
+     public delegate void GameStartDelegate();
+     public GameStartDelegate gameStartDelegate;
+
+    public delegate void GameOverDelegate();
+    public GameStartDelegate gameOverDelegate;
+
+    public delegate void GamePauseDelegate();
+    public GameStartDelegate gamePauseDelegate;
 
     [Header("공 생성 관련 참조")]
     public GameObject Pong;
@@ -24,6 +30,29 @@ public class GameManager : Singleton<GameManager>
     public bool IsGame;
     public bool IsPause;
 
+    void Start()
+    {
+        gameStartDelegate += ObjectSetting;
+        gameOverDelegate += ObjectSetting;
+    }
+
+    void ObjectSetting()
+    {
+        //#데인저의 각도를 0으로 되돌린다.
+        Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+        //#퐁 생성
+        GameObject CurPong = GameObject.FindWithTag("Pong");
+
+        if (CurPong != null)
+        {
+            Destroy(CurPong);
+            Instantiate(Pong, Init_Pos.position, Quaternion.identity);
+        }
+        else
+            Instantiate(Pong, Init_Pos.position, Quaternion.identity);
+    }
+
     //#Wave를 Clear하지 못했을 때
     public IEnumerator GameOver()
     {
@@ -34,28 +63,39 @@ public class GameManager : Singleton<GameManager>
 
         UIManager.Instance.GameOver_Panel.SetActive(true);
 
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-        Destroy(CurPong);
+        gameOverDelegate();
     }
 
-    public void WaveClear()
+    public void HitGuard()
     {
         if(BounceNum == 0)
         {
-            StartCoroutine(CountDown());
-
-            //#데인저의 각도를 0으로 되돌린다.
-            Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-            GameObject CurPong = GameObject.FindWithTag("Pong");
-            Destroy(CurPong);
+            StartCoroutine(WaveClear());
+        }
+        else
+        {
+            BounceNum--;
+            UIManager.Instance.CurBounce_Txt.text = BounceNum.ToString();
         }
     }
 
-    IEnumerator CountDown()
+    public void StartBall()
+    {
+        GameObject CurPong = GameObject.FindWithTag("Pong");
+        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
+    }
+
+    IEnumerator WaveClear()
     {
         IsPause = true;
 
+        ObjectSetting();
+
+         //#웨이브 증가 
+         CurWave++;
+         UIManager.Instance.Wave_Txt.text = CurWave.ToString();
+
+        //#카운트 다운
         UIManager.Instance.CurBounce_Txt.text = "3";
         yield return new WaitForSeconds(1f);
 
@@ -65,14 +105,13 @@ public class GameManager : Singleton<GameManager>
         UIManager.Instance.CurBounce_Txt.text = "1";
         yield return new WaitForSeconds(1f);
 
-        IsPause = false;
-
-        //#웨이브 증가 
-        CurWave++;
-        UIManager.Instance.Wave_Txt.text = CurWave.ToString();
-
         //#튕겨야 하는 횟수 증가
         BounceNum = 2 + CurWave;
         UIManager.Instance.CurBounce_Txt.text = BounceNum.ToString();
+
+        IsPause = false;
+
+        StartBall();
     }
 }
+  

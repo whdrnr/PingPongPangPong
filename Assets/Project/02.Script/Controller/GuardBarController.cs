@@ -9,13 +9,16 @@ public class GuardBarController : MonoBehaviour
 
     public TextMeshProUGUI Durability_Txt;
 
+    void Start()
+    {
+        GameManager.Instance.gameOverDelegate += ResetDurability;
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Pong"))
         {
-            GameManager.Instance.BounceNum--;
-            GameManager.Instance.WaveClear();
-            UIManager.Instance.CurBounce_Txt.text = GameManager.Instance.BounceNum.ToString();
+            GameManager.Instance.HitGuard();
 
             //#가드바 상호작용
             Durability -= 1;

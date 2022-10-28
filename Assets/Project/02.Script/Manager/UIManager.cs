@@ -37,8 +37,7 @@ public class UIManager : Singleton<UIManager>
         GM.IsGame = true;
 
         //#Danger, Pong 위치 조정
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * GM.Speed;
+        GM.StartBall();
         GM.Danger.transform.position = new Vector3(0, 0.5f, 0);
     }
 
@@ -53,17 +52,7 @@ public class UIManager : Singleton<UIManager>
             Title_Panel.SetActive(false);
             Main_Panel.SetActive(true);
 
-            //#가드바 내구도 회복
-            GameObject[] Guards = GameObject.FindGameObjectsWithTag("Guard");
-
-            for (int i = 0; i < Guards.Length; i++)
-                Guards[i].GetComponent<GuardBarController>().ResetDurability();
-
-            //#데인저의 각도를 0으로 되돌린다.
-            GM.Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
-
-            //#퐁의 위치를 처음 위치로 되돌린다.
-            Instantiate(GM.Pong, GM.Init_Pos.position, Quaternion.identity);
+            GameManager.Instance.gameStartDelegate();
         }
     }
 }
