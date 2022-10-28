@@ -37,8 +37,7 @@ public class UIManager : Singleton<UIManager>
         GM.IsGame = true;
 
         //#Danger, Pong 위치 조정
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * GM.Speed;
+        GM.StartBall();
         GM.Danger.transform.position = new Vector3(0, 0.5f, 0);
     }
 

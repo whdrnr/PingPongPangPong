@@ -17,19 +17,15 @@ public class GuardBarManager : MonoBehaviour
     {
         //#게임을 플레이할 떄만 데인저를 움직일 수 있다.
         if(GameManager.Instance.IsGame == true && GameManager.Instance.IsPause == false)
-            DangerMove2();
+            DangerMove1();
     }
 
     void DangerMove1()
     {
-        //Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
-
-        if (Input.GetMouseButtonDown(0))
-            Touch_Start = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         if (Input.GetMouseButton(0))
         {
-            Vector2 Dir = Touch_Start - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 Dir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            GameManager.Instance.Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
 
             if (Dir.x > 0)
                 RotateZ -= RotateSpeed * Time.deltaTime;
