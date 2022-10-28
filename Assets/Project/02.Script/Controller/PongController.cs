@@ -11,6 +11,12 @@ public class PongController : MonoBehaviour
 
         if(collision.CompareTag("Item"))
         {
+            GameObject[] Guard = GameObject.FindGameObjectsWithTag("Guard");
+
+            for(int i =0; i < Guard.Length; i++)
+            {
+                Guard[i].GetComponent<GuardBarController>().ResetDurability();
+            }
         }
     }
 }

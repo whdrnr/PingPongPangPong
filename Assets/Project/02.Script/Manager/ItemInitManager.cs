@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInitManager : MonoBehaviour
 {
-    #region  #아이템  생성 방식1
+    public GameObject Item;
     public CircleCollider2D CircleCollider2D;
 
     Vector2 Get_RandomCirclePos()
@@ -16,5 +16,4 @@ public class ItemInitManager : MonoBehaviour
 
         return Spawn_Pos;
     }
-    #endregion
 }

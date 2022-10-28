@@ -31,8 +31,16 @@ public class UIManager : Singleton<UIManager>
 
     public void PlayGame_Btn()
     {
+        //#UI On/Off
         Play_Panel.SetActive(true);
         Lobby_Panel.SetActive(false);
+
+        //#점수 초기화
+        GM.BounceNum = 3;
+        CurBounce_Txt.text = GM.BounceNum.ToString();
+
+        GM.CurWave = 1;
+        Wave_Txt.text = GM.CurWave.ToString();
 
         //#Danger, Pong 위치 조정
         GM.StartBall();
@@ -50,7 +58,11 @@ public class UIManager : Singleton<UIManager>
             Title_Panel.SetActive(false);
             Main_Panel.SetActive(true);
 
-            GameManager.Instance.gameOverDelegate();
+            //#Text 상호작용
+            BeforeWave_Txt.text = GM.BeforeWave.ToString();
+            MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
+
+            GM.gameOverDelegate();
         }
     }
 }
