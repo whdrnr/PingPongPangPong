@@ -85,6 +85,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    //#Guard에 닿을 때마다 내구도 감소 및 이미지 변경
     public void DurabilityGuard(int _Durability, BoxCollider2D _BoxCollider2D, SpriteRenderer _Guard)
     {
           switch (_Durability)
