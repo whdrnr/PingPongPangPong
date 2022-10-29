@@ -6,22 +6,27 @@ public class PongController : MonoBehaviour
 {
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("DangerLine"))
-            StartCoroutine(GameOver());
-
-        if(collision.CompareTag("Item"))
-        {
-        }
+        if (collision.CompareTag("DangerLine"))
+            StartCoroutine(GameManager.Instance.GameOver());
     }
 
-    IEnumerator GameOver()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(1f);
+        if (collision.CompareTag("Item"))
+        {
+            //#아이템 삭제
+            Destroy(collision.gameObject);
 
-        Debug.Log("게임 종료");
-        GameManager.Instance.IsGame = false;
-        UIManager.Show<MainMenuView>();
+            //#아이템 능력
+            GameObject[] Guard = GameObject.FindGameObjectsWithTag("Guard");
 
-        Destroy(this.gameObject);
+            for (int i = 0; i < Guard.Length; i++)
+            {
+                Guard[i].GetComponent<GuardBarController>().ResetDurability();
+            }
+
+            //#아이템 생성
+            ItemInitManager.Instance.ItemInit();
+        }
     }
 }

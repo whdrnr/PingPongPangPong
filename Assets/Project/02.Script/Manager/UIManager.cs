@@ -1,89 +1,74 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    public View StartView;
-    public View[] Views;
+    [Header("Panel 관련 참조")]
+    public GameObject Lobby_Panel;
+    public GameObject Play_Panel;
 
-    View CurView;
+    [Header("Lobbyl 관련 참조")]
+    public GameObject Title_Panel;
+    public GameObject Main_Panel;
 
-    readonly Stack<View> History = new Stack<View>();
+    [Header("Play-Panel의T관련 참조")]
+    public TextMeshProUGUI CurBounce_Txt;
+    public TextMeshProUGUI Wave_Txt;
+    public GameObject GameOver_Panel; 
 
-    private void Start()
+     [Header("Main-Panel의Txt 관련 참조")]
+    public TextMeshProUGUI BeforeWave_Txt;
+    public TextMeshProUGUI MaxWave_Txt;
+
+    GameManager GM;
+
+    void Start()
     {
-        for (int i = 0; i < Views.Length; i++)
-        {
-            Views[i].Initalize();
-
-            Views[i].Hide();
-        }
-
-        if(StartView != null)
-        {
-            Show(StartView, true);
-        }
+        GM = GameManager.Instance;
     }
 
-    public static T GetView<T>() where T : View
+    public void PlayGame_Btn()
     {
-        for(int i =0; i < UIManager.Instance.Views.Length; i++)
-        {
-            if(UIManager.Instance.Views[i] is T tView)
-            {
-                return tView;
-            }
-        }
+        //#UI On/Off
+        Play_Panel.SetActive(true);
+        Lobby_Panel.SetActive(false);
 
-        return null;
+        //#점수 초기화
+        GM.BounceNum = 3;
+        CurBounce_Txt.text = GM.BounceNum.ToString();
+
+        GM.CurWave = 1;
+        Wave_Txt.text = GM.CurWave.ToString();
+
+        //#Danger, Pong 위치 조정
+        GM.StartBall();
+        GM.Danger.transform.position = new Vector3(0, 0.5f, 0);
+
+        //#아이템 생성
+        ItemInitManager.Instance.ItemInit();
     }
 
-    public static void Show<T>(bool _Remember = true) where T : View
+    public void GmaeOver_Btn()
     {
-        for(int i = 0; i < UIManager.Instance.Views.Length; i++)
+        if (GM.IsGame == false)
         {
-            if (UIManager.Instance.Views[i] is T tView)
-            {
-                if (UIManager.Instance.CurView != null)
-                {
-                    if(_Remember)
-                    {
-                        UIManager.Instance.History.Push(UIManager.Instance.CurView);
-                    }
+            //#UI On/Off
+            Play_Panel.SetActive(false);
+            Lobby_Panel.SetActive(true);
 
-                    UIManager.Instance.CurView.Hide();
-                }
+            Title_Panel.SetActive(false);
+            Main_Panel.SetActive(true);
 
-                UIManager.Instance.Views[i].Show();
+            //#Text 상호작용
+            BeforeWave_Txt.text = GM.BeforeWave.ToString();
+            MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
 
-                UIManager.Instance.CurView = UIManager.Instance.Views[i];
-            }
-        }
-    }
+            //#아이템 삭제
+            ItemInitManager.Instance.DestroyItem();
 
-    public static void Show(View _View, bool _Remember = true)
-    {
-        if(UIManager.Instance.CurView != null)
-        {
-            if(_Remember)
-            {
-                UIManager.Instance.History.Push(UIManager.Instance.CurView);
-            }
-
-            UIManager.Instance.CurView.Hide();
-        }
-
-        _View.Show();
-
-        UIManager.Instance.CurView = _View;
-    }
-
-    public static void ShowLast()
-    {
-        if(UIManager.Instance.History.Count != 0)
-        {
-            Show(UIManager.Instance.History.Pop(), false);
+            GM.gameOverDelegate();
         }
     }
 }

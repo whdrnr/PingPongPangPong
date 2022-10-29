@@ -2,12 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInitManager : MonoBehaviour
+public class ItemInitManager : Singleton<ItemInitManager>
 {
-    #region  #아이템  생성 방식1
-    /*
+    public GameObject Item_Prefeb;
     public CircleCollider2D CircleCollider2D;
 
+    //#아이템 생성
+    public void ItemInit()
+    {
+        Instantiate(Item_Prefeb, Get_RandomCirclePos(), Quaternion.identity);
+    }
+
+    //#아이템 삭제
+    public void DestroyItem()
+    {
+        GameObject CurItem = GameObject.FindGameObjectWithTag("Item");
+        Destroy(CurItem);
+    }
+
+    //#아이템이 랜덤하게 생성 될 Vector2의 값을 반환한다.
     Vector2 Get_RandomCirclePos()
     {
         float Ramdom_X = Random.Range(-CircleCollider2D.bounds.size.x / 2f, CircleCollider2D.bounds.size.x / 2f);
@@ -17,18 +30,4 @@ public class ItemInitManager : MonoBehaviour
 
         return Spawn_Pos;
     }
-    */
-    #endregion
-
-    #region #아이템  생성 방식2
-    public List<Transform> Init_Pos = new List<Transform>();
-    public GameObject Item;
-
-    void Init_Item()
-    {
-       int Random_Num =  Random.Range(0, Init_Pos.Count);
-
-        Instantiate(Item, Init_Pos[Random_Num].position, Quaternion.identity);
-    }
-    #endregion
 }
