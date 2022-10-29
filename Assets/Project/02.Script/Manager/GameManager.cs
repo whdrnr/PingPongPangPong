@@ -35,8 +35,8 @@ public class GameManager : Singleton<GameManager>
     public Sprite Guard1;
 
     [Header("Bool 관련 참조")]
-    public bool IsGame;
-    public bool IsPause;
+    public bool IsGame; //#현재 게임중인지
+    public bool IsPause; //#게임중에 일시정지 상태인지
 
     void Start()
     {
@@ -65,8 +65,6 @@ public class GameManager : Singleton<GameManager>
     //#게임 시작 시 퐁을 아래로 운동한다.
     public void StartBall()
     {
-        IsGame = true;
-
         GameObject CurPong = GameObject.FindWithTag("Pong");
         CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
     }
@@ -121,8 +119,6 @@ public class GameManager : Singleton<GameManager>
 
         if(BeforeWave > MaxWave)
             MaxWave = CurWave;
-
-        IsGame = false;
 
         UIManager.Instance.GameOver_Panel.SetActive(true);
     }
