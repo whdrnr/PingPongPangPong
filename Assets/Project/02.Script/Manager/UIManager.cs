@@ -24,7 +24,7 @@ public class UIManager : Singleton<UIManager>
 
     GameManager GM;
 
-    private void Start()
+    void Start()
     {
         GM = GameManager.Instance;
     }

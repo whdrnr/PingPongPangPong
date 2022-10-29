@@ -28,11 +28,19 @@ public class GameManager : Singleton<GameManager>
     public int BeforeWave = 0;
     public int BounceNum = 3; //#튕겨야 하는 횟수
 
+    [Header("가드바 내구도 관련 참조")]
+    public Sprite Guard4;
+    public Sprite Guard3;
+    public Sprite Guard2;
+    public Sprite Guard1;
+
+    [Header("Bool 관련 참조")]
     public bool IsGame;
     public bool IsPause;
 
     void Start()
     {
+        //#Delegate 함수 연결
         waveClearDelegate += ObjectSetting;
         gameOverDelegate += ObjectSetting;
     }
@@ -54,6 +62,7 @@ public class GameManager : Singleton<GameManager>
             Instantiate(Pong_Prefeb, Init_Pos.position, Quaternion.identity);
     }
 
+    //#게임 시작 시 퐁을 아래로 운동한다.
     public void StartBall()
     {
         IsGame = true;
@@ -62,7 +71,8 @@ public class GameManager : Singleton<GameManager>
         CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
     }
     
-   public void HitGuard()
+    //#가드바에 퐁이 닿았을 때 내구도가 줄어든다.
+    public void WaveBounce()
     {
         if (BounceNum == 1)
         {
@@ -73,6 +83,32 @@ public class GameManager : Singleton<GameManager>
             BounceNum--;
             UIManager.Instance.CurBounce_Txt.text = BounceNum.ToString();
         }
+    }
+
+    public void DurabilityGuard(int _Durability, BoxCollider2D _BoxCollider2D, SpriteRenderer _Guard)
+    {
+          switch (_Durability)
+           {
+                case 4:
+                    _BoxCollider2D.size = new Vector2(2.2f, 0.8f);
+                    _Guard.sprite = Guard1;
+                    break;
+
+                case 3:
+                    _BoxCollider2D.size = new Vector2(1.9f, 0.8f);
+                    _Guard.sprite = Guard2;
+                    break;
+
+                case 2:
+                    _BoxCollider2D.size = new Vector2(1.45f, 0.8f);
+                    _Guard.sprite = Guard3;
+                    break;
+
+                case 1:
+                    _BoxCollider2D.size = new Vector2(1.1f, 0.8f);
+                    _Guard.sprite = Guard4;
+                     break;
+           }
     }
 
     //#Wave를 Clear하지 못했을 때

@@ -20,6 +20,7 @@ public class ItemInitManager : Singleton<ItemInitManager>
         Destroy(CurItem);
     }
 
+    //#아이템이 랜덤하게 생성 될 Vector2의 값을 반환한다.
     Vector2 Get_RandomCirclePos()
     {
         float Ramdom_X = Random.Range(-CircleCollider2D.bounds.size.x / 2f, CircleCollider2D.bounds.size.x / 2f);
