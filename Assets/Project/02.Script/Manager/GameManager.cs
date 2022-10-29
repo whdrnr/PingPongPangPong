@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
     public GamePauseDelegate gamePauseDelegate;
 
     [Header("공 생성 관련 참조")]
-    public GameObject Pong;
+    public GameObject Pong_Prefeb;
     public Transform Init_Pos;
     public float Speed;
 
@@ -48,10 +48,10 @@ public class GameManager : Singleton<GameManager>
         if (CurPong != null)
         {
             Destroy(CurPong);
-            Instantiate(Pong, Init_Pos.position, Quaternion.identity);
+            Instantiate(Pong_Prefeb, Init_Pos.position, Quaternion.identity);
         }
         else
-            Instantiate(Pong, Init_Pos.position, Quaternion.identity);
+            Instantiate(Pong_Prefeb, Init_Pos.position, Quaternion.identity);
     }
 
     public void StartBall()
@@ -61,8 +61,8 @@ public class GameManager : Singleton<GameManager>
         GameObject CurPong = GameObject.FindWithTag("Pong");
         CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
     }
-
-    public void HitGuard()
+    
+   public void HitGuard()
     {
         if (BounceNum == 1)
         {

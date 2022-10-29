@@ -45,6 +45,9 @@ public class UIManager : Singleton<UIManager>
         //#Danger, Pong 위치 조정
         GM.StartBall();
         GM.Danger.transform.position = new Vector3(0, 0.5f, 0);
+
+        //#아이템 생성
+        ItemInitManager.Instance.ItemInit();
     }
 
     public void GmaeOver_Btn()
@@ -61,6 +64,9 @@ public class UIManager : Singleton<UIManager>
             //#Text 상호작용
             BeforeWave_Txt.text = GM.BeforeWave.ToString();
             MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
+
+            //#아이템 삭제
+            ItemInitManager.Instance.DestroyItem();
 
             GM.gameOverDelegate();
         }
