@@ -6,12 +6,14 @@ using TMPro;
 public class GuardBarController : MonoBehaviour
 {
     public int Durability = 4;
+    public bool IsDestroy = false;
 
     public TextMeshProUGUI Durability_Txt;
+    BoxCollider2D BoxCollider2D;
 
     void Start()
     {
-        GameManager.Instance.gameOverDelegate += ResetDurability;
+        GameManager.Instance.gameOverDelegate += AllResetDurability;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -26,15 +28,26 @@ public class GuardBarController : MonoBehaviour
 
             if(Durability == 0)
             {
-                Debug.Log("°¡µå¹Ù ÆÄ±«µÊ");
+                gameObject.SetActive(false);
+                IsDestroy = true;
             }
         }
     }
 
     public void ResetDurability()
     {
+        if (IsDestroy == false)
+        {
+            Durability = 4;
+            Durability_Txt.text = Durability.ToString();
+        }
+    }
+
+    public void AllResetDurability()
+    {
         gameObject.SetActive(true);
         Durability = 4;
         Durability_Txt.text = Durability.ToString();
+        IsDestroy = true;
     }
 }

@@ -3,15 +3,19 @@ using TMPro;
 
 public class GuardBarManager : MonoBehaviour
 {
-    [Header("DangerMove1 관련 변수")]
+    [Header("DangerMove 관련 참조")]
     public float RotateSpeed = 30;
     [HideInInspector] public float RotateZ;
 
-    Vector3 Touch_Start;
+    [Header("가드바 내구도 관련")]
+    public Sprite Guard4;
+    public Sprite Guard3;
+    public Sprite Guard2;
+    public Sprite Guard1;
 
-    [Header("DangerMove2 관련 변수")]
     Vector2 StartTouch_Pos;
     Vector2 EndTounch_Pos;
+
 
     private void Start()
     {
@@ -26,20 +30,6 @@ public class GuardBarManager : MonoBehaviour
         //#게임을 플레이할 떄만 데인저를 움직일 수 있다.
         if(GameManager.Instance.IsGame == true && GameManager.Instance.IsPause == false)
             DangerMove2();
-    }
-
-    void DangerMove1()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 Dir = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            GameManager.Instance.Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
-
-            if (Dir.x > 0)
-                RotateZ -= RotateSpeed * Time.deltaTime;
-            else
-                RotateZ += RotateSpeed * Time.deltaTime;
-        }
     }
 
     void DangerMove2()
@@ -63,9 +53,36 @@ public class GuardBarManager : MonoBehaviour
 
                 GameManager.Instance.Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
             }
-            if (Touch.phase == TouchPhase.Stationary)
-            {
-            }
+        }
+    }
+
+    public void DurabilityGuard(int _Durability, bool _IsDestory ,BoxCollider2D _BoxCollider2D, SpriteRenderer _Guard)
+    {
+        switch(_Durability)
+        {
+            case 4:
+                _BoxCollider2D.size = new Vector2(2.2f, 0.8f);
+                _Guard.sprite = Guard1;
+                break;
+
+            case 3:
+                _BoxCollider2D.size = new Vector2(1.9f, 0.8f);
+                _Guard.sprite = Guard2;
+                break;
+
+            case 2:
+                _BoxCollider2D.size = new Vector2(1.45f, 0.8f);
+                _Guard.sprite = Guard3;
+                break;
+
+            case 1:
+                _BoxCollider2D.size = new Vector2(1.1f, 0.8f);
+                _Guard.sprite = Guard4;
+                break;
+
+            case 0:
+                _IsDestory = true;
+                break;
         }
     }
 }
