@@ -65,7 +65,6 @@ public class UIManager : Singleton<UIManager>
         //#UI On/Off
         FadeUI(0, 1, false, true);
         GM.IsGame = false;
-        Instance.GameOver_Panel.SetActive(false);
 
         //#Text 상호작용
         BeforeWave_Txt.text = GM.BeforeWave.ToString();
@@ -76,6 +75,7 @@ public class UIManager : Singleton<UIManager>
         //#아이템 삭제
         ItemInitManager.Instance.DestroyItem();
 
+        Instance.GameOver_Panel.SetActive(false);
         Main_Panel.SetActive(true);
     }
 

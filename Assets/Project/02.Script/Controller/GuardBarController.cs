@@ -70,6 +70,6 @@ public class GuardBarController : MonoBehaviour
         //#Guard 이미지 교체
         SR.sprite = GM.Guard1;
 
-        IsDestroy = true;
+        IsDestroy = false;
     }
 }
