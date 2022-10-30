@@ -11,11 +11,8 @@ public class GameManager : Singleton<GameManager>
     public delegate void GameOverDelegate();
     public GameOverDelegate gameOverDelegate;
 
-    public delegate void GamePauseDelegate();
-    public GamePauseDelegate gamePauseDelegate;
-
     public delegate void GameStartDelegate();
-    public GamePauseDelegate gameStartDelegate;
+    public GameStartDelegate gameStartDelegate;
 
     [Header("공 생성 관련 참조")]
     public GameObject Pong_Prefeb;
@@ -65,7 +62,15 @@ public class GameManager : Singleton<GameManager>
     {
         GameObject NewPong = GameObject.FindGameObjectWithTag("Pong");
 
+        NewPong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         NewPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
+    }
+
+    public void StopBall()
+    {
+        GameObject NewPong = GameObject.FindGameObjectWithTag("Pong");
+
+        NewPong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
     }
 
     //#가드바에 퐁이 닿았을 때 내구도가 줄어든다.

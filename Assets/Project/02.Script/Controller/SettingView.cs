@@ -5,6 +5,7 @@ using UnityEngine;
 public class SettingView : MonoBehaviour
 {
     public GameObject Setting_Panel;
+    public GameObject Google_Btn;
 
     public void Setting_Btn()
     {
