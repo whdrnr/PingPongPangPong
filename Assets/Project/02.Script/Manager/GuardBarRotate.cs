@@ -6,18 +6,22 @@ public class GuardBarRotate : MonoBehaviour
     [Header("DangerMove 관련 참조")]
     public float RotateSpeed = 30;
     [HideInInspector] public float RotateZ;
+    public GameObject Dnager;
 
     Vector2 StartTouch_Pos;
     Vector2 EndTounch_Pos;
 
-
     private void Start()
     {
+        //#Delegate 함수 연결
         GameManager.Instance.gameOverDelegate += ResetAngle;
-        GameManager.Instance.waveClearDelegate += ResetAngle;
-    }
+        GameManager.Instance.gameOverDelegate += ResetDamgerAngle;
 
-    public void ResetAngle() => RotateZ = 0;
+        GameManager.Instance.waveClearDelegate += ResetAngle;
+        GameManager.Instance.waveClearDelegate += ResetDamgerAngle;
+
+        GameManager.Instance.gameStartDelegate += StartDangerPos;
+    }
 
     void Update()
     {
@@ -28,7 +32,7 @@ public class GuardBarRotate : MonoBehaviour
 
     void DangerMove2()
     {
-        if(Input.touchCount > 0)
+        if (Input.touchCount > 0)
         {
             Touch Touch = Input.GetTouch(0);
 
@@ -45,8 +49,14 @@ public class GuardBarRotate : MonoBehaviour
                 else if (EndTounch_Pos.x > StartTouch_Pos.x)
                     RotateZ += RotateSpeed * Time.deltaTime;
 
-                GameManager.Instance.Danger.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
+                Dnager.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
             }
         }
     }
+
+    public void ResetAngle() => RotateZ = 0;
+
+    public void StartDangerPos() => Dnager.transform.position = new Vector3(0, 0.5f, 0);
+
+    public void ResetDamgerAngle() => Dnager.transform.rotation = new Quaternion(0, 0, 0, 0);
 }
