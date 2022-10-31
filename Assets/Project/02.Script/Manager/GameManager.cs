@@ -86,6 +86,7 @@ public class GameManager : Singleton<GameManager>
         if(BeforeWave > MaxWave)
             MaxWave = CurWave;
 
+        SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
         UIManager.Instance.GameOver_Panel.SetActive(true);
     }
 

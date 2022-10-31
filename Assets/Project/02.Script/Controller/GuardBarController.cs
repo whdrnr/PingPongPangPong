@@ -43,6 +43,7 @@ public class GuardBarController : MonoBehaviour
             if(Durability == 0)
             {
                 GuardBarManager.Instance.P_Guard_Destory[PongNum].Play();
+                SoundManager.Instance.PlaySFX("GuardBleak-SFX", 1);
                 gameObject.SetActive(false);
                 IsDestroy = true;
             }
