@@ -11,16 +11,13 @@ public class GameManager : Singleton<GameManager>
     public delegate void GameOverDelegate();
     public GameOverDelegate gameOverDelegate;
 
-    public delegate void GamePauseDelegate();
-    public GamePauseDelegate gamePauseDelegate;
+    public delegate void GameStartDelegate();
+    public GameStartDelegate gameStartDelegate;
 
     [Header("공 생성 관련 참조")]
     public GameObject Pong_Prefeb;
     public Transform Init_Pos;
-    public float Speed;
-
-    [Header("데인저 관련 참조")]
-    public GameObject Danger;
+    public float Speed = 3;
 
     [Header("웨이브 관련 참조")]
     public int MaxWave = 0;
@@ -35,21 +32,19 @@ public class GameManager : Singleton<GameManager>
     public Sprite Guard1;
 
     [Header("Bool 관련 참조")]
-    public bool IsGame;
-    public bool IsPause;
+    public bool IsGame; //#현재 게임중인지
+    public bool IsPause; //#게임중에 일시정지 상태인지
 
     void Start()
     {
         //#Delegate 함수 연결
         waveClearDelegate += ObjectSetting;
         gameOverDelegate += ObjectSetting;
+        gameStartDelegate += StartBall;
     }
 
     void ObjectSetting()
     {
-        //#데인저의 각도를 0으로 되돌린다.
-        Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
-
         //#퐁 생성
         GameObject CurPong = GameObject.FindWithTag("Pong");
 
@@ -65,12 +60,19 @@ public class GameManager : Singleton<GameManager>
     //#게임 시작 시 퐁을 아래로 운동한다.
     public void StartBall()
     {
-        IsGame = true;
+        GameObject NewPong = GameObject.FindGameObjectWithTag("Pong");
 
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-        CurPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
+        NewPong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        NewPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
     }
-    
+
+    public void StopBall()
+    {
+        GameObject NewPong = GameObject.FindGameObjectWithTag("Pong");
+
+        NewPong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+    }
+
     //#가드바에 퐁이 닿았을 때 내구도가 줄어든다.
     public void WaveBounce()
     {
@@ -117,12 +119,13 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(1f);
 
+        IsGame = false;
+
+        //#신기록을 달성했는지, 안했는지
         BeforeWave = CurWave;
 
         if(BeforeWave > MaxWave)
             MaxWave = CurWave;
-
-        IsGame = false;
 
         UIManager.Instance.GameOver_Panel.SetActive(true);
     }
@@ -154,7 +157,7 @@ public class GameManager : Singleton<GameManager>
 
         IsPause = false;
 
-        StartBall();
+       gameStartDelegate();
     }
 }
   
