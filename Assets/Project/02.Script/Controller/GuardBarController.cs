@@ -5,9 +5,12 @@ using TMPro;
 
 public class GuardBarController : MonoBehaviour
 {
-    public int Durability = 4;
+    [Header("퐁 관련 참조")]
+    public int PongNum;
     public bool IsDestroy = false;
 
+    [Header("내구도 관련 참조")]
+    public int Durability = 4;
     public TextMeshProUGUI Durability_Txt;
 
     BoxCollider2D BoxCollider2D;
@@ -31,6 +34,7 @@ public class GuardBarController : MonoBehaviour
         {
             //#가드바 상호작용
             GuardBarManager.Instance.DurabilityGuard(Durability, BoxCollider2D, SR);
+            GuardBarManager.Instance.P_Guard_Hit[PongNum].Play();
             GM.WaveBounce();
 
             Durability -= 1;
@@ -38,6 +42,7 @@ public class GuardBarController : MonoBehaviour
 
             if(Durability == 0)
             {
+                GuardBarManager.Instance.P_Guard_Destory[PongNum].Play();
                 gameObject.SetActive(false);
                 IsDestroy = true;
             }

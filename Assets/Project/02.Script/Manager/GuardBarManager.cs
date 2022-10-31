@@ -14,10 +14,9 @@ public class GuardBarManager : Singleton<GuardBarManager>
     public Sprite Guard2;
     public Sprite Guard1;
 
-    [Header("파티클 관련 참조")]
-    public ParticleSystem P_Guard_Hit;
-    public ParticleSystem P_Guard_Destory;
-    public Transform P_Init_Pos;
+    [Header("파티클 관련")]
+    public ParticleSystem[] P_Guard_Hit;
+    public ParticleSystem[] P_Guard_Destory;
 
     Vector2 StartTouch_Pos;
     Vector2 EndTounch_Pos;
