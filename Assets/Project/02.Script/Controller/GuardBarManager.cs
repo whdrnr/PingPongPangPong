@@ -1,12 +1,23 @@
 using UnityEngine;
 using TMPro;
 
-public class GuardBarRotate : MonoBehaviour
+public class GuardBarManager : Singleton<GuardBarManager>
 {
     [Header("DangerMove 관련 참조")]
     public float RotateSpeed = 30;
     [HideInInspector] public float RotateZ;
     public GameObject Dnager;
+
+    [Header("가드바 내구도 관련 참조")]
+    public Sprite Guard4;
+    public Sprite Guard3;
+    public Sprite Guard2;
+    public Sprite Guard1;
+
+    [Header("파티클 관련 참조")]
+    public Transform[] P_Init_Pos;
+    public ParticleSystem P_Guard_Hit;
+    public ParticleSystem P_Guard_Destory;
 
     Vector2 StartTouch_Pos;
     Vector2 EndTounch_Pos;
@@ -27,10 +38,10 @@ public class GuardBarRotate : MonoBehaviour
     {
         //#게임을 플레이할 떄만 데인저를 움직일 수 있다.
         if(GameManager.Instance.IsGame == true && GameManager.Instance.IsPause == false)
-            DangerMove2();
+            DangerMove();
     }
 
-    void DangerMove2()
+    void DangerMove()
     {
         if (Input.touchCount > 0)
         {
@@ -51,6 +62,33 @@ public class GuardBarRotate : MonoBehaviour
 
                 Dnager.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
             }
+        }
+    }
+
+    //#Guard에 닿을 때마다 내구도 감소 및 이미지 변경
+    public void DurabilityGuard(int _Durability, BoxCollider2D _BoxCollider2D, SpriteRenderer _Guard)
+    {
+        switch (_Durability)
+        {
+            case 4:
+                _BoxCollider2D.size = new Vector2(2.2f, 0.8f);
+                _Guard.sprite = Guard1;
+                break;
+
+            case 3:
+                _BoxCollider2D.size = new Vector2(1.9f, 0.8f);
+                _Guard.sprite = Guard2;
+                break;
+
+            case 2:
+                _BoxCollider2D.size = new Vector2(1.45f, 0.8f);
+                _Guard.sprite = Guard3;
+                break;
+
+            case 1:
+                _BoxCollider2D.size = new Vector2(1.1f, 0.8f);
+                _Guard.sprite = Guard4;
+                break;
         }
     }
 

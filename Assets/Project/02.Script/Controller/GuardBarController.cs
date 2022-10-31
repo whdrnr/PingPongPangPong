@@ -8,6 +8,7 @@ public class GuardBarController : MonoBehaviour
     public int Durability = 4;
     public bool IsDestroy = false;
 
+    [Header("Txt 관련 참조")]
     public TextMeshProUGUI Durability_Txt;
 
     BoxCollider2D BoxCollider2D;
@@ -29,7 +30,7 @@ public class GuardBarController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pong"))
         {
-            GM.DurabilityGuard(Durability, BoxCollider2D, SR);
+            GuardBarManager.Instance.DurabilityGuard(Durability, BoxCollider2D, SR);
             GM.WaveBounce();
 
             //#가드바 상호작용
@@ -54,7 +55,7 @@ public class GuardBarController : MonoBehaviour
             Durability_Txt.text = Durability.ToString();
 
             //#Guard 이미지 교체
-            SR.sprite = GM.Guard1;
+            SR.sprite = GuardBarManager.Instance.Guard1;
         }
     }
 
@@ -68,7 +69,7 @@ public class GuardBarController : MonoBehaviour
         Durability_Txt.text = Durability.ToString();
         
         //#Guard 이미지 교체
-        SR.sprite = GM.Guard1;
+        SR.sprite = GuardBarManager.Instance.Guard1;
 
         IsDestroy = false;
     }
