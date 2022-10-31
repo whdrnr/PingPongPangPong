@@ -7,11 +7,14 @@ public class ItemInitManager : Singleton<ItemInitManager>
     public GameObject Item_Prefeb;
     public CircleCollider2D CircleCollider2D;
 
-    //#아이템 생성
-    public void ItemInit()
+    void Start()
     {
-        Instantiate(Item_Prefeb, Get_RandomCirclePos(), Quaternion.identity);
+        //#Delegate 함수 연결
+        GameManager.Instance.gameOverDelegate += DestroyItem;
     }
+
+    //#아이템 생성
+    public void ItemInit() => Instantiate(Item_Prefeb, Get_RandomCirclePos(), Quaternion.identity);
 
     //#아이템 삭제
     public void DestroyItem()

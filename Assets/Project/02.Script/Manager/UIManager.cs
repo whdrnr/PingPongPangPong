@@ -50,8 +50,7 @@ public class UIManager : Singleton<UIManager>
             yield return new WaitForSeconds(0.5f);
 
             //#Danger, Pong 위치 조정
-            GM.StartBall();
-            GM.Danger.transform.position = new Vector3(0, 0.5f, 0);
+            GM.gameStartDelegate();
 
             //#아이템 생성
             ItemInitManager.Instance.ItemInit();
@@ -64,16 +63,12 @@ public class UIManager : Singleton<UIManager>
     {
         //#UI On/Off
         FadeUI(0, 1, false, true);
-        GM.IsGame = false;
 
         //#Text 상호작용
         BeforeWave_Txt.text = GM.BeforeWave.ToString();
         MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
 
         GM.gameOverDelegate();
-
-        //#아이템 삭제
-        ItemInitManager.Instance.DestroyItem();
 
         Instance.GameOver_Panel.SetActive(false);
         Main_Panel.SetActive(true);
