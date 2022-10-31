@@ -29,10 +29,10 @@ public class GuardBarController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pong"))
         {
-            GM.DurabilityGuard(Durability, BoxCollider2D, SR);
+            //#가드바 상호작용
+            GuardBarManager.Instance.DurabilityGuard(Durability, BoxCollider2D, SR);
             GM.WaveBounce();
 
-            //#가드바 상호작용
             Durability -= 1;
             Durability_Txt.text = Durability.ToString();
 
@@ -54,7 +54,7 @@ public class GuardBarController : MonoBehaviour
             Durability_Txt.text = Durability.ToString();
 
             //#Guard 이미지 교체
-            SR.sprite = GM.Guard1;
+            SR.sprite = GuardBarManager.Instance.Guard1;
         }
     }
 
@@ -68,7 +68,7 @@ public class GuardBarController : MonoBehaviour
         Durability_Txt.text = Durability.ToString();
         
         //#Guard 이미지 교체
-        SR.sprite = GM.Guard1;
+        SR.sprite = GuardBarManager.Instance.Guard1;
 
         IsDestroy = false;
     }

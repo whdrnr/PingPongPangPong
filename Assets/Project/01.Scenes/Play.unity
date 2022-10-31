@@ -4152,6 +4152,10 @@ MonoBehaviour:
   RotateSpeed: 125
   RotateZ: 0
   Dnager: {fileID: 1217916281}
+  Guard4: {fileID: 21300000, guid: 500f598f5a2b6cd4b9fa7912de7c71dc, type: 3}
+  Guard3: {fileID: 21300000, guid: af4603347778b474c855f846e7a5ae05, type: 3}
+  Guard2: {fileID: 21300000, guid: a386727c6f1cae045aa6e0b79941789f, type: 3}
+  Guard1: {fileID: 21300000, guid: 59940944014f5da48b1e2a10e3c033f3, type: 3}
 --- !u!4 &868951528
 Transform:
   m_ObjectHideFlags: 0
@@ -4585,10 +4589,6 @@ MonoBehaviour:
   CurWave: 1
   BeforeWave: 0
   BounceNum: 3
-  Guard4: {fileID: 21300000, guid: 500f598f5a2b6cd4b9fa7912de7c71dc, type: 3}
-  Guard3: {fileID: 21300000, guid: af4603347778b474c855f846e7a5ae05, type: 3}
-  Guard2: {fileID: 21300000, guid: a386727c6f1cae045aa6e0b79941789f, type: 3}
-  Guard1: {fileID: 21300000, guid: 59940944014f5da48b1e2a10e3c033f3, type: 3}
   IsGame: 0
   IsPause: 0
 --- !u!4 &1012569694
