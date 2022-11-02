@@ -20,11 +20,6 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource[] SFXPlayer;
     public AudioSource BGMPlayer;
 
-    private void Start()
-    {
-        PlayBGM("BG1", 1);
-    }
-
     public void PlayBGM(string _BGMName, float _Volume)
     {
         for (int i = 0; i < BGM.Length; i++)

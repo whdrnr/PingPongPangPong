@@ -15082,8 +15082,8 @@ MonoBehaviour:
   Init_Pos: {fileID: 2092076108}
   Speed: 3
   MaxWave: 0
-  CurWave: 1
   BeforeWave: 0
+  CurWave: 1
   BounceNum: 3
   IsGame: 0
   IsPause: 0
@@ -21853,7 +21853,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1317940799}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -23317,7 +23317,7 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 8070717070689d041a0ceea1489ccacb, type: 3}
   - Name: ItemGet-SFX
     Clip: {fileID: 8300000, guid: 8d7f9ee064c4ce445893295e95faa2e3, type: 3}
-  - Name: Pong-SFX
+  - Name: GuardHit-SFX
     Clip: {fileID: 8300000, guid: 9ad1bd6b0ccb80c4f9526fb0173d88f1, type: 3}
   - Name: Rest-SFX
     Clip: {fileID: 8300000, guid: 2e44fb505c88f7b45b6069738e5da652, type: 3}
@@ -36768,7 +36768,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.6
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

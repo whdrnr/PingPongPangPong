@@ -35,6 +35,7 @@ public class GuardBarController : MonoBehaviour
             //#가드바 상호작용
             GuardBarManager.Instance.DurabilityGuard(Durability, BoxCollider2D, SR);
             GuardBarManager.Instance.P_Guard_Hit[PongNum].Play();
+            SoundManager.Instance.PlaySFX("GuardHit-SFX", 1);
             GM.WaveBounce();
 
             Durability -= 1;
@@ -42,8 +43,8 @@ public class GuardBarController : MonoBehaviour
 
             if(Durability == 0)
             {
-                GuardBarManager.Instance.P_Guard_Destory[PongNum].Play();
                 SoundManager.Instance.PlaySFX("GuardBleak-SFX", 1);
+                GuardBarManager.Instance.P_Guard_Destory[PongNum].Play();
                 gameObject.SetActive(false);
                 IsDestroy = true;
             }

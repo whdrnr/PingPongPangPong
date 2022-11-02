@@ -21,8 +21,8 @@ public class GameManager : Singleton<GameManager>
 
     [Header("웨이브 관련 참조")]
     public int MaxWave = 0;
-    public int CurWave = 1;
     public int BeforeWave = 0;
+    public int CurWave = 1;
     public int BounceNum = 3; //#튕겨야 하는 횟수
 
     [Header("Bool 관련 참조")]
@@ -96,6 +96,7 @@ public class GameManager : Singleton<GameManager>
         IsPause = true;
 
         waveClearDelegate();
+        SoundManager.Instance.PlaySFX("Rest-SFX", 1);
 
         //#카운트 다운
         UIManager.Instance.CurBounce_Txt.text = "3";
@@ -120,4 +121,9 @@ public class GameManager : Singleton<GameManager>
        gameStartDelegate();
     }
 }
-  
+
+[System.Serializable]
+public class Data
+{
+
+}
