@@ -15,7 +15,7 @@ public class GameManager : Singleton<GameManager>
     public GameStartDelegate gameStartDelegate;
 
     [Header("공 관련 참조")]
-    public GameObject Pong_Prefeb;
+    public GameObject Pong;
     public Transform Init_Pos;
     public float Speed = 3;
 
@@ -39,25 +39,26 @@ public class GameManager : Singleton<GameManager>
 
     void ObjectSetting()
     {
-        //#퐁 생성
-        GameObject CurPong = GameObject.FindWithTag("Pong");
-
-        if (CurPong != null)
+        if (Pong.activeSelf == false) //#공이 비활성화 상태일 때
         {
-            Destroy(CurPong);
-            Instantiate(Pong_Prefeb, Init_Pos.position, Quaternion.identity);
+            Pong.SetActive(true);
         }
-        else
-            Instantiate(Pong_Prefeb, Init_Pos.position, Quaternion.identity);
+        else //#공이 활성화 상태일 때
+        {
+            StopBall();
+            Pong.transform.position = new Vector3(0, 0.5f, 0);
+        }
     }
 
     //#게임 시작 시 퐁을 아래로 운동한다.
     public void StartBall()
     {
-        GameObject NewPong = GameObject.FindGameObjectWithTag("Pong");
-
-        NewPong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
+        Pong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        Pong.GetComponent<Rigidbody2D>().velocity = Vector2.down * Speed;
     }
+
+    //#공을 멈춘다,
+    public void StopBall() => Pong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
 
     //#가드바에 퐁이 닿았을 때 내구도가 줄어든다.
     public void WaveBounce()
