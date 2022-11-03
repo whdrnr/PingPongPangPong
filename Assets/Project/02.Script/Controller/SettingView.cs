@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GooglePlayGames;
 using UnityEngine;
 
 public class SettingView : MonoBehaviour
@@ -23,11 +24,15 @@ public class SettingView : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void BGM_Setting_Btn()
+    public void BGM_Setting_Btn_Click()
     {
     }
 
-    public void SFX_Setting_Btn()
+    public void SFX_Setting_Btn_Click()
+    {
+    }
+
+    public void GoogleLogin_Btn_Click()
     {
     }
 }

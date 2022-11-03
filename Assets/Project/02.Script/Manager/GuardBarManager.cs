@@ -6,7 +6,7 @@ public class GuardBarManager : Singleton<GuardBarManager>
     [Header("DangerMove 관련 참조")]
     public float RotateSpeed = 30;
     [HideInInspector] public float RotateZ;
-    public GameObject Dnager;
+    public GameObject Danger;
 
     [Header("가드바 내구도 관련 참조")]
     public Sprite Guard4;
@@ -17,9 +17,6 @@ public class GuardBarManager : Singleton<GuardBarManager>
     [Header("파티클 관련")]
     public ParticleSystem[] P_Guard_Hit;
     public ParticleSystem[] P_Guard_Destory;
-
-    Vector2 StartTouch_Pos;
-    Vector2 EndTounch_Pos;
 
     void Start()
     {
@@ -46,21 +43,13 @@ public class GuardBarManager : Singleton<GuardBarManager>
         {
             Touch Touch = Input.GetTouch(0);
 
-            if (Touch.phase == TouchPhase.Began)
-            {
-                StartTouch_Pos = Input.GetTouch(0).position;
-            }
             if (Touch.phase == TouchPhase.Moved)
             {
-                EndTounch_Pos = Input.GetTouch(0).position;
+                Vector3 Rotation = Input.GetTouch(0).deltaPosition;
 
-                if (EndTounch_Pos.x < StartTouch_Pos.x)
-                    RotateZ += -RotateSpeed * Time.deltaTime;
-                else if (EndTounch_Pos.x > StartTouch_Pos.x)
-                    RotateZ += RotateSpeed * Time.deltaTime;
-
-                Dnager.transform.rotation = Quaternion.Euler(0, 0, RotateZ);
+                Danger.transform.Rotate(0, 0, Rotation.x * RotateSpeed * Time.deltaTime);
             }
+
         }
     }
 
@@ -69,16 +58,19 @@ public class GuardBarManager : Singleton<GuardBarManager>
     {
         switch (_Durability)
         {
-            case 4:
+            case 7:
+            case 6:
                 _BoxCollider2D.size = new Vector2(2.2f, 0.8f);
                 _Guard.sprite = Guard1;
                 break;
 
-            case 3:
+            case 5:
+            case 4:
                 _BoxCollider2D.size = new Vector2(1.9f, 0.8f);
                 _Guard.sprite = Guard2;
                 break;
 
+            case 3:
             case 2:
                 _BoxCollider2D.size = new Vector2(1.45f, 0.8f);
                 _Guard.sprite = Guard3;
@@ -93,7 +85,7 @@ public class GuardBarManager : Singleton<GuardBarManager>
 
     public void ResetAngle() => RotateZ = 0;
 
-    public void StartDangerPos() => Dnager.transform.position = new Vector3(0, 0.5f, 0);
+    public void StartDangerPos() => Danger.transform.position = new Vector3(0, 0.5f, 0);
 
-    public void ResetDamgerAngle() => Dnager.transform.rotation = new Quaternion(0, 0, 0, 0);
+    public void ResetDamgerAngle() => Danger.transform.rotation = new Quaternion(0, 0, 0, 0);
 }

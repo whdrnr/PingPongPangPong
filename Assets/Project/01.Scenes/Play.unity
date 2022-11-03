@@ -14264,7 +14264,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 701855204}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 52024813}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: Bin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &701855204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16664,9 +16676,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349183557be9145408031288a9586277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 125
+  RotateSpeed: 8
   RotateZ: 0
-  Dnager: {fileID: 1217916281}
+  Danger: {fileID: 1217916281}
   Guard4: {fileID: 21300000, guid: 500f598f5a2b6cd4b9fa7912de7c71dc, type: 3}
   Guard3: {fileID: 21300000, guid: af4603347778b474c855f846e7a5ae05, type: 3}
   Guard2: {fileID: 21300000, guid: a386727c6f1cae045aa6e0b79941789f, type: 3}
@@ -22114,7 +22126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b14514d4154623743b263fddd2de2876, type: 2}
   m_sharedMaterial: {fileID: 952341532828561773, guid: b14514d4154623743b263fddd2de2876, type: 2}
@@ -22628,7 +22640,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PongNum: 2
   IsDestroy: 0
-  Durability: 4
+  Durability: 10
+  MaxDurability: 10
   Durability_Txt: {fileID: 1030085305}
 --- !u!1 &1095149230
 GameObject:
@@ -24300,7 +24313,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1295787851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1622540222}
+        m_TargetAssemblyTypeName: SettingView, Assembly-CSharp
+        m_MethodName: GoogleLogin_Btn_Click
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1301001711
 GameObject:
   m_ObjectHideFlags: 0
@@ -24918,7 +24943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PongNum: 0
   IsDestroy: 0
-  Durability: 4
+  Durability: 10
+  MaxDurability: 10
   Durability_Txt: {fileID: 1817446739}
 --- !u!1 &1351402066
 GameObject:
@@ -25270,7 +25296,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PongNum: 1
   IsDestroy: 0
-  Durability: 4
+  Durability: 10
+  MaxDurability: 10
   Durability_Txt: {fileID: 2109396208}
 --- !u!1 &1395180493
 GameObject:
@@ -25407,7 +25434,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -33026,7 +33053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b14514d4154623743b263fddd2de2876, type: 2}
   m_sharedMaterial: {fileID: 952341532828561773, guid: b14514d4154623743b263fddd2de2876, type: 2}
@@ -35139,7 +35166,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 4
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b14514d4154623743b263fddd2de2876, type: 2}
   m_sharedMaterial: {fileID: 952341532828561773, guid: b14514d4154623743b263fddd2de2876, type: 2}

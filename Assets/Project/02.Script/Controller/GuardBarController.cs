@@ -10,7 +10,8 @@ public class GuardBarController : MonoBehaviour
     public bool IsDestroy = false;
 
     [Header("내구도 관련 참조")]
-    public int Durability = 4;
+    public int Durability = 7;
+    public int MaxDurability = 7;
     public TextMeshProUGUI Durability_Txt;
 
     BoxCollider2D BoxCollider2D;
@@ -57,7 +58,7 @@ public class GuardBarController : MonoBehaviour
         if (IsDestroy == false)
         {
             //#내구도 회복
-            Durability = 4;
+            Durability = MaxDurability;
             Durability_Txt.text = Durability.ToString();
 
             //#Guard 이미지 교체
@@ -71,7 +72,7 @@ public class GuardBarController : MonoBehaviour
         gameObject.SetActive(true);
 
         //#내구도 회복
-        Durability = 4;
+        Durability = MaxDurability;
         Durability_Txt.text = Durability.ToString();
         
         //#Guard 이미지 교체
