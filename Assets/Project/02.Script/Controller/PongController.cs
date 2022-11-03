@@ -7,7 +7,10 @@ public class PongController : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("DangerLine"))
-            StartCoroutine(GameManager.Instance.GameOver());
+        {
+            if (GameManager.Instance.IsPause == false)
+                StartCoroutine(GameManager.Instance.GameOver());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
