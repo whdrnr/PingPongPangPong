@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
     public delegate void GameStartDelegate();
     public GameStartDelegate gameStartDelegate;
 
-    [Header("공 생성 관련 참조")]
+    [Header("공 관련 참조")]
     public GameObject Pong_Prefeb;
     public Transform Init_Pos;
     public float Speed = 3;

@@ -6,5 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class TitleLogo : MonoBehaviour
 {
-    public void LoadScene() => SceneManager.LoadScene("Play");
+    public void Start()
+    {
+        StartCoroutine(LoadScene());
+    }
+
+    public IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(1f);
+
+        SceneManager.LoadScene("Play");
+    }
 }
+      

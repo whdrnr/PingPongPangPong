@@ -7,6 +7,10 @@ public class SettingView : MonoBehaviour
     public GameObject Setting_Panel;
     public GameObject Google_Btn;
 
+    [Header("On/Off 관련 참조")]
+    public Sprite On_Sprite;
+    public Sprite Off_Sprite;
+
     public void Setting_Btn()
     {
         Setting_Panel.SetActive(true);
@@ -17,5 +21,13 @@ public class SettingView : MonoBehaviour
     {
         Setting_Panel.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void BGM_Setting_Btn()
+    {
+    }
+
+    public void SFX_Setting_Btn()
+    {
     }
 }
