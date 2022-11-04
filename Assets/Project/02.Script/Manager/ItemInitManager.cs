@@ -13,8 +13,9 @@ public class ItemInitManager : Singleton<ItemInitManager>
         GameManager.Instance.gameOverDelegate += DestroyItem;
     }
 
-    //#아이템 생성
     public void ItemInit() => Instantiate(Item_Prefeb, Get_RandomCirclePos(), Quaternion.identity);
+
+    public void ItemInit(float _T) => Invoke("ItemInit", _T);
 
     //#아이템 삭제
     public void DestroyItem()
