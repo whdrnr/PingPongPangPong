@@ -5,9 +5,13 @@ using TMPro;
 
 public class GuardBarController : MonoBehaviour
 {
-    public int Durability = 4;
+    [Header("퐁 관련 참조")]
+    public int PongNum;
     public bool IsDestroy = false;
 
+    [Header("내구도 관련 참조")]
+    public int Durability = 7;
+    public int MaxDurability = 7;
     public TextMeshProUGUI Durability_Txt;
 
     BoxCollider2D BoxCollider2D;
@@ -29,15 +33,19 @@ public class GuardBarController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Pong"))
         {
-            GM.DurabilityGuard(Durability, BoxCollider2D, SR);
+            //#가드바 상호작용
+            GuardBarManager.Instance.DurabilityGuard(Durability, BoxCollider2D, SR);
+            GuardBarManager.Instance.P_Guard_Hit[PongNum].Play();
+            SoundManager.Instance.PlaySFX("GuardHit-SFX", 1);
             GM.WaveBounce();
 
-            //#가드바 상호작용
             Durability -= 1;
             Durability_Txt.text = Durability.ToString();
 
             if(Durability == 0)
             {
+                SoundManager.Instance.PlaySFX("GuardBleak-SFX", 1);
+                GuardBarManager.Instance.P_Guard_Destory[PongNum].Play();
                 gameObject.SetActive(false);
                 IsDestroy = true;
             }
@@ -50,11 +58,11 @@ public class GuardBarController : MonoBehaviour
         if (IsDestroy == false)
         {
             //#내구도 회복
-            Durability = 4;
+            Durability = MaxDurability;
             Durability_Txt.text = Durability.ToString();
 
             //#Guard 이미지 교체
-            SR.sprite = GM.Guard1;
+            SR.sprite = GuardBarManager.Instance.Guard1;
         }
     }
 
@@ -64,11 +72,11 @@ public class GuardBarController : MonoBehaviour
         gameObject.SetActive(true);
 
         //#내구도 회복
-        Durability = 4;
+        Durability = MaxDurability;
         Durability_Txt.text = Durability.ToString();
         
         //#Guard 이미지 교체
-        SR.sprite = GM.Guard1;
+        SR.sprite = GuardBarManager.Instance.Guard1;
 
         IsDestroy = false;
     }

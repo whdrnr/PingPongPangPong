@@ -7,7 +7,10 @@ public class PongController : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("DangerLine"))
-            StartCoroutine(GameManager.Instance.GameOver());
+        {
+            if (GameManager.Instance.IsPause == false)
+                StartCoroutine(GameManager.Instance.GameOver());
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -16,6 +19,7 @@ public class PongController : MonoBehaviour
         {
             //#아이템 삭제
             Destroy(collision.gameObject);
+            SoundManager.Instance.PlaySFX("ItemGet-SFX", 1);
 
             //#아이템 능력
             GameObject[] Guard = GameObject.FindGameObjectsWithTag("Guard");
