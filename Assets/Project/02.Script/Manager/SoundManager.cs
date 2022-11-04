@@ -54,9 +54,9 @@ public class SoundManager : Singleton<SoundManager>
 
     public void BGMVolume(int _Volume)
     {
-        if(_Volume == 0)
+        if (_Volume == 0)
             masterVolumeBGM = 0;
-        else if(_Volume == 1)
+        else if (_Volume == 1)
             masterVolumeBGM = 1;
     }
 

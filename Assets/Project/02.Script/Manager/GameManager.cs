@@ -35,6 +35,9 @@ public class GameManager : Singleton<GameManager>
         waveClearDelegate += ObjectSetting;
         gameOverDelegate += ObjectSetting;
         gameStartDelegate += StartBall;
+
+        //#πË∞Ê¿Ω
+        SoundManager.Instance.PlayBGM("BG1", 1);
     }
 
     void ObjectSetting()
@@ -87,6 +90,7 @@ public class GameManager : Singleton<GameManager>
         if(BeforeWave > MaxWave)
             MaxWave = CurWave;
 
+        SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
         UIManager.Instance.GameOver_Panel.SetActive(true);
     }

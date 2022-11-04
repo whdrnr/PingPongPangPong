@@ -19,7 +19,13 @@ public class PongController : MonoBehaviour
         {
             //#아이템 삭제
             Destroy(collision.gameObject);
+
+            //#사운드 
             SoundManager.Instance.PlaySFX("ItemGet-SFX", 1);
+
+            //#파티클
+            for(int i =0; i < 3; i++)
+                GuardBarManager.Instance.P_Guard_Item_Get[i].Play();
 
             //#아이템 능력
             GameObject[] Guard = GameObject.FindGameObjectsWithTag("Guard");

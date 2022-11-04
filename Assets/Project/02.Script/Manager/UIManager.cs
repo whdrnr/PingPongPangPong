@@ -68,6 +68,9 @@ public class UIManager : Singleton<UIManager>
         BeforeWave_Txt.text = GM.BeforeWave.ToString();
         MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
 
+        //#BGM Àç»ý
+        SoundManager.Instance.PlayBGM("BG1", 1);
+
         GM.gameOverDelegate();
 
         Instance.GameOver_Panel.SetActive(false);

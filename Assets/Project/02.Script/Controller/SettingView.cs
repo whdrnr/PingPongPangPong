@@ -41,11 +41,13 @@ public class SettingView : MonoBehaviour
         if (_IsBGMOn == true) //#Off
         {
             SoundManager.Instance.masterVolumeBGM = 0;
+            SoundManager.Instance.BGMPlayer.volume = 0;
             BGM_Setting_Img.sprite = On_Sprite;
         }
         else //#On
         {
             SoundManager.Instance.masterVolumeBGM = 1;
+            SoundManager.Instance.BGMPlayer.volume = 1;
             BGM_Setting_Img.sprite = Off_Sprite;
         }
 

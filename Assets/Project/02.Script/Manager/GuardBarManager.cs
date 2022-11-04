@@ -17,6 +17,7 @@ public class GuardBarManager : Singleton<GuardBarManager>
     [Header("파티클 관련")]
     public ParticleSystem[] P_Guard_Hit;
     public ParticleSystem[] P_Guard_Destory;
+    public ParticleSystem[] P_Guard_Item_Get;
 
     void Start()
     {

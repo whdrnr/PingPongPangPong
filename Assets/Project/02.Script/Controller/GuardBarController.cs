@@ -39,6 +39,11 @@ public class GuardBarController : MonoBehaviour
             SoundManager.Instance.PlaySFX("GuardHit-SFX", 1);
             GM.WaveBounce();
 
+            //#진동 구현
+#if UNITY_ANDROID
+            Handheld.Vibrate();
+#endif
+
             Durability -= 1;
             Durability_Txt.text = Durability.ToString();
 

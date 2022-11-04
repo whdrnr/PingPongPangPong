@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6056526783999174506}
   - component: {fileID: 6801170402945222326}
   m_Layer: 0
-  m_Name: P_particle02
+  m_Name: P_Health_Get_Type2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
