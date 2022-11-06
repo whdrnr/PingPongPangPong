@@ -492,6 +492,9 @@ MonoBehaviour:
   AD_Panel: {fileID: 679493128}
   BeforeWave_Txt: {fileID: 2097111430}
   MaxWave_Txt: {fileID: 1665988560}
+  IsBGMOn: 1
+  IsSFXOn: 1
+  IsVibrationOn: 1
 --- !u!4 &52024814
 Transform:
   m_ObjectHideFlags: 0
@@ -660,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &59086772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -688,7 +691,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59086771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1118,7 +1121,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &148838712
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1146,7 +1149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 148838711}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1551,7 +1554,7 @@ RectTransform:
   m_GameObject: {fileID: 217955477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5000001, y: 1.5000001, z: 1}
+  m_LocalScale: {x: 1.5000004, y: 1.5000004, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 290808631}
@@ -1560,7 +1563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 50}
+  m_AnchoredPosition: {x: -0.000061035156, y: 50}
   m_SizeDelta: {x: 136, y: 143}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &217955479
@@ -6623,7 +6626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &308850967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6651,7 +6654,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 308850966}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -6699,7 +6702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &312315154
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6727,7 +6730,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312315153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -12069,7 +12072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &369907672
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12097,7 +12100,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369907671}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -27360,6 +27363,7 @@ MonoBehaviour:
   BounceNum: 3
   IsGame: 0
   IsPause: 0
+  IsAdSee: 0
   CountBar_Img: {fileID: 1082581002}
   MaxDieTime: 8
   CurDieTime: 0
@@ -36038,91 +36042,91 @@ MonoBehaviour:
     IsSelect: 1
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: df173c4ac10f48c438da3d8817255aba, type: 3}
-    Lock_Img: {fileID: 148269656}
+    Lock_Img: {fileID: 148269654}
     SkinPong_Img: {fileID: 2039149585}
   - Name: JellyPong
     IsSelect: 1
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 589f354ee69ed1245a12b2116da099f0, type: 3}
-    Lock_Img: {fileID: 491786788}
+    Lock_Img: {fileID: 491786786}
     SkinPong_Img: {fileID: 1152355738}
   - Name: SpiralPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: f2dc4145d3d30be42b7e47f0c18271c0, type: 3}
-    Lock_Img: {fileID: 716242700}
+    Lock_Img: {fileID: 716242698}
     SkinPong_Img: {fileID: 1731317224}
   - Name: ZebraPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 09c0970ea102b6147b9237b7a2b25fb4, type: 3}
-    Lock_Img: {fileID: 1033321187}
+    Lock_Img: {fileID: 1033321185}
     SkinPong_Img: {fileID: 1907624571}
   - Name: LeopardPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 9de20b9bf1f9cba479a87bf1cfe9e7ae, type: 3}
-    Lock_Img: {fileID: 1644180219}
+    Lock_Img: {fileID: 1644180217}
     SkinPong_Img: {fileID: 369907673}
   - Name: CookiePong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 5c6d56f51fa26ff4a841bd3187deaa31, type: 3}
-    Lock_Img: {fileID: 366534218}
+    Lock_Img: {fileID: 366534216}
     SkinPong_Img: {fileID: 308850968}
   - Name: BasketballPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 2bc7f178dffa170498b8540a73f8c4f1, type: 3}
-    Lock_Img: {fileID: 184308202}
+    Lock_Img: {fileID: 184308200}
     SkinPong_Img: {fileID: 59086773}
   - Name: PearlPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: e4c166ad7a5ff614b87c643016b9a472, type: 3}
-    Lock_Img: {fileID: 1125477024}
+    Lock_Img: {fileID: 1125477022}
     SkinPong_Img: {fileID: 573993764}
   - Name: DonutPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: a94123e6be2acaa48b795e05135ab7bd, type: 3}
-    Lock_Img: {fileID: 1820641781}
+    Lock_Img: {fileID: 1820641779}
     SkinPong_Img: {fileID: 1739952365}
   - Name: CointPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 9b4b6281f09748b44a92336140134253, type: 3}
-    Lock_Img: {fileID: 1306798095}
+    Lock_Img: {fileID: 1306798093}
     SkinPong_Img: {fileID: 1817497266}
   - Name: WafflePong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 1b98db47c96a651499753d77b3296b00, type: 3}
-    Lock_Img: {fileID: 687263077}
+    Lock_Img: {fileID: 687263075}
     SkinPong_Img: {fileID: 312315155}
   - Name: MarsPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: d5a5158fd9caff2429776939031972c3, type: 3}
-    Lock_Img: {fileID: 217955479}
+    Lock_Img: {fileID: 217955477}
     SkinPong_Img: {fileID: 148838713}
   - Name: OrangePong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: c735ca9706d714042bd4b5364524e47c, type: 3}
-    Lock_Img: {fileID: 622946044}
+    Lock_Img: {fileID: 622946042}
     SkinPong_Img: {fileID: 1666565134}
   - Name: CatPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: cd2ad315ff340a44ca8906d95cdcbbc3, type: 3}
-    Lock_Img: {fileID: 2139990465}
+    Lock_Img: {fileID: 2139990463}
     SkinPong_Img: {fileID: 1666565134}
   - Name: FriedEggPong
     IsSelect: 0
     IsUse: 0
     Skin_Spirte: {fileID: 21300000, guid: 01e7c86c3e4259d4ea275b2a1ba5c39b, type: 3}
-    Lock_Img: {fileID: 1055286406}
+    Lock_Img: {fileID: 1055286404}
     SkinPong_Img: {fileID: 1974802379}
   PongSelect_Btn:
   - {fileID: 998254241}
@@ -36141,6 +36145,7 @@ MonoBehaviour:
   - {fileID: 696575158}
   - {fileID: 477723283}
   - {fileID: 779309824}
+  SkinHave_Txt: {fileID: 0}
   Select_Sprite: {fileID: 21300000, guid: c24a6d698c52af7468b4baccba4bf804, type: 3}
   NonSelect_Sprite: {fileID: 21300000, guid: 82ae39a754d97ef48896efb98cbca86c, type: 3}
   SpiralClearWave: 15
@@ -36678,7 +36683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1563400884
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36706,7 +36711,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563400883}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -37335,7 +37340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1666565133
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37363,7 +37368,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666565132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -37707,7 +37712,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1731317223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37735,7 +37740,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731317222}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -37783,7 +37788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1739952364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -37811,7 +37816,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739952363}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -43455,7 +43460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1817497265
 RectTransform:
   m_ObjectHideFlags: 0
@@ -43483,7 +43488,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817497264}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -44013,7 +44018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1907624570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44041,7 +44046,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907624569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -44732,7 +44737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1974802378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44760,7 +44765,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974802377}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

@@ -29,6 +29,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Bool 관련 참조")]
     public bool IsGame; //#현재 게임중인지
     public bool IsPause; //#게임중에 일시정지 상태인지
+    public bool IsAdSee; //#죽은 뒤에 광고를 시청하였는지
 
     [Header("죽엇을 떄 관련 참조")]
     public Image CountBar_Img;

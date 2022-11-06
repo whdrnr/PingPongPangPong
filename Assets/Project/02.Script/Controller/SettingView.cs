@@ -16,9 +16,12 @@ public class SettingView : MonoBehaviour
     public Image SFX_Setting_Img;
     public Image Vibration_Setting_Img;
 
-    bool _IsBGMOn = true;
-    bool _IsSFXOn = true;
-    bool _IsVibrationOn = true;
+    UIManager UM;
+
+    private void Start()
+    {
+        UM = UIManager.Instance;
+    }
 
     public void Setting_Btn()
     {
@@ -38,7 +41,7 @@ public class SettingView : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (_IsBGMOn == true) //#Off
+        if (UM.IsBGMOn == true) //#Off
         {
             SoundManager.Instance.masterVolumeBGM = 0;
             SoundManager.Instance.BGMPlayer.volume = 0;
@@ -51,14 +54,14 @@ public class SettingView : MonoBehaviour
             BGM_Setting_Img.sprite = Off_Sprite;
         }
 
-        _IsBGMOn = !_IsBGMOn;
+        UM.IsBGMOn = !UM.IsBGMOn;
     }
 
     public void SFX_Setting_Btn_Click()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (_IsSFXOn == true) //#Off
+        if (UM.IsSFXOn == true) //#Off
         {
             SoundManager.Instance.masterVolumeSFX = 0;
             SFX_Setting_Img.sprite = On_Sprite;
@@ -69,24 +72,25 @@ public class SettingView : MonoBehaviour
             SFX_Setting_Img.sprite = Off_Sprite;
         }
 
-        _IsSFXOn = !_IsSFXOn;
+        UM.IsSFXOn = !UM.IsSFXOn;
     }
 
     public void Vibration_Setting_Btn_Click()
     {
-        _IsVibrationOn = !_IsVibrationOn;
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (_IsVibrationOn == true)
+        if (UM.IsVibrationOn == true)
         {
-            Debug.Log("On");
+            UM.IsVibrationOn = true;
             Vibration_Setting_Img.sprite = On_Sprite;
         }
         else
         {
-            Debug.Log("Off");
+            UM.IsVibrationOn = false;
             Vibration_Setting_Img.sprite = Off_Sprite;
         }
+
+        UM.IsVibrationOn = !UM.IsVibrationOn;
     }
 
     public void GoogleLogin_Btn_Click()

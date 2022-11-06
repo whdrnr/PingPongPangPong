@@ -23,6 +23,11 @@ public class UIManager : Singleton<UIManager>
     public TextMeshProUGUI BeforeWave_Txt;
     public TextMeshProUGUI MaxWave_Txt;
 
+    [Header("설정 bool 참조")]
+    public bool IsBGMOn = true;
+    public bool IsSFXOn = true;
+    public bool IsVibrationOn = true;
+
     GameManager GM;
 
     void Start()
