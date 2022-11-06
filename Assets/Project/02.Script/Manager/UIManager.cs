@@ -17,7 +17,7 @@ public class UIManager : Singleton<UIManager>
     [Header("Play-Panel의T관련 참조")]
     public TextMeshProUGUI CurBounce_Txt;
     public TextMeshProUGUI Wave_Txt;
-    public GameObject GameOver_Panel; 
+    public GameObject AD_Panel; 
 
      [Header("Main-Panel의Txt 관련 참조")]
     public TextMeshProUGUI BeforeWave_Txt;
@@ -59,6 +59,8 @@ public class UIManager : Singleton<UIManager>
 
     public void PlayGame_Btn() => StartCoroutine(IGameStart());
 
+    public void RewardAd_Btn() => AdmobManager.Instance.ShowRewardAd();
+
     public void GmaeOver_Btn()
     {
         //#UI On/Off
@@ -73,7 +75,7 @@ public class UIManager : Singleton<UIManager>
 
         GM.gameOverDelegate();
 
-        Instance.GameOver_Panel.SetActive(false);
+        Instance.AD_Panel.SetActive(false);
         Main_Panel.SetActive(true);
     }
 

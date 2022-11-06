@@ -76,13 +76,8 @@ public class ShopView : MonoBehaviour
         Shop_Panel.SetActive(false);
     }
 
-    public void SkinWaveClear(string _Name)
+    public void SkinWaveClear(int _Wave)
     {
-        switch(_Name)
-        {
-            case "SpiralPong":
-                break;
-        }
     }
 }
 

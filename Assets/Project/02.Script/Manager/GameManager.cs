@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : Singleton<GameManager>
@@ -28,6 +29,11 @@ public class GameManager : Singleton<GameManager>
     [Header("Bool 관련 참조")]
     public bool IsGame; //#현재 게임중인지
     public bool IsPause; //#게임중에 일시정지 상태인지
+
+    [Header("죽엇을 떄 관련 참조")]
+    public Image CountBar_Img;
+    public float MaxDieTime = 8;
+    public float CurDieTime;
 
     void Start()
     {
@@ -92,7 +98,24 @@ public class GameManager : Singleton<GameManager>
 
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
-        UIManager.Instance.GameOver_Panel.SetActive(true);
+        UIManager.Instance.AD_Panel.SetActive(true);
+        StartCoroutine(DieCountTime());
+    }
+
+    //#User가 죽었을 때 
+    public IEnumerator DieCountTime()
+    {
+        CurDieTime = MaxDieTime;
+
+        while(CurDieTime > 0)
+        {
+            CurDieTime -= Time.deltaTime;
+            CountBar_Img.fillAmount = CurDieTime / MaxDieTime;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        CurDieTime = MaxDieTime;
     }
 
     //#Wave를 Clear 했을 때
