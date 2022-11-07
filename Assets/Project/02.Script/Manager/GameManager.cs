@@ -15,6 +15,9 @@ public class GameManager : Singleton<GameManager>
     public delegate void GameStartDelegate();
     public GameStartDelegate gameStartDelegate;
 
+    public delegate void GameReStartDelegate();
+    public GameReStartDelegate gameReStartDelegate;
+
     [Header("공 관련 참조")]
     public GameObject Pong;
     public Transform Init_Pos;
@@ -41,6 +44,7 @@ public class GameManager : Singleton<GameManager>
         //#Delegate 함수 연결
         waveClearDelegate += ObjectSetting;
         gameOverDelegate += ObjectSetting;
+        gameReStartDelegate += ObjectSetting;
         gameStartDelegate += StartBall;
 
         //#배경음
@@ -69,6 +73,18 @@ public class GameManager : Singleton<GameManager>
 
     //#공을 멈춘다,
     public void StopBall() => Pong.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+
+    //#부활 이후
+    public void ReStartBall()
+    {
+        IsAdSee = true;
+        IsGame = true;
+        UIManager.Instance.AD_Panel.SetActive(false);
+
+        gameReStartDelegate();
+
+        Invoke("StartBall", 1.5f);
+    }
 
     //#가드바에 퐁이 닿았을 때 내구도가 줄어든다.
     public void WaveBounce()
@@ -99,8 +115,16 @@ public class GameManager : Singleton<GameManager>
 
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
-        UIManager.Instance.AD_Panel.SetActive(true);
-        StartCoroutine(DieCountTime());
+
+        if (IsAdSee == false) //#부활 광고 안보았다면
+        {
+            UIManager.Instance.AD_Panel.SetActive(true);
+            StartCoroutine(DieCountTime());
+        }
+        else
+        {
+            UIManager.Instance.Die_Panel.SetActive(true);
+        }
     }
 
     //#User가 죽었을 때 
@@ -149,10 +173,4 @@ public class GameManager : Singleton<GameManager>
 
        gameStartDelegate();
     }
-}
-
-[System.Serializable]
-public class Data
-{
-
 }

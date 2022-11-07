@@ -17,7 +17,8 @@ public class UIManager : Singleton<UIManager>
     [Header("Play-Panel의T관련 참조")]
     public TextMeshProUGUI CurBounce_Txt;
     public TextMeshProUGUI Wave_Txt;
-    public GameObject AD_Panel; 
+    public GameObject AD_Panel;
+    public GameObject Die_Panel;
 
      [Header("Main-Panel의Txt 관련 참조")]
     public TextMeshProUGUI BeforeWave_Txt;
@@ -79,8 +80,11 @@ public class UIManager : Singleton<UIManager>
         SoundManager.Instance.PlayBGM("BG1", 1);
 
         GM.gameOverDelegate();
+        GM.IsAdSee = false;
 
-        Instance.AD_Panel.SetActive(false);
+        AD_Panel.SetActive(false);
+        Die_Panel.SetActive(false);
+
         Main_Panel.SetActive(true);
     }
 

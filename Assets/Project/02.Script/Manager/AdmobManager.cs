@@ -91,9 +91,7 @@ public class AdmobManager : Singleton<AdmobManager>
     //#광고를 끝까지 시청하였을 때
     public void HandleOnUserEarnedReward(object sencer, Reward args)
     {
-        GameManager.Instance.IsAdSee = true;
-
-        UIManager.Instance.AD_Panel.SetActive(false);
+        GameManager.Instance.ReStartBall();
     }
     #endregion
 }

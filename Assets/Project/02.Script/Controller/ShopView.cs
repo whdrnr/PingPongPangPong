@@ -10,6 +10,7 @@ public struct SkinPong
     public string Name;
     public bool IsSelect; //#선택 가능한지?
     public bool IsUse; //#사용중인지?
+    public bool IsAdSkin; //#광고스킨인지
 
     [Header("Img/Sprite 참조 관련")]
     public Sprite Skin_Spirte;
@@ -88,47 +89,47 @@ public class ShopView : MonoBehaviour
         float _Wave = GameManager.Instance.BeforeWave;
 
         //#나선환
-        if (_Wave > SpiralClearWave)
+        if (_Wave >= SpiralClearWave)
             SkinClear(3);
 
         //#얼룩말
-        if (_Wave > ZebraClearWave)
+        if (_Wave >= ZebraClearWave)
             SkinClear(4);
 
         //#표범
-        if (_Wave > LeopardClearWave)
+        if (_Wave >= LeopardClearWave)
             SkinClear(5);
 
         //#쿠키
-        if (_Wave > CookieClearWave)
+        if (_Wave >= CookieClearWave)
             SkinClear(6);
 
         //#농구공
-        if (_Wave > BasketballClearWave)
+        if (_Wave >= BasketballClearWave)
             SkinClear(7);
 
         //#펄
-        if (_Wave > PearlClearWave)
+        if (_Wave >= PearlClearWave)
             SkinClear(8);
 
         //#도넛
-        if (_Wave > DonutlClearWave)
+        if (_Wave >= DonutlClearWave)
             SkinClear(9);
 
         //#코인
-        if (_Wave > CoinClearWave)
+        if (_Wave >= CoinClearWave)
             SkinClear(10);
 
         //#와플
-        if (_Wave > WafflelClearWave)
+        if (_Wave >= WafflelClearWave)
             SkinClear(11);
 
         //#화성
-        if (_Wave > MarsClearWave)
+        if (_Wave >= MarsClearWave)
             SkinClear(12);
 
         //#오렌지
-        if (_Wave > OrangeClearWave)
+        if (_Wave >= OrangeClearWave)
             SkinClear(13);
     }
 
