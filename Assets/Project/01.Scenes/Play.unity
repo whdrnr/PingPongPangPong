@@ -27489,19 +27489,19 @@ MonoBehaviour:
   Waves:
   - Name: "\uAC80\uC740 \uC0B0 "
     ChangeWave: 0
-    PongSpeed: 4.5
+    PongSpeed: 3
     BG_Sprite: {fileID: 21300000, guid: 8426fdf478393d4448decfdb1a50e9e1, type: 3}
   - Name: "\uAC00\uC2DC \uB364\uBE14 "
-    ChangeWave: 3
-    PongSpeed: 3.6
+    ChangeWave: 15
+    PongSpeed: 3.2
     BG_Sprite: {fileID: 21300000, guid: f4fbb225d56dde648b3c30aa7bdf5fe2, type: 3}
   - Name: "\uC0AC\uB9C9"
-    ChangeWave: 4
-    PongSpeed: 4.5
+    ChangeWave: 25
+    PongSpeed: 3.4
     BG_Sprite: {fileID: 21300000, guid: 093ff6b54d0392946b7b130f0015dc72, type: 3}
   - Name: "\uB2AA\uC9C0"
-    ChangeWave: 5
-    PongSpeed: 4.5
+    ChangeWave: 40
+    PongSpeed: 3.6
     BG_Sprite: {fileID: 21300000, guid: c8528150ac3b31e43b3ac4e0b7414bc5, type: 3}
   BG_SR: {fileID: 1936729537}
   MaxWave: 0
