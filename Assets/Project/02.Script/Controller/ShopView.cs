@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 
 [System.Serializable]
-public struct SkinPong
+public class SkinPong
 {
     public string Name;
     public bool IsSelect; //#선택 가능한지?
@@ -13,6 +13,8 @@ public struct SkinPong
 
     [Header("광고 스킨인 경우")]
     public bool IsAdSkin; //#광고스킨인지
+    public int AdNum;
+    public TextMeshProUGUI AdNum_Txt;
 
     [Header("Img/Sprite 참조 관련")]
     public Sprite Skin_Spirte;
@@ -58,7 +60,7 @@ public class ShopView : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (Pongs[_Num].IsSelect == true)
+        if (Pongs[_Num].IsSelect == true) //#스킨 해체 되어있는 상태
         {
             for (int i = 0; i < Pongs.Length; i++)
             {
@@ -72,17 +74,21 @@ public class ShopView : MonoBehaviour
             GameManager.Instance.Pong.GetComponent<SpriteRenderer>().sprite =
                 Pongs[_Num].Skin_Spirte;
         }
-        else
+        else //#스킨 해체가 안되어있는 상태
         {
             //#AD Skin
             if(Pongs[_Num].IsAdSkin == true)
             {
-                Debug.Log("광고를 시청하세요");
-            }
-            //#Wave Skin
-            else
-            {
-                Debug.Log("스킨을 이용할 수 없습니다/");
+                AdmobManager.Instance.ShowRewardAd();
+                Pongs[_Num].AdNum++;
+                Pongs[_Num].AdNum_Txt.text = Pongs[_Num].AdNum.ToString() + "/3";
+
+                if (Pongs[_Num].AdNum == 3)
+                {
+                    Debug.Log("스킨 해제");
+                    SkinClear(_Num);
+                    HaveSkinNum();
+                }
             }
         }
     }
@@ -164,7 +170,9 @@ public class ShopView : MonoBehaviour
     //#자신어 몇개의 Skin을 가지고 있는지 확인한다.
     public void HaveSkinNum()
     {
-        for(int i = 0; i < Pongs.Length; i++)
+        SkinNum = 0; //#초기화
+
+        for (int i = 0; i < Pongs.Length; i++)
         {
             if(Pongs[i].IsSelect == true)
             {

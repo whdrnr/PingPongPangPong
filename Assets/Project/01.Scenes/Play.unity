@@ -7067,8 +7067,8 @@ RectTransform:
   m_Father: {fileID: 2028199324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.13043481}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -12401,6 +12401,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399123981}
   m_CullTransparentMesh: 1
+--- !u!1 &401365539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 401365541}
+  - component: {fileID: 401365540}
+  m_Layer: 0
+  m_Name: IAP Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &401365540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401365539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7dd963c1a8b427b96975fa211478a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumePurchase: 1
+  dontDestroyOnLoad: 1
+  onPurchaseComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  onPurchaseFailed:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &401365541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401365539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &403020044
 GameObject:
   m_ObjectHideFlags: 0
@@ -27363,19 +27415,19 @@ MonoBehaviour:
   Waves:
   - Name: "\uAC80\uC740 \uC0B0 "
     ChangeWave: 0
-    PongSpeed: 3
+    PongSpeed: 4.5
     BG_Sprite: {fileID: 21300000, guid: 8426fdf478393d4448decfdb1a50e9e1, type: 3}
   - Name: "\uAC00\uC2DC \uB364\uBE14 "
-    ChangeWave: 15
+    ChangeWave: 3
     PongSpeed: 3.6
     BG_Sprite: {fileID: 21300000, guid: f4fbb225d56dde648b3c30aa7bdf5fe2, type: 3}
   - Name: "\uC0AC\uB9C9"
-    ChangeWave: 30
+    ChangeWave: 4
     PongSpeed: 4.5
     BG_Sprite: {fileID: 21300000, guid: 093ff6b54d0392946b7b130f0015dc72, type: 3}
   - Name: "\uB2AA\uC9C0"
-    ChangeWave: 45
-    PongSpeed: 6
+    ChangeWave: 5
+    PongSpeed: 4.5
     BG_Sprite: {fileID: 21300000, guid: c8528150ac3b31e43b3ac4e0b7414bc5, type: 3}
   BG_SR: {fileID: 1936729537}
   MaxWave: 0
@@ -36112,7 +36164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1453397145
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36192,6 +36244,8 @@ MonoBehaviour:
     IsSelect: 1
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 27ab0b341022ded49b1d8157af8d24bf, type: 3}
     Lock_Img: {fileID: 0}
     SkinPong_Img: {fileID: 1421965009}
@@ -36199,6 +36253,8 @@ MonoBehaviour:
     IsSelect: 1
     IsUse: 0
     IsAdSkin: 1
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: df173c4ac10f48c438da3d8817255aba, type: 3}
     Lock_Img: {fileID: 148269654}
     SkinPong_Img: {fileID: 2039149585}
@@ -36206,6 +36262,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 1
+    AdNum: 0
+    AdNum_Txt: {fileID: 1365873139}
     Skin_Spirte: {fileID: 21300000, guid: 589f354ee69ed1245a12b2116da099f0, type: 3}
     Lock_Img: {fileID: 491786786}
     SkinPong_Img: {fileID: 1152355738}
@@ -36213,6 +36271,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: f2dc4145d3d30be42b7e47f0c18271c0, type: 3}
     Lock_Img: {fileID: 716242698}
     SkinPong_Img: {fileID: 1731317224}
@@ -36220,6 +36280,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 09c0970ea102b6147b9237b7a2b25fb4, type: 3}
     Lock_Img: {fileID: 1033321185}
     SkinPong_Img: {fileID: 1907624571}
@@ -36227,6 +36289,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 9de20b9bf1f9cba479a87bf1cfe9e7ae, type: 3}
     Lock_Img: {fileID: 1644180217}
     SkinPong_Img: {fileID: 369907673}
@@ -36234,6 +36298,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 5c6d56f51fa26ff4a841bd3187deaa31, type: 3}
     Lock_Img: {fileID: 366534216}
     SkinPong_Img: {fileID: 308850968}
@@ -36241,6 +36307,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 2bc7f178dffa170498b8540a73f8c4f1, type: 3}
     Lock_Img: {fileID: 184308200}
     SkinPong_Img: {fileID: 59086773}
@@ -36248,6 +36316,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: e4c166ad7a5ff614b87c643016b9a472, type: 3}
     Lock_Img: {fileID: 1125477022}
     SkinPong_Img: {fileID: 573993764}
@@ -36255,6 +36325,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: a94123e6be2acaa48b795e05135ab7bd, type: 3}
     Lock_Img: {fileID: 1820641779}
     SkinPong_Img: {fileID: 1739952365}
@@ -36262,6 +36334,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 9b4b6281f09748b44a92336140134253, type: 3}
     Lock_Img: {fileID: 1306798093}
     SkinPong_Img: {fileID: 1817497266}
@@ -36269,6 +36343,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 1b98db47c96a651499753d77b3296b00, type: 3}
     Lock_Img: {fileID: 687263075}
     SkinPong_Img: {fileID: 312315155}
@@ -36276,6 +36352,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: d5a5158fd9caff2429776939031972c3, type: 3}
     Lock_Img: {fileID: 217955477}
     SkinPong_Img: {fileID: 148838713}
@@ -36283,6 +36361,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: c735ca9706d714042bd4b5364524e47c, type: 3}
     Lock_Img: {fileID: 622946042}
     SkinPong_Img: {fileID: 1666565134}
@@ -36290,6 +36370,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: cd2ad315ff340a44ca8906d95cdcbbc3, type: 3}
     Lock_Img: {fileID: 2139990463}
     SkinPong_Img: {fileID: 1666565134}
@@ -36297,6 +36379,8 @@ MonoBehaviour:
     IsSelect: 0
     IsUse: 0
     IsAdSkin: 0
+    AdNum: 0
+    AdNum_Txt: {fileID: 0}
     Skin_Spirte: {fileID: 21300000, guid: 01e7c86c3e4259d4ea275b2a1ba5c39b, type: 3}
     Lock_Img: {fileID: 1055286404}
     SkinPong_Img: {fileID: 1974802379}
