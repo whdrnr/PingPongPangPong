@@ -63,6 +63,16 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public void AdRemovePurchaseComplete()
+    {
+        Debug.Log("구매 성공");
+    }
+
+    public void AdRemovePurchaseFail()
+    {
+        Debug.Log("구매 실패");
+    }
+
     public void PlayGame_Btn() => StartCoroutine(IGameStart());
 
     public void RewardAd_Btn() => AdmobManager.Instance.ShowRewardAd();
