@@ -9,7 +9,7 @@ public class PongController : MonoBehaviour
         if (collision.CompareTag("DangerLine"))
         {
             if (GameManager.Instance.IsPause == false)
-                StartCoroutine(GameManager.Instance.GameOver());
+                StartCoroutine(GameManager.Instance.IEGameOver());
         }
     }
 

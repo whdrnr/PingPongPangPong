@@ -13,8 +13,10 @@ public class ItemInitManager : Singleton<ItemInitManager>
         GameManager.Instance.gameOverDelegate += DestroyItem;
     }
 
+    //#아이템 생성
     public void ItemInit() => Instantiate(Item_Prefeb, Get_RandomCirclePos(), Quaternion.identity);
 
+    //#T초 마다 아이템 생성
     public void ItemInit(float _T) => Invoke("ItemInit", _T);
 
     //#아이템 삭제

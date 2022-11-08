@@ -10,6 +10,8 @@ public struct SkinPong
     public string Name;
     public bool IsSelect; //#선택 가능한지?
     public bool IsUse; //#사용중인지?
+
+    [Header("광고 스킨인 경우")]
     public bool IsAdSkin; //#광고스킨인지
 
     [Header("Img/Sprite 참조 관련")]
@@ -25,6 +27,7 @@ public class ShopView : MonoBehaviour
     public SkinPong[] Pongs;
     public List<GameObject> PongSelect_Btn = new List<GameObject>();
     public TextMeshProUGUI SkinHave_Txt;
+    public int SkinNum = 0;
 
     [Header("Sprite 관련 참조")]
     public Sprite Select_Sprite;
@@ -45,7 +48,10 @@ public class ShopView : MonoBehaviour
 
     void Start()
     {
+        //#Delegate 연결
         GameManager.Instance.gameOverDelegate += SkinWaveClear;
+
+        HaveSkinNum();
     }
 
     public void PongSelect_Btn_Click(int _Num)
@@ -68,22 +74,34 @@ public class ShopView : MonoBehaviour
         }
         else
         {
-            Debug.Log("열리지 않은 스킨입니다.");
+            //#AD Skin
+            if(Pongs[_Num].IsAdSkin == true)
+            {
+                Debug.Log("광고를 시청하세요");
+            }
+            //#Wave Skin
+            else
+            {
+                Debug.Log("스킨을 이용할 수 없습니다/");
+            }
         }
     }
 
+    //#Shop을 On 시킨다.
     public void ShopView_On()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
         Shop_Panel.SetActive(true);
     }
 
+    //#Shop을 Off 시킨다.
     public void ShopView_Off()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
         Shop_Panel.SetActive(false);
     }
 
+    //#Wave따라 스킨 해체 된다.
     public void SkinWaveClear()
     {
         float _Wave = GameManager.Instance.BeforeWave;
@@ -131,13 +149,29 @@ public class ShopView : MonoBehaviour
         //#오렌지
         if (_Wave >= OrangeClearWave)
             SkinClear(13);
+
+        HaveSkinNum();
     }
 
+    //#Wave따라 상호작용을 한다.
     public void SkinClear(int _Num)
     {
         Pongs[_Num].SkinPong_Img.enabled = true;
         Pongs[_Num].Lock_Img.SetActive(false);
         Pongs[_Num].IsSelect = true;
+    }
+
+    //#자신어 몇개의 Skin을 가지고 있는지 확인한다.
+    public void HaveSkinNum()
+    {
+        for(int i = 0; i < Pongs.Length; i++)
+        {
+            if(Pongs[i].IsSelect == true)
+            {
+                SkinNum++;
+                SkinHave_Txt.text = SkinNum.ToString() + "/13";
+            }
+        }
     }
 }
 

@@ -155,7 +155,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.lanouvellevague04
+    Android: com.lanouvellevague
     Lumin: com.DefaultCompany.com.unity.template.mobile2D
     Standalone: com.DefaultCompany.com.unity.template.mobile2D
     iPhone: com.DefaultCompany.com.unity.template.mobile2D
@@ -751,7 +751,8 @@ PlayerSettings:
     Build: 0
     Collab: 0
     Game Performance: 0
-    Purchasing: 0
+    Legacy Analytics: 1
+    Purchasing: 1
     UDP: 0
     Unity Ads: 0
   luminIcon:

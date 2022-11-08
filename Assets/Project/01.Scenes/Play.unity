@@ -27360,6 +27360,24 @@ MonoBehaviour:
   Pong: {fileID: 7702980587555679337}
   Init_Pos: {fileID: 2092076108}
   Speed: 3
+  Waves:
+  - Name: "\uAC80\uC740 \uC0B0 "
+    ChangeWave: 0
+    PongSpeed: 3
+    BG_Sprite: {fileID: 21300000, guid: 8426fdf478393d4448decfdb1a50e9e1, type: 3}
+  - Name: "\uAC00\uC2DC \uB364\uBE14 "
+    ChangeWave: 15
+    PongSpeed: 3.6
+    BG_Sprite: {fileID: 21300000, guid: f4fbb225d56dde648b3c30aa7bdf5fe2, type: 3}
+  - Name: "\uC0AC\uB9C9"
+    ChangeWave: 30
+    PongSpeed: 4.5
+    BG_Sprite: {fileID: 21300000, guid: 093ff6b54d0392946b7b130f0015dc72, type: 3}
+  - Name: "\uB2AA\uC9C0"
+    ChangeWave: 45
+    PongSpeed: 6
+    BG_Sprite: {fileID: 21300000, guid: c8528150ac3b31e43b3ac4e0b7414bc5, type: 3}
+  BG_SR: {fileID: 1936729537}
   MaxWave: 0
   BeforeWave: 0
   CurWave: 1
@@ -36299,7 +36317,8 @@ MonoBehaviour:
   - {fileID: 696575158}
   - {fileID: 477723283}
   - {fileID: 779309824}
-  SkinHave_Txt: {fileID: 0}
+  SkinHave_Txt: {fileID: 1900551689}
+  SkinNum: 0
   Select_Sprite: {fileID: 21300000, guid: c24a6d698c52af7468b4baccba4bf804, type: 3}
   NonSelect_Sprite: {fileID: 21300000, guid: 82ae39a754d97ef48896efb98cbca86c, type: 3}
   SpiralClearWave: 15
@@ -44211,7 +44230,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3/15
+  m_text: 1/15
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b14514d4154623743b263fddd2de2876, type: 2}
   m_sharedMaterial: {fileID: 952341532828561773, guid: b14514d4154623743b263fddd2de2876, type: 2}
