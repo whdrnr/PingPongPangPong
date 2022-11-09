@@ -26,7 +26,6 @@ public class ShopView : MonoBehaviour
 {
     [Header("상점 관련 참조")]
     public GameObject Shop_Panel;
-    public SkinPong[] Pongs;
     public List<GameObject> PongSelect_Btn = new List<GameObject>();
     public TextMeshProUGUI SkinHave_Txt;
     public int SkinNum = 0;
@@ -48,42 +47,44 @@ public class ShopView : MonoBehaviour
     public int MarsClearWave = 60;
     public int OrangeClearWave = 65;
 
+    GameManager GM;
+
     void Start()
     {
         //#Delegate 연결
         GameManager.Instance.gameOverDelegate += SkinWaveClear;
 
-        HaveSkinNum();
+        GM = GameManager.Instance;
     }
 
     public void PongSelect_Btn_Click(int _Num)
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (Pongs[_Num].IsSelect == true) //#스킨 해체 되어있는 상태
+        if (GM.Data.Pongs[_Num].IsSelect == true) //#스킨 해체 되어있는 상태
         {
-            for (int i = 0; i < Pongs.Length; i++)
+            for (int i = 0; i < GM.Data.Pongs.Count; i++)
             {
-                Pongs[i].IsUse = false;
+                GM.Data.Pongs[i].IsUse = false;
                 PongSelect_Btn[i].GetComponent<Image>().sprite = NonSelect_Sprite;
             }
 
-            Pongs[_Num].IsUse = true;
+            GM.Data.Pongs[_Num].IsUse = true;
             PongSelect_Btn[_Num].GetComponent<Image>().sprite = Select_Sprite;
 
             GameManager.Instance.Pong.GetComponent<SpriteRenderer>().sprite =
-                Pongs[_Num].Skin_Spirte;
+                GM.Data.Pongs[_Num].Skin_Spirte;
         }
         else //#스킨 해체가 안되어있는 상태
         {
             //#AD Skin
-            if(Pongs[_Num].IsAdSkin == true)
+            if(GM.Data.Pongs[_Num].IsAdSkin == true)
             {
                 AdmobManager.Instance.ShowSkinRewardAd();
-                Pongs[_Num].AdNum++;
-                Pongs[_Num].AdNum_Txt.text = Pongs[_Num].AdNum.ToString() + "/3";
+                GM.Data.Pongs[_Num].AdNum++;
+                GM.Data.Pongs[_Num].AdNum_Txt.text = GM.Data.Pongs[_Num].AdNum.ToString() + "/3";
 
-                if (Pongs[_Num].AdNum == 3)
+                if (GM.Data.Pongs[_Num].AdNum == 3)
                 {
                     Debug.Log("스킨 해제");
                     SkinClear(_Num);
@@ -109,7 +110,7 @@ public class ShopView : MonoBehaviour
     //#Wave따라 스킨 해체 된다.
     public void SkinWaveClear()
     {
-        float _Wave = GameManager.Instance.BeforeWave;
+        float _Wave = GameManager.Instance.Data.BeforeWave;
 
         //#나선환
         if (_Wave >= SpiralClearWave)
@@ -159,11 +160,21 @@ public class ShopView : MonoBehaviour
     //#Wave따라 상호작용을 한다.
     public void SkinClear(int _Num)
     {
-        Pongs[_Num].SkinPong_Img.enabled = true;
-        Pongs[_Num].Lock_Img.SetActive(false);
-        Pongs[_Num].IsSelect = true;
+        GM.Data.Pongs[_Num].SkinPong_Img.enabled = true;
+        GM.Data.Pongs[_Num].Lock_Img.SetActive(false);
+        GM.Data.Pongs[_Num].IsSelect = true;
 
         HaveSkinNum();
+    }
+
+    //#현재 장착하고 있는 스킨이 무엇인지, 얼마큼 해체 했는지
+    public void CheckClearSkin()
+    {
+        for(int i =0; i < GM.Data.Pongs.Count; i++)
+        {
+            if (GM.Data.Pongs[i].IsSelect == true)
+                SkinClear(i);
+        }
     }
 
     //#자신어 몇개의 Skin을 가지고 있는지 확인한다.
@@ -171,9 +182,9 @@ public class ShopView : MonoBehaviour
     {
         SkinNum = 0; //#초기화
 
-        for (int i = 0; i < Pongs.Length; i++)
+        for (int i = 0; i < GM.Data.Pongs.Count; i++)
         {
-            if(Pongs[i].IsSelect == true)
+            if(GM.Data.Pongs[i].IsSelect == true)
             {
                 SkinNum++;
                 SkinHave_Txt.text = SkinNum.ToString() + "/15";
@@ -181,15 +192,10 @@ public class ShopView : MonoBehaviour
         }
     }
 
-    public void CatSkinPurchaseComplete()
-    {
-        Debug.Log("구매 성공");
-        SkinClear(14);
-    }
+    //#구매를 성공했을 때
+    public void CatSkinPurchaseComplete() => SkinClear(14);
 
-    public void CatSkinRemovePurchaseFail()
-    {
-        Debug.Log("구매 실패");
-    }
+    //#구매를 실패했을 때
+    public void CatSkinRemovePurchaseFail() => Debug.Log("구매 실패");
 }
 

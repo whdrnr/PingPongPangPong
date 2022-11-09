@@ -35,8 +35,6 @@ public class GameManager : Singleton<GameManager>
     [Header("웨이브 관련 참조")]
     public WaveType[] Waves;
     public SpriteRenderer BG_SR;
-    public int MaxWave = 0;
-    public int BeforeWave = 0;
     public int CurWave = 1;
     public int BounceNum = 3; //#튕겨야 하는 횟수
 
@@ -49,6 +47,8 @@ public class GameManager : Singleton<GameManager>
     public Image CountBar_Img;
     public float MaxDieTime = 8;
     public float CurDieTime;
+
+    public Data Data;
 
     void Start()
     {
@@ -64,7 +64,7 @@ public class GameManager : Singleton<GameManager>
 
         //#배경음
         SoundManager.Instance.PlayBGM("BG1", 1);
-    }
+    }   
 
     void ObjectSetting()
     {
@@ -167,15 +167,15 @@ public class GameManager : Singleton<GameManager>
         IsGame = false;
 
         //#신기록을 달성했는지, 안했는지
-        BeforeWave = CurWave;
+        Data.BeforeWave = CurWave;
 
-        if(BeforeWave > MaxWave)
-            MaxWave = CurWave;
+        if(Data.BeforeWave > Data.MaxWave)
+            Data.MaxWave = CurWave;
 
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
 
-        if (IsAdSee == false && CurWave >= 5) //#부활 광고 안보았다면
+        if (IsAdSee == false && CurWave >= 1) //#부활 광고 안보았다면
         {
             UIManager.Instance.AD_Panel.SetActive(true);
             StartCoroutine(IEDieCountTime());
@@ -198,7 +198,7 @@ public class GameManager : Singleton<GameManager>
 
             yield return new WaitForFixedUpdate();
         }
-
+        
         AdmobManager.Instance.ShowFrontAd();
         UIManager.Instance.GmaeOver_Btn();
         CurDieTime = MaxDieTime;
@@ -235,4 +235,23 @@ public class GameManager : Singleton<GameManager>
 
        gameStartDelegate();
     }
+
+    void OnApplicationQuit()
+    {
+        JsonManager.Instance.SaveGameData();
+    }
+}
+
+[System.Serializable]
+public class Data
+{
+    public int MaxWave;
+    public int BeforeWave;
+
+    [Header("설정 bool 참조")]
+    public bool IsBGMOn = true;
+    public bool IsSFXOn = true;
+    public bool IsVibrationOn = true;
+
+    public List<SkinPong> Pongs = new List<SkinPong>();
 }

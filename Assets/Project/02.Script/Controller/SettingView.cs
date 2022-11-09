@@ -17,10 +17,17 @@ public class SettingView : MonoBehaviour
     public Image Vibration_Setting_Img;
 
     UIManager UM;
+    GameManager GM;
 
     private void Start()
     {
         UM = UIManager.Instance;
+        GM = GameManager.Instance;
+
+        //#디버그용 변수
+        PlayGamesPlatform.DebugLogEnabled = true;
+        //#구글 관련 Service Active
+        PlayGamesPlatform.Activate();
     }
 
     public void Setting_Btn()
@@ -41,7 +48,7 @@ public class SettingView : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (UM.IsBGMOn == true) //#Off
+        if (GM.Data.IsBGMOn == true) //#Off
         {
             SoundManager.Instance.masterVolumeBGM = 0;
             SoundManager.Instance.BGMPlayer.volume = 0;
@@ -54,14 +61,14 @@ public class SettingView : MonoBehaviour
             BGM_Setting_Img.sprite = Off_Sprite;
         }
 
-        UM.IsBGMOn = !UM.IsBGMOn;
+        GM.Data.IsBGMOn = !GM.Data.IsBGMOn;
     }
 
     public void SFX_Setting_Btn_Click()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (UM.IsSFXOn == true) //#Off
+        if (GM.Data.IsSFXOn == true) //#Off
         {
             SoundManager.Instance.masterVolumeSFX = 0;
             SFX_Setting_Img.sprite = On_Sprite;
@@ -72,28 +79,40 @@ public class SettingView : MonoBehaviour
             SFX_Setting_Img.sprite = Off_Sprite;
         }
 
-        UM.IsSFXOn = !UM.IsSFXOn;
+        GM.Data.IsSFXOn = !GM.Data.IsSFXOn;
     }
 
     public void Vibration_Setting_Btn_Click()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (UM.IsVibrationOn == true)
+        if (GM.Data.IsVibrationOn == true)
         {
-            UM.IsVibrationOn = true;
+            GM.Data.IsVibrationOn = true;
             Vibration_Setting_Img.sprite = On_Sprite;
         }
         else
         {
-            UM.IsVibrationOn = false;
+            GM.Data.IsVibrationOn = false;
             Vibration_Setting_Img.sprite = Off_Sprite;
         }
 
-        UM.IsVibrationOn = !UM.IsVibrationOn;
+        GM.Data.IsVibrationOn = !GM.Data.IsVibrationOn;
     }
 
     public void GoogleLogin_Btn_Click()
     {
+        //#현재 기기와 연결된 계정이 인증이 아직 안됬는가?
+        if(Social.localUser.authenticated == false)
+        {
+            Social.localUser.Authenticate((bool IsSuccess) =>
+            {
+                if (IsSuccess == true)
+                {
+                    Debug.Log("로그인 완료");
+                    Google_Btn.SetActive(false);
+                }
+            });
+        }
     }
 }

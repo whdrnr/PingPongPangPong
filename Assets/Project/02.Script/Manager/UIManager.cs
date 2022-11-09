@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 using DG.Tweening;
 using TMPro;
 
@@ -23,11 +24,6 @@ public class UIManager : Singleton<UIManager>
      [Header("Main-Panel의Txt 관련 참조")]
     public TextMeshProUGUI BeforeWave_Txt;
     public TextMeshProUGUI MaxWave_Txt;
-
-    [Header("설정 bool 참조")]
-    public bool IsBGMOn = true;
-    public bool IsSFXOn = true;
-    public bool IsVibrationOn = true;
 
     GameManager GM;
 
@@ -77,14 +73,24 @@ public class UIManager : Singleton<UIManager>
 
     public void RewardAd_Btn() => AdmobManager.Instance.ShowGameOverRewardAd();
 
+    public void LeaderBoardOn_Btn()
+    {
+        if (Social.localUser.authenticated == true)
+        {
+            Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
+
+            Social.ShowLeaderboardUI();
+        }
+    }
+
     public void GmaeOver_Btn()
     {
         //#UI On/Off
         FadeUI(0, 1, false, true);
 
         //#Text 상호작용
-        BeforeWave_Txt.text = GM.BeforeWave.ToString();
-        MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
+        BeforeWave_Txt.text = GM.Data.BeforeWave.ToString();
+        MaxWave_Txt.text = "High Point " + GM.Data.MaxWave.ToString();
 
         //#BGM 재생
         SoundManager.Instance.PlayBGM("BG1", 1);

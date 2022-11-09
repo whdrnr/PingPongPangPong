@@ -7,9 +7,6 @@ using System;
 
 public class AdmobManager : Singleton<AdmobManager>
 {
-    public bool isTestMode;
-    public Text LogText;
-
     void Start()
     {
         RequestConfiguration requestConfiguration = new RequestConfiguration.Builder()
