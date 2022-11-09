@@ -62,23 +62,36 @@ public class AdmobManager : Singleton<AdmobManager>
     #region #리워드 광고
     const string RewardID = "ca-app-pub-2384053122441182/8016045296";
     RewardedAd GameOverRewardAd;
+    RewardedAd SkinRewardAd;
 
     void LoadRewardAd()
     {
         GameOverRewardAd = new RewardedAd(RewardID);
-        RewardAdHandle(GameOverRewardAd);
+        SkinRewardAd = new RewardedAd(RewardID);
+
+        RewardAdHandle();
+
         GameOverRewardAd.LoadAd(GetAdRequest());
+        SkinRewardAd.LoadAd(GetAdRequest());
     }
 
-    void RewardAdHandle(RewardedAd _RewardedAd)
+    void RewardAdHandle()
     {
-        _RewardedAd.OnAdClosed += HandleOnAdClosed;
-        _RewardedAd.OnUserEarnedReward += HandleOnUserEarnedReward;
+        GameOverRewardAd.OnAdClosed += HandleOnAdClosed;
+        GameOverRewardAd.OnUserEarnedReward += HandleOnUserEarnedGameOverReward;
+
+        SkinRewardAd.OnUserEarnedReward += HandleOnUserEarnedSkinReward;
     }
 
-    public void ShowRewardAd()
+    public void ShowGameOverRewardAd()
     {
         GameOverRewardAd.Show();
+        LoadRewardAd();
+    }
+
+    public void ShowSkinRewardAd()
+    {
+        SkinRewardAd.Show();
         LoadRewardAd();
     }
 
@@ -89,10 +102,10 @@ public class AdmobManager : Singleton<AdmobManager>
     }
 
     //#광고를 끝까지 시청하였을 때
-    public void HandleOnUserEarnedReward(object sencer, Reward args)
+    public void HandleOnUserEarnedGameOverReward(object sencer, Reward args) => GameManager.Instance.ReStartBall();
+
+    public void HandleOnUserEarnedSkinReward(object sencer, Reward args)
     {
-        if(GameManager.Instance.IsGame == true)
-            GameManager.Instance.ReStartBall();
     }
     #endregion
 }

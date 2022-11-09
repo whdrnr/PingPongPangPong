@@ -199,6 +199,8 @@ public class GameManager : Singleton<GameManager>
             yield return new WaitForFixedUpdate();
         }
 
+        AdmobManager.Instance.ShowFrontAd();
+        UIManager.Instance.GmaeOver_Btn();
         CurDieTime = MaxDieTime;
     }
 

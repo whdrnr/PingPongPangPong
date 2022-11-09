@@ -79,7 +79,7 @@ public class ShopView : MonoBehaviour
             //#AD Skin
             if(Pongs[_Num].IsAdSkin == true)
             {
-                AdmobManager.Instance.ShowRewardAd();
+                AdmobManager.Instance.ShowSkinRewardAd();
                 Pongs[_Num].AdNum++;
                 Pongs[_Num].AdNum_Txt.text = Pongs[_Num].AdNum.ToString() + "/3";
 
@@ -87,7 +87,6 @@ public class ShopView : MonoBehaviour
                 {
                     Debug.Log("스킨 해제");
                     SkinClear(_Num);
-                    HaveSkinNum();
                 }
             }
         }
@@ -155,8 +154,6 @@ public class ShopView : MonoBehaviour
         //#오렌지
         if (_Wave >= OrangeClearWave)
             SkinClear(13);
-
-        HaveSkinNum();
     }
 
     //#Wave따라 상호작용을 한다.
@@ -165,6 +162,8 @@ public class ShopView : MonoBehaviour
         Pongs[_Num].SkinPong_Img.enabled = true;
         Pongs[_Num].Lock_Img.SetActive(false);
         Pongs[_Num].IsSelect = true;
+
+        HaveSkinNum();
     }
 
     //#자신어 몇개의 Skin을 가지고 있는지 확인한다.
@@ -177,9 +176,20 @@ public class ShopView : MonoBehaviour
             if(Pongs[i].IsSelect == true)
             {
                 SkinNum++;
-                SkinHave_Txt.text = SkinNum.ToString() + "/13";
+                SkinHave_Txt.text = SkinNum.ToString() + "/15";
             }
         }
+    }
+
+    public void CatSkinPurchaseComplete()
+    {
+        Debug.Log("구매 성공");
+        SkinClear(14);
+    }
+
+    public void CatSkinRemovePurchaseFail()
+    {
+        Debug.Log("구매 실패");
     }
 }
 

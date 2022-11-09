@@ -75,7 +75,7 @@ public class UIManager : Singleton<UIManager>
 
     public void PlayGame_Btn() => StartCoroutine(IGameStart());
 
-    public void RewardAd_Btn() => AdmobManager.Instance.ShowRewardAd();
+    public void RewardAd_Btn() => AdmobManager.Instance.ShowGameOverRewardAd();
 
     public void GmaeOver_Btn()
     {
