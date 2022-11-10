@@ -31,9 +31,7 @@ public class JsonManager : Singleton<JsonManager>
             GameManager.Instance.Data = JsonUtility.FromJson<Data>(FromJsonData);
         }
         else
-        {
             GameManager.Instance.Data = new Data();
-        }
     }
 
     [ContextMenu("Save")]

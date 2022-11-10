@@ -2,7 +2,7 @@
     "MaxWave": 4,
     "BeforeWave": 4,
     "IsBGMOn": true,
-    "IsSFXOn": true,
+    "IsSFXOn": false,
     "IsVibrationOn": false,
     "Pongs": [
         {

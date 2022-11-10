@@ -198,4 +198,3 @@ public class ShopView : MonoBehaviour
     //#구매를 실패했을 때
     public void CatSkinRemovePurchaseFail() => Debug.Log("구매 실패");
 }
-

@@ -71,7 +71,11 @@ public class UIManager : Singleton<UIManager>
 
     public void PlayGame_Btn() => StartCoroutine(IGameStart());
 
-    public void RewardAd_Btn() => AdmobManager.Instance.ShowGameOverRewardAd();
+    public void RewardAd_Btn()
+    {
+        GM.IsCountDown = false;
+        AdmobManager.Instance.ShowGameOverRewardAd();
+    }
 
     public void LeaderBoardOn_Btn()
     {
@@ -97,6 +101,7 @@ public class UIManager : Singleton<UIManager>
 
         GM.gameOverDelegate();
         GM.IsAdSee = false;
+        GM.IsCountDown = false;
 
         AD_Panel.SetActive(false);
         Die_Panel.SetActive(false);

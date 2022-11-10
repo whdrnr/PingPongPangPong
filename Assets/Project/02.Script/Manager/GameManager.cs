@@ -42,6 +42,7 @@ public class GameManager : Singleton<GameManager>
     public bool IsGame; //#현재 게임중인지
     public bool IsPause; //#게임중에 일시정지 상태인지
     public bool IsAdSee; //#죽은 뒤에 광고를 시청하였는지
+    public bool IsCountDown;
 
     [Header("죽엇을 떄 관련 참조")]
     public Image CountBar_Img;
@@ -195,16 +196,17 @@ public class GameManager : Singleton<GameManager>
     public IEnumerator IEDieCountTime()
     {
         CurDieTime = MaxDieTime;
+        IsCountDown = true;
 
-        while(CurDieTime > 0)
+        while(CurDieTime > 0 && IsCountDown == true)
         {
             CurDieTime -= Time.deltaTime;
             CountBar_Img.fillAmount = CurDieTime / MaxDieTime;
 
-            yield return new WaitForFixedUpdate();
+            yield return null;
         }
 
-        if(UIManager.Instance.Lobby_CG.alpha == 0 && IsAdSee == false)
+        if(IsCountDown == true)
             UIManager.Instance.GmaeOver_Btn();
 
         CurDieTime = MaxDieTime;
@@ -245,7 +247,13 @@ public class GameManager : Singleton<GameManager>
     void OnApplicationQuit()
     {
         JsonManager.Instance.SaveGameData();
-    } 
+    }
+
+    void OnApplicationPause(bool _Pause)
+    {
+        if(_Pause == true)
+            OnApplicationQuit();
+    }
 }
 
 [System.Serializable]
