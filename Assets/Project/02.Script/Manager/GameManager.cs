@@ -119,11 +119,10 @@ public class GameManager : Singleton<GameManager>
     public void WaveBG(int _CurWave)
     {
         //#검은 산
-        if(_CurWave >= Waves[0].ChangeWave && _CurWave <= Waves[1].ChangeWave)
+        if (_CurWave >= Waves[0].ChangeWave && _CurWave <= Waves[1].ChangeWave)
         {
             BG_SR.sprite = Waves[0].BG_Sprite;
             Speed = Waves[0].PongSpeed;
-            SoundManager.Instance.PlayBGM("BG1", 1);
         }
 
         //#가시 덤블
@@ -131,7 +130,9 @@ public class GameManager : Singleton<GameManager>
         {
             BG_SR.sprite = Waves[1].BG_Sprite;
             Speed = Waves[1].PongSpeed;
-            SoundManager.Instance.PlayBGM("BG2", 1);
+
+            if (SoundManager.Instance.BGMPlayer.clip.name != "BG2")
+                SoundManager.Instance.PlayBGM("BG2", 1);
         }
 
         //#사막
@@ -139,7 +140,9 @@ public class GameManager : Singleton<GameManager>
         {
             BG_SR.sprite = Waves[2].BG_Sprite;
             Speed = Waves[2].PongSpeed;
-            SoundManager.Instance.PlayBGM("BG3", 1);
+
+            if (SoundManager.Instance.BGMPlayer.clip.name != "BG3")
+                SoundManager.Instance.PlayBGM("BG3", 1);
         }
 
         //#늪지
@@ -147,7 +150,9 @@ public class GameManager : Singleton<GameManager>
         {
             BG_SR.sprite = Waves[3].BG_Sprite;
             Speed = Waves[3].PongSpeed;
-            SoundManager.Instance.PlayBGM("BG4", 1);
+
+            if (SoundManager.Instance.BGMPlayer.clip.name != "BG4")
+                SoundManager.Instance.PlayBGM("BG4", 1);
         }
     }
 
@@ -175,7 +180,7 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
 
-        if (IsAdSee == false && CurWave >= 1) //#부활 광고 안보았다면
+        if (IsAdSee == false && CurWave >= 5) //#부활 광고 안보았다면
         {
             UIManager.Instance.AD_Panel.SetActive(true);
             StartCoroutine(IEDieCountTime());
@@ -198,9 +203,10 @@ public class GameManager : Singleton<GameManager>
 
             yield return new WaitForFixedUpdate();
         }
-        
-        AdmobManager.Instance.ShowFrontAd();
-        UIManager.Instance.GmaeOver_Btn();
+
+        if(UIManager.Instance.Lobby_CG.alpha == 0 && IsAdSee == false)
+            UIManager.Instance.GmaeOver_Btn();
+
         CurDieTime = MaxDieTime;
     }
 
@@ -239,7 +245,7 @@ public class GameManager : Singleton<GameManager>
     void OnApplicationQuit()
     {
         JsonManager.Instance.SaveGameData();
-    }
+    } 
 }
 
 [System.Serializable]

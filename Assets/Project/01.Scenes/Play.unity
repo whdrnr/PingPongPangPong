@@ -27510,19 +27510,19 @@ MonoBehaviour:
   Init_Pos: {fileID: 2092076108}
   Speed: 3
   Waves:
-  - Name: "\uAC80\uC740 \uC0B0 "
+  - Name: BG1
     ChangeWave: 0
     PongSpeed: 3
     BG_Sprite: {fileID: 21300000, guid: 8426fdf478393d4448decfdb1a50e9e1, type: 3}
-  - Name: "\uAC00\uC2DC \uB364\uBE14 "
+  - Name: BG2
     ChangeWave: 10
     PongSpeed: 3.2
     BG_Sprite: {fileID: 21300000, guid: f4fbb225d56dde648b3c30aa7bdf5fe2, type: 3}
-  - Name: "\uC0AC\uB9C9"
+  - Name: BG3
     ChangeWave: 20
     PongSpeed: 3.4
     BG_Sprite: {fileID: 21300000, guid: 093ff6b54d0392946b7b130f0015dc72, type: 3}
-  - Name: "\uB2AA\uC9C0"
+  - Name: BG4
     ChangeWave: 30
     PongSpeed: 3.6
     BG_Sprite: {fileID: 21300000, guid: c8528150ac3b31e43b3ac4e0b7414bc5, type: 3}

@@ -1,6 +1,6 @@
 {
-    "MaxWave": 1,
-    "BeforeWave": 1,
+    "MaxWave": 4,
+    "BeforeWave": 4,
     "IsBGMOn": true,
     "IsSFXOn": true,
     "IsVibrationOn": false,
@@ -15,7 +15,7 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30220
+                "instanceID": 30224
             },
             "Lock_Img": {
                 "instanceID": 0
@@ -31,16 +31,16 @@
             "IsAdSkin": true,
             "AdNum": 0,
             "AdNum_Txt": {
-                "instanceID": -30096
+                "instanceID": 29614
             },
             "Skin_Spirte": {
-                "instanceID": 30224
+                "instanceID": 30226
             },
             "Lock_Img": {
-                "instanceID": 54538
+                "instanceID": 28854
             },
             "SkinPong_Img": {
-                "instanceID": 55732
+                "instanceID": 30062
             }
         },
         {
@@ -50,16 +50,16 @@
             "IsAdSkin": true,
             "AdNum": 0,
             "AdNum_Txt": {
-                "instanceID": 55322
+                "instanceID": 29652
             },
             "Skin_Spirte": {
-                "instanceID": 30210
+                "instanceID": 30228
             },
             "Lock_Img": {
-                "instanceID": 54754
+                "instanceID": 29070
             },
             "SkinPong_Img": {
-                "instanceID": 55178
+                "instanceID": 29494
             }
         },
         {
@@ -72,13 +72,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30226
+                "instanceID": 30230
             },
             "Lock_Img": {
-                "instanceID": 54892
+                "instanceID": 29208
             },
             "SkinPong_Img": {
-                "instanceID": 55536
+                "instanceID": 29866
             }
         },
         {
@@ -91,13 +91,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30228
+                "instanceID": 30232
             },
             "Lock_Img": {
-                "instanceID": 55096
+                "instanceID": 29412
             },
             "SkinPong_Img": {
-                "instanceID": 55654
+                "instanceID": 29984
             }
         },
         {
@@ -110,13 +110,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30174
+                "instanceID": 30192
             },
             "Lock_Img": {
-                "instanceID": 55486
+                "instanceID": 29816
             },
             "SkinPong_Img": {
-                "instanceID": 54666
+                "instanceID": 28982
             }
         },
         {
@@ -129,13 +129,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30168
+                "instanceID": 30186
             },
             "Lock_Img": {
-                "instanceID": 54654
+                "instanceID": 28970
             },
             "SkinPong_Img": {
-                "instanceID": 54606
+                "instanceID": 28922
             }
         },
         {
@@ -148,13 +148,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30160
+                "instanceID": 30178
             },
             "Lock_Img": {
-                "instanceID": 54554
+                "instanceID": 28870
             },
             "SkinPong_Img": {
-                "instanceID": 54508
+                "instanceID": 28824
             }
         },
         {
@@ -167,13 +167,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30176
+                "instanceID": 30194
             },
             "Lock_Img": {
-                "instanceID": 55166
+                "instanceID": 29482
             },
             "SkinPong_Img": {
-                "instanceID": 54798
+                "instanceID": 29114
             }
         },
         {
@@ -186,13 +186,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30230
+                "instanceID": 30234
             },
             "Lock_Img": {
-                "instanceID": 55618
+                "instanceID": 29948
             },
             "SkinPong_Img": {
-                "instanceID": 55544
+                "instanceID": 29874
             }
         },
         {
@@ -205,13 +205,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30232
+                "instanceID": 30236
             },
             "Lock_Img": {
-                "instanceID": 55266
+                "instanceID": 29582
             },
             "SkinPong_Img": {
-                "instanceID": 55614
+                "instanceID": 29944
             }
         },
         {
@@ -224,13 +224,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30170
+                "instanceID": 30188
             },
             "Lock_Img": {
-                "instanceID": 54852
+                "instanceID": 29168
             },
             "SkinPong_Img": {
-                "instanceID": 54614
+                "instanceID": 28930
             }
         },
         {
@@ -243,13 +243,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30164
+                "instanceID": 30182
             },
             "Lock_Img": {
-                "instanceID": 54578
+                "instanceID": 28894
             },
             "SkinPong_Img": {
-                "instanceID": 54550
+                "instanceID": 28866
             }
         },
         {
@@ -262,13 +262,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30234
+                "instanceID": 30238
             },
             "Lock_Img": {
-                "instanceID": 54810
+                "instanceID": 29126
             },
             "SkinPong_Img": {
-                "instanceID": 55506
+                "instanceID": 29836
             }
         },
         {
@@ -281,13 +281,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30236
+                "instanceID": 30240
             },
             "Lock_Img": {
-                "instanceID": 55786
+                "instanceID": 30116
             },
             "SkinPong_Img": {
-                "instanceID": 55442
+                "instanceID": 29772
             }
         },
         {
@@ -300,13 +300,13 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 30238
+                "instanceID": 30242
             },
             "Lock_Img": {
-                "instanceID": 55112
+                "instanceID": 29428
             },
             "SkinPong_Img": {
-                "instanceID": 55704
+                "instanceID": 30034
             }
         }
     ]
