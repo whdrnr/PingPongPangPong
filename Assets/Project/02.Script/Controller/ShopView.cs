@@ -187,7 +187,7 @@ public class ShopView : MonoBehaviour
             if(GM.Data.Pongs[i].IsSelect == true)
             {
                 SkinNum++;
-                SkinHave_Txt.text = SkinNum.ToString() + "/15";
+                SkinHave_Txt.text = SkinNum.ToString() + "/16";
             }
         }
     }

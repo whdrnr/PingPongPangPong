@@ -37,6 +37,8 @@ public class AdmobManager : Singleton<AdmobManager>
         bannerAd = new BannerView(bannerID, adSize, AdPosition.Bottom);
         bannerAd.LoadAd(GetAdRequest());
     }
+
+    public void HideBannerAd() => bannerAd.Hide();
     #endregion
 
     #region #Àü¸é ±¤°í
@@ -51,8 +53,8 @@ public class AdmobManager : Singleton<AdmobManager>
 
     public void ShowFrontAd()
     {
-        frontAd.Show();
-        LoadFrontAd();
+        if(GameManager.Instance.IsAdParchase == false)
+            frontAd.Show();
     }
     #endregion
 

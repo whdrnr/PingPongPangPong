@@ -15,6 +15,6 @@ public class TitleLogo : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        SceneManager.LoadScene("Play");
+        AsyncOperation op = SceneManager.LoadSceneAsync("Play");
     }
 }

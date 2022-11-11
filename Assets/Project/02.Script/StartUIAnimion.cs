@@ -14,12 +14,22 @@ public class StartUIAnimion : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(StartUI());
+    }
+
+    IEnumerator StartUI()
+    {
         Lobby_CG.DOFade(1, AnimationCurve.length);
 
-        for(int i =0; i < ChangeObj.Count; i++)
+        for (int i = 0; i < ChangeObj.Count; i++)
         {
-            ChangeObj[i].transform.DORotate(new Vector3(0,0, 360), AnimationCurve.length, 
+            ChangeObj[i].transform.DORotate(new Vector3(0, 0, 360), AnimationCurve.length,
                 RotateMode.FastBeyond360);
         }
+
+        yield return new WaitForSeconds(AnimationCurve.length);
+
+        //#Start Btn Acive
+        Lobby_CG.blocksRaycasts = true;
     }
 }

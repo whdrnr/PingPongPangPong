@@ -42,6 +42,7 @@ public class GameManager : Singleton<GameManager>
     public bool IsGame; //#현재 게임중인지
     public bool IsPause; //#게임중에 일시정지 상태인지
     public bool IsAdSee; //#죽은 뒤에 광고를 시청하였는지
+    public bool IsAdParchase; //#광고를 구매하였는지
     public bool IsCountDown;
 
     [Header("죽엇을 떄 관련 참조")]
@@ -50,6 +51,8 @@ public class GameManager : Singleton<GameManager>
     public float CurDieTime;
 
     public Data Data;
+
+    public int ClickBackCount = 0;
 
     void Start()
     {
@@ -65,7 +68,31 @@ public class GameManager : Singleton<GameManager>
 
         //#배경음
         SoundManager.Instance.PlayBGM("BG1", 1);
-    }   
+    }
+
+    void Update()
+    {
+        //#돌아가기 두번 클릭시 게임이 종료된다.
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                ClickBackCount++;
+                if (!IsInvoking("ResetDoubleClick"))
+                    Invoke("ResetDoubleClick", 1.0f);
+
+            }
+            else if (ClickBackCount == 2)
+            {
+                CancelInvoke("ResetDoubleClick");
+                ResetDoubleClick();
+                JsonManager.Instance.SaveGameData();
+                Application.Quit();
+            }
+        }
+    }
+
+    void ResetDoubleClick()  => ClickBackCount = 0;
 
     void ObjectSetting()
     {
