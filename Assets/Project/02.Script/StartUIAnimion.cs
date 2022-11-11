@@ -11,6 +11,8 @@ public class StartUIAnimion : MonoBehaviour
     [Header("Object 관련 참조")]
     public CanvasGroup Lobby_CG;
     public List<GameObject> ChangeObj = new List<GameObject>();
+    public GameObject TeamLogo_Cvs;
+    public Image TitleLogo_Img;
 
     void Start()
     {
@@ -19,6 +21,12 @@ public class StartUIAnimion : MonoBehaviour
 
     IEnumerator StartUI()
     {
+        TitleLogo_Img.DOFade(1, 1);
+
+        yield return new WaitForSeconds(1f);
+
+        TeamLogo_Cvs.SetActive(false);
+
         Lobby_CG.DOFade(1, AnimationCurve.length);
 
         for (int i = 0; i < ChangeObj.Count; i++)

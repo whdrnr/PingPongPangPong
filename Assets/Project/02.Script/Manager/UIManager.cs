@@ -63,6 +63,7 @@ public class UIManager : Singleton<UIManager>
     {
         Debug.Log("구매 성공");
         GameManager.Instance.IsAdParchase = true;
+        AdmobManager.Instance.HideBannerAd();
     }
 
     public void AdRemovePurchaseFail()
@@ -75,7 +76,11 @@ public class UIManager : Singleton<UIManager>
     public void RewardAd_Btn()
     {
         GM.IsCountDown = false;
-        AdmobManager.Instance.ShowGameOverRewardAd();
+
+        if (GM.IsAdParchase == false)
+            AdmobManager.Instance.ShowGameOverRewardAd();
+        else
+            GM.ReStartBall();
     }
 
     public void LeaderBoardOn_Btn()

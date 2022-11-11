@@ -101,7 +101,10 @@ public class AdmobManager : Singleton<AdmobManager>
     }
 
     //#광고를 끝까지 시청하였을 때
-    public void HandleOnUserEarnedGameOverReward(object sencer, Reward args) => GameManager.Instance.ReStartBall();
+    public void HandleOnUserEarnedGameOverReward(object sencer, Reward args)
+    {
+        GameManager.Instance.ReStartBall();
+    }
 
     public void HandleOnUserEarnedSkinReward(object sencer, Reward args)
     {

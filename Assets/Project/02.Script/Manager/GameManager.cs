@@ -52,7 +52,7 @@ public class GameManager : Singleton<GameManager>
 
     public Data Data;
 
-    public int ClickBackCount = 0;
+    int ClickBackCount = 0;
 
     void Start()
     {
@@ -210,7 +210,7 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
 
-        if (IsAdSee == false && CurWave >= 5) //#부활 광고 안보았다면
+        if (IsAdSee == false && CurWave >= 1) //#부활 광고 안보았다면
         {
             UIManager.Instance.AD_Panel.SetActive(true);
             StartCoroutine(IEDieCountTime());
