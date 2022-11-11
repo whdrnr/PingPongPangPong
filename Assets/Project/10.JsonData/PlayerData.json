@@ -3,29 +3,86 @@
     "BeforeWave": 0,
     "IsBGMOn": true,
     "IsSFXOn": true,
-    "IsVibrationOn": true,
+    "IsVibrationOn": false,
     "Pongs": [
         {
-            "Name": "",
-            "IsSelect": false,
-            "IsUse": false,
+            "Name": "Normal",
+            "IsSelect": true,
+            "IsUse": true,
             "IsAdSkin": false,
             "AdNum": 0,
             "AdNum_Txt": {
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 0
+                "instanceID": 30244
             },
             "Lock_Img": {
                 "instanceID": 0
             },
             "SkinPong_Img": {
-                "instanceID": 0
+                "instanceID": 29702
             }
         },
         {
-            "Name": "",
+            "Name": "CheezePong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": true,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 29614
+            },
+            "Skin_Spirte": {
+                "instanceID": 30300
+            },
+            "Lock_Img": {
+                "instanceID": 28854
+            },
+            "SkinPong_Img": {
+                "instanceID": 30070
+            }
+        },
+        {
+            "Name": "JellyPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": true,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 29652
+            },
+            "Skin_Spirte": {
+                "instanceID": 30234
+            },
+            "Lock_Img": {
+                "instanceID": 29070
+            },
+            "SkinPong_Img": {
+                "instanceID": 29494
+            }
+        },
+        {
+            "Name": "FriedEggPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": true,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 29094
+            },
+            "Skin_Spirte": {
+                "instanceID": 30298
+            },
+            "Lock_Img": {
+                "instanceID": 30054
+            },
+            "SkinPong_Img": {
+                "instanceID": 30034
+            }
+        },
+        {
+            "Name": "SpiralPong",
             "IsSelect": false,
             "IsUse": false,
             "IsAdSkin": false,
@@ -34,13 +91,222 @@
                 "instanceID": 0
             },
             "Skin_Spirte": {
-                "instanceID": 0
+                "instanceID": 30288
             },
             "Lock_Img": {
-                "instanceID": 0
+                "instanceID": 29216
             },
             "SkinPong_Img": {
+                "instanceID": 30034
+            }
+        },
+        {
+            "Name": "ZebraPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
                 "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30294
+            },
+            "Lock_Img": {
+                "instanceID": 29420
+            },
+            "SkinPong_Img": {
+                "instanceID": 29984
+            }
+        },
+        {
+            "Name": "LeopardPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30200
+            },
+            "Lock_Img": {
+                "instanceID": 29816
+            },
+            "SkinPong_Img": {
+                "instanceID": 28982
+            }
+        },
+        {
+            "Name": "CookiePong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30194
+            },
+            "Lock_Img": {
+                "instanceID": 28970
+            },
+            "SkinPong_Img": {
+                "instanceID": 28922
+            }
+        },
+        {
+            "Name": "BasketballPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30186
+            },
+            "Lock_Img": {
+                "instanceID": 28870
+            },
+            "SkinPong_Img": {
+                "instanceID": 28824
+            }
+        },
+        {
+            "Name": "PearlPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30202
+            },
+            "Lock_Img": {
+                "instanceID": 29482
+            },
+            "SkinPong_Img": {
+                "instanceID": 29122
+            }
+        },
+        {
+            "Name": "DonutPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30290
+            },
+            "Lock_Img": {
+                "instanceID": 29948
+            },
+            "SkinPong_Img": {
+                "instanceID": 29874
+            }
+        },
+        {
+            "Name": "CoinPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30292
+            },
+            "Lock_Img": {
+                "instanceID": 29582
+            },
+            "SkinPong_Img": {
+                "instanceID": 29944
+            }
+        },
+        {
+            "Name": "WafflePong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30196
+            },
+            "Lock_Img": {
+                "instanceID": 29176
+            },
+            "SkinPong_Img": {
+                "instanceID": 28930
+            }
+        },
+        {
+            "Name": "MarsPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30190
+            },
+            "Lock_Img": {
+                "instanceID": 28894
+            },
+            "SkinPong_Img": {
+                "instanceID": 28866
+            }
+        },
+        {
+            "Name": "OrangePong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30286
+            },
+            "Lock_Img": {
+                "instanceID": 29134
+            },
+            "SkinPong_Img": {
+                "instanceID": 29836
+            }
+        },
+        {
+            "Name": "CatPong",
+            "IsSelect": false,
+            "IsUse": false,
+            "IsAdSkin": false,
+            "AdNum": 0,
+            "AdNum_Txt": {
+                "instanceID": 0
+            },
+            "Skin_Spirte": {
+                "instanceID": 30280
+            },
+            "Lock_Img": {
+                "instanceID": 30124
+            },
+            "SkinPong_Img": {
+                "instanceID": 29772
             }
         }
     ]

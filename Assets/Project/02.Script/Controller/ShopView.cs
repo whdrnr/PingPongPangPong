@@ -114,47 +114,47 @@ public class ShopView : MonoBehaviour
 
         //#나선환
         if (_Wave >= SpiralClearWave)
-            SkinClear(3);
+            SkinClear(4);
 
         //#얼룩말
         if (_Wave >= ZebraClearWave)
-            SkinClear(4);
+            SkinClear(5);
 
         //#표범
         if (_Wave >= LeopardClearWave)
-            SkinClear(5);
+            SkinClear(6);
 
         //#쿠키
         if (_Wave >= CookieClearWave)
-            SkinClear(6);
+            SkinClear(7);
 
         //#농구공
         if (_Wave >= BasketballClearWave)
-            SkinClear(7);
+            SkinClear(8);
 
         //#펄
         if (_Wave >= PearlClearWave)
-            SkinClear(8);
+            SkinClear(9);
 
         //#도넛
         if (_Wave >= DonutlClearWave)
-            SkinClear(9);
+            SkinClear(10);
 
         //#코인
         if (_Wave >= CoinClearWave)
-            SkinClear(10);
+            SkinClear(11);
 
         //#와플
         if (_Wave >= WafflelClearWave)
-            SkinClear(11);
+            SkinClear(12);
 
         //#화성
         if (_Wave >= MarsClearWave)
-            SkinClear(12);
+            SkinClear(13);
 
         //#오렌지
         if (_Wave >= OrangeClearWave)
-            SkinClear(13);
+            SkinClear(14);
     }
 
     //#Wave따라 상호작용을 한다.

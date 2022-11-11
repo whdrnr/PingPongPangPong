@@ -7066,8 +7066,8 @@ RectTransform:
   m_Father: {fileID: 2028199324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.13043481}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27677,26 +27677,152 @@ MonoBehaviour:
     BeforeWave: 0
     IsBGMOn: 1
     IsSFXOn: 1
-    IsVibrationOn: 1
+    IsVibrationOn: 0
     Pongs:
-    - Name: 
+    - Name: Normal
+      IsSelect: 1
+      IsUse: 1
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 27ab0b341022ded49b1d8157af8d24bf, type: 3}
+      Lock_Img: {fileID: 0}
+      SkinPong_Img: {fileID: 1421965009}
+    - Name: CheezePong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 1
+      AdNum: 0
+      AdNum_Txt: {fileID: 1319565444}
+      Skin_Spirte: {fileID: 21300000, guid: df173c4ac10f48c438da3d8817255aba, type: 3}
+      Lock_Img: {fileID: 148269654}
+      SkinPong_Img: {fileID: 2039149585}
+    - Name: JellyPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 1
+      AdNum: 0
+      AdNum_Txt: {fileID: 1365873139}
+      Skin_Spirte: {fileID: 21300000, guid: 589f354ee69ed1245a12b2116da099f0, type: 3}
+      Lock_Img: {fileID: 491786786}
+      SkinPong_Img: {fileID: 1152355738}
+    - Name: FriedEggPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 1
+      AdNum: 0
+      AdNum_Txt: {fileID: 551022988}
+      Skin_Spirte: {fileID: 21300000, guid: 01e7c86c3e4259d4ea275b2a1ba5c39b, type: 3}
+      Lock_Img: {fileID: 2005734470}
+      SkinPong_Img: {fileID: 1974802379}
+    - Name: SpiralPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       AdNum: 0
       AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 0}
-      Lock_Img: {fileID: 0}
-      SkinPong_Img: {fileID: 0}
-    - Name: 
+      Skin_Spirte: {fileID: 21300000, guid: f2dc4145d3d30be42b7e47f0c18271c0, type: 3}
+      Lock_Img: {fileID: 716242698}
+      SkinPong_Img: {fileID: 1974802379}
+    - Name: ZebraPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       AdNum: 0
       AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 0}
-      Lock_Img: {fileID: 0}
-      SkinPong_Img: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 09c0970ea102b6147b9237b7a2b25fb4, type: 3}
+      Lock_Img: {fileID: 1033321185}
+      SkinPong_Img: {fileID: 1907624571}
+    - Name: LeopardPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 9de20b9bf1f9cba479a87bf1cfe9e7ae, type: 3}
+      Lock_Img: {fileID: 1644180217}
+      SkinPong_Img: {fileID: 369907673}
+    - Name: CookiePong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 5c6d56f51fa26ff4a841bd3187deaa31, type: 3}
+      Lock_Img: {fileID: 366534216}
+      SkinPong_Img: {fileID: 308850968}
+    - Name: BasketballPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 2bc7f178dffa170498b8540a73f8c4f1, type: 3}
+      Lock_Img: {fileID: 184308200}
+      SkinPong_Img: {fileID: 59086773}
+    - Name: PearlPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: e4c166ad7a5ff614b87c643016b9a472, type: 3}
+      Lock_Img: {fileID: 1125477022}
+      SkinPong_Img: {fileID: 573993764}
+    - Name: DonutPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: a94123e6be2acaa48b795e05135ab7bd, type: 3}
+      Lock_Img: {fileID: 1820641779}
+      SkinPong_Img: {fileID: 1739952365}
+    - Name: CoinPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 9b4b6281f09748b44a92336140134253, type: 3}
+      Lock_Img: {fileID: 1306798093}
+      SkinPong_Img: {fileID: 1817497266}
+    - Name: WafflePong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: 1b98db47c96a651499753d77b3296b00, type: 3}
+      Lock_Img: {fileID: 687263075}
+      SkinPong_Img: {fileID: 312315155}
+    - Name: MarsPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: d5a5158fd9caff2429776939031972c3, type: 3}
+      Lock_Img: {fileID: 217955477}
+      SkinPong_Img: {fileID: 148838713}
+    - Name: OrangePong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: c735ca9706d714042bd4b5364524e47c, type: 3}
+      Lock_Img: {fileID: 622946042}
+      SkinPong_Img: {fileID: 1666565134}
+    - Name: CatPong
+      IsSelect: 0
+      IsUse: 0
+      IsAdSkin: 0
+      AdNum: 0
+      AdNum_Txt: {fileID: 0}
+      Skin_Spirte: {fileID: 21300000, guid: cd2ad315ff340a44ca8906d95cdcbbc3, type: 3}
+      Lock_Img: {fileID: 2139990463}
+      SkinPong_Img: {fileID: 1563400885}
   ClickBackCount: 0
 --- !u!4 &1012569694
 Transform:
@@ -36535,7 +36661,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1453397145
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36631,7 +36757,7 @@ MonoBehaviour:
   SkinNum: 0
   Select_Sprite: {fileID: 21300000, guid: c24a6d698c52af7468b4baccba4bf804, type: 3}
   NonSelect_Sprite: {fileID: 21300000, guid: 82ae39a754d97ef48896efb98cbca86c, type: 3}
-  SpiralClearWave: 10
+  SpiralClearWave: 2
   ZebraClearWave: 15
   LeopardClearWave: 20
   CookieClearWave: 25

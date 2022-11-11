@@ -75,8 +75,10 @@ public class GameManager : Singleton<GameManager>
         //#돌아가기 두번 클릭시 게임이 종료된다.
         if (Application.platform == RuntimePlatform.Android)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKey(KeyCode.Escape))
             {
+                Debug.Log("1");
+
                 ClickBackCount++;
                 if (!IsInvoking("ResetDoubleClick"))
                     Invoke("ResetDoubleClick", 1.0f);
@@ -274,12 +276,6 @@ public class GameManager : Singleton<GameManager>
     void OnApplicationQuit()
     {
         JsonManager.Instance.SaveGameData();
-    }
-
-    void OnApplicationPause(bool _Pause)
-    {
-        if(_Pause == true)
-            OnApplicationQuit();
     }
 }
 
