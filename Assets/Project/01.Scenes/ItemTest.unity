@@ -274,8 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc291f7502ebf147bd92a9a94588074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Durability: 4
+  PongNum: 0
   IsDestroy: 0
+  Durability: 4
+  MaxDurability: 7
   Durability_Txt: {fileID: 1185394743}
 --- !u!50 &1093442734
 Rigidbody2D:
@@ -1029,8 +1031,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc291f7502ebf147bd92a9a94588074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Durability: 4
+  PongNum: 0
   IsDestroy: 0
+  Durability: 4
+  MaxDurability: 7
   Durability_Txt: {fileID: 1133023384}
 --- !u!50 &1473720156
 Rigidbody2D:
@@ -1264,8 +1268,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc291f7502ebf147bd92a9a94588074, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Durability: 4
+  PongNum: 0
   IsDestroy: 0
+  Durability: 4
+  MaxDurability: 7
   Durability_Txt: {fileID: 2105353946}
 --- !u!50 &1810880324
 Rigidbody2D:
@@ -1578,7 +1584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871683513519782927}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0.199, y: -0.993, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

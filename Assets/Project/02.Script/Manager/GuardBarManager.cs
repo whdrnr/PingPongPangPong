@@ -28,6 +28,9 @@ public class GuardBarManager : Singleton<GuardBarManager>
         GameManager.Instance.waveClearDelegate += ResetAngle;
         GameManager.Instance.waveClearDelegate += ResetDamgerAngle;
 
+        GameManager.Instance.gameReStartDelegate += ResetAngle;
+        GameManager.Instance.gameReStartDelegate += ResetDamgerAngle;
+
         GameManager.Instance.gameStartDelegate += StartDangerPos;
     }
 

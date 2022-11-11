@@ -18,4 +18,3 @@ public class TitleLogo : MonoBehaviour
         SceneManager.LoadScene("Play");
     }
 }
-      

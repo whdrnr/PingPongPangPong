@@ -41,7 +41,8 @@ public class GuardBarController : MonoBehaviour
 
             //#진동 구현
 #if UNITY_ANDROID
-            Handheld.Vibrate();
+            if (GameManager.Instance.Data.IsVibrationOn == true)
+                Handheld.Vibrate();
 #endif
 
             Durability -= 1;

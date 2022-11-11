@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GooglePlayGames;
 using DG.Tweening;
 using TMPro;
 
@@ -17,7 +18,8 @@ public class UIManager : Singleton<UIManager>
     [Header("Play-Panel의T관련 참조")]
     public TextMeshProUGUI CurBounce_Txt;
     public TextMeshProUGUI Wave_Txt;
-    public GameObject GameOver_Panel; 
+    public GameObject AD_Panel;
+    public GameObject Die_Panel;
 
      [Header("Main-Panel의Txt 관련 참조")]
     public TextMeshProUGUI BeforeWave_Txt;
@@ -57,7 +59,33 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public void AdRemovePurchaseComplete()
+    {
+        Debug.Log("구매 성공");
+    }
+
+    public void AdRemovePurchaseFail()
+    {
+        Debug.Log("구매 실패");
+    }
+
     public void PlayGame_Btn() => StartCoroutine(IGameStart());
+
+    public void RewardAd_Btn()
+    {
+        GM.IsCountDown = false;
+        AdmobManager.Instance.ShowGameOverRewardAd();
+    }
+
+    public void LeaderBoardOn_Btn()
+    {
+        if (Social.localUser.authenticated == true)
+        {
+            Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
+
+            Social.ShowLeaderboardUI();
+        }
+    }
 
     public void GmaeOver_Btn()
     {
@@ -65,15 +93,19 @@ public class UIManager : Singleton<UIManager>
         FadeUI(0, 1, false, true);
 
         //#Text 상호작용
-        BeforeWave_Txt.text = GM.BeforeWave.ToString();
-        MaxWave_Txt.text = "High Point " + GM.MaxWave.ToString();
+        BeforeWave_Txt.text = GM.Data.BeforeWave.ToString();
+        MaxWave_Txt.text = "High Point " + GM.Data.MaxWave.ToString();
 
         //#BGM 재생
         SoundManager.Instance.PlayBGM("BG1", 1);
 
         GM.gameOverDelegate();
+        GM.IsAdSee = false;
+        GM.IsCountDown = false;
 
-        Instance.GameOver_Panel.SetActive(false);
+        AD_Panel.SetActive(false);
+        Die_Panel.SetActive(false);
+
         Main_Panel.SetActive(true);
     }
 
