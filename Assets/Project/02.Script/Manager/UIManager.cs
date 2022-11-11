@@ -62,6 +62,7 @@ public class UIManager : Singleton<UIManager>
     public void AdRemovePurchaseComplete()
     {
         Debug.Log("구매 성공");
+        GameManager.Instance.IsAdParchase = true;
     }
 
     public void AdRemovePurchaseFail()

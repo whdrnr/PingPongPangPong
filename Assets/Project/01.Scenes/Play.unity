@@ -1316,7 +1316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FriedEgg
+  m_text: Fried Egg
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b14514d4154623743b263fddd2de2876, type: 2}
   m_sharedMaterial: {fileID: 952341532828561773, guid: b14514d4154623743b263fddd2de2876, type: 2}
@@ -27667,6 +27667,7 @@ MonoBehaviour:
   IsGame: 0
   IsPause: 0
   IsAdSee: 0
+  IsAdParchase: 0
   IsCountDown: 0
   CountBar_Img: {fileID: 1082581002}
   MaxDieTime: 8
@@ -27696,6 +27697,7 @@ MonoBehaviour:
       Skin_Spirte: {fileID: 0}
       Lock_Img: {fileID: 0}
       SkinPong_Img: {fileID: 0}
+  ClickBackCount: 0
 --- !u!4 &1012569694
 Transform:
   m_ObjectHideFlags: 0
@@ -35035,7 +35037,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1319565442
 GameObject:
@@ -44538,7 +44540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1/15
+  m_text: 1/16
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b14514d4154623743b263fddd2de2876, type: 2}
   m_sharedMaterial: {fileID: 952341532828561773, guid: b14514d4154623743b263fddd2de2876, type: 2}
