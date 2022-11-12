@@ -65,9 +65,6 @@ public class GameManager : Singleton<GameManager>
         gameReStartDelegate += ObjectSetting;
 
         gameStartDelegate += StartBall;
-
-        //#배경음
-        SoundManager.Instance.PlayBGM("BG1", 1);
     }
 
     void Update()
@@ -88,7 +85,6 @@ public class GameManager : Singleton<GameManager>
             {
                 CancelInvoke("ResetDoubleClick");
                 ResetDoubleClick();
-                JsonManager.Instance.SaveGameData();
                 Application.Quit();
             }
         }
@@ -131,7 +127,7 @@ public class GameManager : Singleton<GameManager>
         Invoke("StartBall", 1.5f);
     }
 
-    //#가드바에 퐁이 닿았을 때 내구도가 줄어든다.
+    //#가드바에 퐁이 닿았을 때 상호작용
     public void WaveBounce()
     {
         if (BounceNum == 1)
@@ -210,7 +206,7 @@ public class GameManager : Singleton<GameManager>
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
 
-        if (IsAdSee == false && CurWave >= 1) //#부활 광고 안보았다면
+        if (IsAdSee == false && CurWave >= 5) //#부활 광고 안보았다면
         {
             UIManager.Instance.AD_Panel.SetActive(true);
             StartCoroutine(IEDieCountTime());

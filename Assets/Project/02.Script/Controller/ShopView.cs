@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using TMPro;
 using UnityEngine.UI;
 
@@ -28,6 +29,7 @@ public class ShopView : MonoBehaviour
     public GameObject Shop_Panel;
     public List<GameObject> PongSelect_Btn = new List<GameObject>();
     public TextMeshProUGUI SkinHave_Txt;
+    public IAPButton Cat_Btn;
     public int SkinNum = 0;
 
     [Header("Sprite 관련 참조")]
@@ -193,7 +195,11 @@ public class ShopView : MonoBehaviour
     }
 
     //#구매를 성공했을 때
-    public void CatSkinPurchaseComplete() => SkinClear(14);
+    public void CatSkinPurchaseComplete()
+    {
+        SkinClear(15);
+        Cat_Btn.buttonType = IAPButton.ButtonType.Restore;
+    }
 
     //#구매를 실패했을 때
     public void CatSkinRemovePurchaseFail() => Debug.Log("구매 실패");

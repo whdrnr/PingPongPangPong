@@ -22,6 +22,7 @@ public class StartUIAnimion : MonoBehaviour
     IEnumerator StartUI()
     {
         TitleLogo_Img.DOFade(1, 1);
+        SoundManager.Instance.PlaySFX("TeamLogo-SFX", 1);
 
         yield return new WaitForSeconds(1f);
 
@@ -36,6 +37,9 @@ public class StartUIAnimion : MonoBehaviour
         }
 
         yield return new WaitForSeconds(AnimationCurve.length);
+
+        //#Sound BGM On
+        SoundManager.Instance.PlayBGM("BG1", 1);
 
         //#Start Btn Acive
         Lobby_CG.blocksRaycasts = true;

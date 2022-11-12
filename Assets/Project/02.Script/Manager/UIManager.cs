@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Purchasing;
 using GooglePlayGames;
 using DG.Tweening;
 using TMPro;
@@ -24,6 +25,7 @@ public class UIManager : Singleton<UIManager>
      [Header("Main-Panel의Txt 관련 참조")]
     public TextMeshProUGUI BeforeWave_Txt;
     public TextMeshProUGUI MaxWave_Txt;
+    public IAPButton AdRemove_Btn;
 
     GameManager GM;
 
@@ -61,7 +63,8 @@ public class UIManager : Singleton<UIManager>
 
     public void AdRemovePurchaseComplete()
     {
-        Debug.Log("구매 성공");
+        AdRemove_Btn.buttonType = IAPButton.ButtonType.Restore;
+        
         GameManager.Instance.IsAdParchase = true;
         AdmobManager.Instance.HideBannerAd();
     }
