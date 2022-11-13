@@ -27,6 +27,7 @@ public class AdmobManager : Singleton<AdmobManager>
 
     #region #¹è³Ê ±¤°í
     const string bannerID = "ca-app-pub-2384053122441182~1809691604";
+    const string bannerTestID = "ca-app-pub-3940256099942544/6300978111";
     BannerView bannerAd;
 
     void LoadBannerAd()
@@ -34,7 +35,7 @@ public class AdmobManager : Singleton<AdmobManager>
         AdSize adSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
         //AdSize adSize = new AdSize(320, 50);
 
-        bannerAd = new BannerView(bannerID, adSize, AdPosition.Bottom);
+        bannerAd = new BannerView(bannerTestID, adSize, AdPosition.Bottom);
         bannerAd.LoadAd(GetAdRequest());
     }
 
@@ -43,11 +44,12 @@ public class AdmobManager : Singleton<AdmobManager>
 
     #region #Àü¸é ±¤°í
     const string frontID = "ca-app-pub-2384053122441182/3502085217";
+    const string frontTestID = "ca-app-pub-3940256099942544/8691691433";
     InterstitialAd frontAd;
 
     void LoadFrontAd()
     {
-        frontAd = new InterstitialAd(frontID);
+        frontAd = new InterstitialAd(frontTestID);
         frontAd.LoadAd(GetAdRequest());
     }
 
@@ -60,13 +62,14 @@ public class AdmobManager : Singleton<AdmobManager>
 
     #region #¸®¿öµå ±¤°í
     const string RewardID = "ca-app-pub-2384053122441182/8016045296";
+    const string rewardTestID = "ca-app-pub-3940256099942544/5224354917";
     RewardedAd GameOverRewardAd;
     RewardedAd SkinRewardAd;
 
     void LoadRewardAd()
     {
-        GameOverRewardAd = new RewardedAd(RewardID);
-        SkinRewardAd = new RewardedAd(RewardID);
+        GameOverRewardAd = new RewardedAd(rewardTestID);
+        SkinRewardAd = new RewardedAd(rewardTestID);
 
         RewardAdHandle();
 
