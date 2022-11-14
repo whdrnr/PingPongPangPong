@@ -36,7 +36,6 @@ public class GuardBarController : MonoBehaviour
             //#가드바 상호작용
             GuardBarManager.Instance.DurabilityGuard(Durability, BoxCollider2D, SR);
             GuardBarManager.Instance.P_Guard_Hit[PongNum].Play();
-            SoundManager.Instance.PlaySFX("GuardHit-SFX", 1);
             GM.WaveBounce();
 
             //#진동 구현

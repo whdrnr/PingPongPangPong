@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using GooglePlayGames;
@@ -24,10 +25,28 @@ public class SettingView : MonoBehaviour
         UM = UIManager.Instance;
         GM = GameManager.Instance;
 
-        //#디버그용 변수
-        PlayGamesPlatform.DebugLogEnabled = true;
-        //#구글 관련 Service Active
-        PlayGamesPlatform.Activate();
+        PlayGamesPlatform.DebugLogEnabled = true;  //#디버그용 변수
+        PlayGamesPlatform.Activate();   //#구글 관련 Service Active
+
+        #region #Setting UI Load
+        //#BGM On/Off Img
+        if (GM.Data.IsBGMOn == true)
+            BGM_Setting_Img.sprite = On_Sprite;
+        else
+            BGM_Setting_Img.sprite = Off_Sprite;
+
+        //#SFX On/Off Img
+        if (GM.Data.IsSFXOn == true)
+            SFX_Setting_Img.sprite = On_Sprite;
+        else
+            SFX_Setting_Img.sprite = Off_Sprite;
+
+        //#진동음 On/Off Img
+        if (GM.Data.IsVibrationOn == true)
+            Vibration_Setting_Img.sprite = On_Sprite;
+        else
+            Vibration_Setting_Img.sprite = Off_Sprite;
+        #endregion
     }
 
     public void Setting_Btn()
@@ -48,17 +67,17 @@ public class SettingView : MonoBehaviour
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
-        if (GM.Data.IsBGMOn == true) //#Off
+        if (GM.Data.IsBGMOn == true) //#On
         {
             SoundManager.Instance.masterVolumeBGM = 0;
             SoundManager.Instance.BGMPlayer.volume = 0;
-            BGM_Setting_Img.sprite = On_Sprite;
+            BGM_Setting_Img.sprite = Off_Sprite;
         }
-        else //#On
+        else //#Off
         {
             SoundManager.Instance.masterVolumeBGM = 1;
             SoundManager.Instance.BGMPlayer.volume = 1;
-            BGM_Setting_Img.sprite = Off_Sprite;
+            BGM_Setting_Img.sprite = On_Sprite;
         }
 
         GM.Data.IsBGMOn = !GM.Data.IsBGMOn;
@@ -71,12 +90,12 @@ public class SettingView : MonoBehaviour
         if (GM.Data.IsSFXOn == true) //#Off
         {
             SoundManager.Instance.masterVolumeSFX = 0;
-            SFX_Setting_Img.sprite = On_Sprite;
+            SFX_Setting_Img.sprite = Off_Sprite;
         }
         else //#On
         {
             SoundManager.Instance.masterVolumeSFX = 1;
-            SFX_Setting_Img.sprite = Off_Sprite;
+            SFX_Setting_Img.sprite = On_Sprite;
         }
 
         GM.Data.IsSFXOn = !GM.Data.IsSFXOn;
@@ -87,15 +106,9 @@ public class SettingView : MonoBehaviour
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
 
         if (GM.Data.IsVibrationOn == true)
-        {
-            GM.Data.IsVibrationOn = true;
-            Vibration_Setting_Img.sprite = On_Sprite;
-        }
-        else
-        {
-            GM.Data.IsVibrationOn = false;
             Vibration_Setting_Img.sprite = Off_Sprite;
-        }
+        else
+            Vibration_Setting_Img.sprite = On_Sprite;
 
         GM.Data.IsVibrationOn = !GM.Data.IsVibrationOn;
     }
@@ -108,11 +121,10 @@ public class SettingView : MonoBehaviour
             Social.localUser.Authenticate((bool IsSuccess) =>
             {
                 if (IsSuccess == true)
-                {
-                    Debug.Log("로그인 완료");
                     Google_Btn.SetActive(false);
-                }
             });
         }
+        else
+            Google_Btn.SetActive(false);
     }
 }

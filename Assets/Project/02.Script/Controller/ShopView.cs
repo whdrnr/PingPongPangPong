@@ -14,6 +14,7 @@ public class SkinPong
 
     [Header("광고 스킨인 경우")]
     public bool IsAdSkin; //#광고스킨인지
+    public bool IsAdSee; //#광고를 볼 수 있는지, 없는지
     public int AdNum;
     public TextMeshProUGUI AdNum_Txt;
 
@@ -49,6 +50,9 @@ public class ShopView : MonoBehaviour
     public int MarsClearWave = 60;
     public int OrangeClearWave = 65;
 
+    [Header("파티클 관련 참조")]
+    public GameObject P_Cat;
+
     GameManager GM;
 
     void Start()
@@ -67,6 +71,7 @@ public class ShopView : MonoBehaviour
         {
             for (int i = 0; i < GM.Data.Pongs.Count; i++)
             {
+                CatSkinNotUse();
                 GM.Data.Pongs[i].IsUse = false;
                 PongSelect_Btn[i].GetComponent<Image>().sprite = NonSelect_Sprite;
             }
@@ -76,13 +81,18 @@ public class ShopView : MonoBehaviour
 
             GameManager.Instance.Pong.GetComponent<SpriteRenderer>().sprite =
                 GM.Data.Pongs[_Num].Skin_Spirte;
+
+            //#고양이 스킨 장착시
+            if (GM.Data.Pongs[15].IsUse == true)
+                CatSkinUse();
         }
         else //#스킨 해체가 안되어있는 상태
         {
-            //#AD Skin
-            if(GM.Data.Pongs[_Num].IsAdSkin == true)
+            //#AD Skin인지, 현재 볼 수 있는지
+            if(GM.Data.Pongs[_Num].IsAdSkin == true && GM.Data.Pongs[_Num].IsAdSee == true)
             {
                 AdmobManager.Instance.ShowSkinRewardAd();
+
                 GM.Data.Pongs[_Num].AdNum++;
                 GM.Data.Pongs[_Num].AdNum_Txt.text = GM.Data.Pongs[_Num].AdNum.ToString() + "/3";
 
@@ -99,24 +109,40 @@ public class ShopView : MonoBehaviour
     public void ShopView_On()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
-        Shop_Panel.SetActive(true);
+        ShopLoad();
+        Shop_Panel.GetComponent<CanvasGroup>().alpha = 1;
+        Shop_Panel.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
     //#Shop을 Off 시킨다.
     public void ShopView_Off()
     {
         SoundManager.Instance.PlaySFX("Click-SFX", 1);
-        Shop_Panel.SetActive(false);
+        Shop_Panel.GetComponent<CanvasGroup>().alpha = 0;
+        Shop_Panel.GetComponent<CanvasGroup>().blocksRaycasts = false;
+    }
+
+    //#Shop UI Load 
+    public void ShopLoad()
+    {
+        for (int i = 0; i < GM.Data.Pongs.Count; i++)
+        {
+            if (GM.Data.Pongs[i].IsSelect == true)
+                SkinClear(i);
+        }
     }
 
     //#Wave따라 스킨 해체 된다.
     public void SkinWaveClear()
     {
         float _Wave = GameManager.Instance.Data.BeforeWave;
+        Debug.Log(_Wave);
 
         //#나선환
         if (_Wave >= SpiralClearWave)
+        {
             SkinClear(4);
+        }
 
         //#얼룩말
         if (_Wave >= ZebraClearWave)
@@ -203,4 +229,10 @@ public class ShopView : MonoBehaviour
 
     //#구매를 실패했을 때
     public void CatSkinRemovePurchaseFail() => Debug.Log("구매 실패");
+
+    //#고양이 스킨 사용시 파티클 재생
+    public void CatSkinUse() => P_Cat.SetActive(true);
+
+    //#고양이 스킨이 아닐 때
+    public void CatSkinNotUse() => P_Cat.SetActive(false);
 }

@@ -67,4 +67,14 @@ public class SoundManager : Singleton<SoundManager>
         else if (_Volume == 1)
             masterVolumeSFX = 1;
     }
+
+    public void CatSound()
+    {
+        int RandomNum = Random.Range(0, 2);
+
+        if(RandomNum == 0)
+            PlaySFX("Meaw1-SFX", 1);
+        else if(RandomNum == 1)
+            PlaySFX("Meaw2-SFX", 1);
+    }
 }

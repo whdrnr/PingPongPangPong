@@ -17,6 +17,7 @@ public class AdmobManager : Singleton<AdmobManager>
         LoadBannerAd();
         LoadFrontAd();
         LoadRewardAd();
+
         GameManager.Instance.gameOverDelegate += ShowFrontAd;
     }
 
@@ -32,14 +33,17 @@ public class AdmobManager : Singleton<AdmobManager>
 
     void LoadBannerAd()
     {
-        AdSize adSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
-        //AdSize adSize = new AdSize(320, 50);
+        if (GameManager.Instance.Data.IsAdParchase == false)
+        {
+            AdSize adSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
 
-        bannerAd = new BannerView(bannerTestID, adSize, AdPosition.Bottom);
-        bannerAd.LoadAd(GetAdRequest());
+            bannerAd = new BannerView(bannerTestID, adSize, AdPosition.Bottom);
+            bannerAd.LoadAd(GetAdRequest());
+        }
     }
 
     public void HideBannerAd() => bannerAd.Hide();
+
     #endregion
 
     #region #Àü¸é ±¤°í
@@ -55,7 +59,7 @@ public class AdmobManager : Singleton<AdmobManager>
 
     public void ShowFrontAd()
     {
-        if(GameManager.Instance.IsAdParchase == false)
+        if(GameManager.Instance.Data.IsAdParchase == false)
             frontAd.Show();
     }
     #endregion

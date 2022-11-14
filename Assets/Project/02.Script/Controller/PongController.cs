@@ -39,4 +39,17 @@ public class PongController : MonoBehaviour
             ItemInitManager.Instance.ItemInit(0.5f);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Guard"))
+        {
+            SoundManager.Instance.PlaySFX("GuardHit-SFX", 1);
+
+            if (GameManager.Instance.Data.Pongs[15].IsUse == true)
+            {
+                SoundManager.Instance.CatSound();
+            }
+        }
+    }
 }

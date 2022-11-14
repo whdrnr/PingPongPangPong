@@ -42,7 +42,6 @@ public class GameManager : Singleton<GameManager>
     public bool IsGame; //#현재 게임중인지
     public bool IsPause; //#게임중에 일시정지 상태인지
     public bool IsAdSee; //#죽은 뒤에 광고를 시청하였는지
-    public bool IsAdParchase; //#광고를 구매하였는지
     public bool IsCountDown;
 
     [Header("죽엇을 떄 관련 참조")]
@@ -65,6 +64,9 @@ public class GameManager : Singleton<GameManager>
         gameReStartDelegate += ObjectSetting;
 
         gameStartDelegate += StartBall;
+
+        //#Laod
+        JsonManager.Instance.LoadGameData();
     }
 
     void Update()
@@ -72,10 +74,9 @@ public class GameManager : Singleton<GameManager>
         //#돌아가기 두번 클릭시 게임이 종료된다.
         if (Application.platform == RuntimePlatform.Android)
         {
+            //#Moblie Back
             if (Input.GetKey(KeyCode.Escape))
             {
-                Debug.Log("1");
-
                 ClickBackCount++;
                 if (!IsInvoking("ResetDoubleClick"))
                     Invoke("ResetDoubleClick", 1.0f);
@@ -87,6 +88,14 @@ public class GameManager : Singleton<GameManager>
                 ResetDoubleClick();
                 Application.Quit();
             }
+
+            //#Mobile Home
+            if(Input.GetKey(KeyCode.Home))
+                JsonManager.Instance.SaveGameData();
+
+            //Mobile Menu
+            if (Input.GetKey(KeyCode.Menu))
+                JsonManager.Instance.SaveGameData();
         }
     }
 
@@ -158,7 +167,7 @@ public class GameManager : Singleton<GameManager>
             Speed = Waves[1].PongSpeed;
 
             if (SoundManager.Instance.BGMPlayer.clip.name != "BG2")
-                SoundManager.Instance.PlayBGM("BG2", 1);
+                SoundManager.Instance.PlayBGM("BG2", 0.5f);
         }
 
         //#사막
@@ -168,7 +177,7 @@ public class GameManager : Singleton<GameManager>
             Speed = Waves[2].PongSpeed;
 
             if (SoundManager.Instance.BGMPlayer.clip.name != "BG3")
-                SoundManager.Instance.PlayBGM("BG3", 1);
+                SoundManager.Instance.PlayBGM("BG3", 0.5f);
         }
 
         //#늪지
@@ -178,7 +187,7 @@ public class GameManager : Singleton<GameManager>
             Speed = Waves[3].PongSpeed;
 
             if (SoundManager.Instance.BGMPlayer.clip.name != "BG4")
-                SoundManager.Instance.PlayBGM("BG4", 1);
+                SoundManager.Instance.PlayBGM("BG4", 0.5f);
         }
     }
 
@@ -187,7 +196,7 @@ public class GameManager : Singleton<GameManager>
     {
         BG_SR.sprite = Waves[0].BG_Sprite;
         Speed = Waves[0].PongSpeed;
-        SoundManager.Instance.PlayBGM("BG1", 1);
+        SoundManager.Instance.PlayBGM("BG1", 0.5f);
     }
 
     //#Wave를 Clear하지 못했을 때
@@ -212,9 +221,7 @@ public class GameManager : Singleton<GameManager>
             StartCoroutine(IEDieCountTime());
         }
         else
-        {
             UIManager.Instance.Die_Panel.SetActive(true);
-        }
     }
 
     //#User가 죽었을 때 
@@ -285,6 +292,7 @@ public class Data
     public bool IsBGMOn = true;
     public bool IsSFXOn = true;
     public bool IsVibrationOn = true;
+    public bool IsAdParchase; //#광고를 구매하였는지
 
     public List<SkinPong> Pongs = new List<SkinPong>();
 }

@@ -39,7 +39,7 @@ public class StartUIAnimion : MonoBehaviour
         yield return new WaitForSeconds(AnimationCurve.length);
 
         //#Sound BGM On
-        SoundManager.Instance.PlayBGM("BG1", 1);
+        SoundManager.Instance.PlayBGM("BG1", 0.5f);
 
         //#Start Btn Acive
         Lobby_CG.blocksRaycasts = true;

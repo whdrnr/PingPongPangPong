@@ -32,6 +32,10 @@ public class UIManager : Singleton<UIManager>
     void Start()
     {
         GM = GameManager.Instance;
+
+        //#광고 제거를 구매했다면 버튼 Off
+        if (GM.Data.IsAdParchase == true)
+            AdRemove_Btn.buttonType = IAPButton.ButtonType.Restore;
     }
 
     IEnumerator IGameStart()
@@ -63,9 +67,7 @@ public class UIManager : Singleton<UIManager>
 
     public void AdRemovePurchaseComplete()
     {
-        AdRemove_Btn.buttonType = IAPButton.ButtonType.Restore;
-        
-        GameManager.Instance.IsAdParchase = true;
+        GM.Data.IsAdParchase = true;
         AdmobManager.Instance.HideBannerAd();
     }
 
@@ -80,7 +82,7 @@ public class UIManager : Singleton<UIManager>
     {
         GM.IsCountDown = false;
 
-        if (GM.IsAdParchase == false)
+        if (GM.Data.IsAdParchase == false)
             AdmobManager.Instance.ShowGameOverRewardAd();
         else
             GM.ReStartBall();
@@ -88,10 +90,18 @@ public class UIManager : Singleton<UIManager>
 
     public void LeaderBoardOn_Btn()
     {
-        if (Social.localUser.authenticated == true)
+        //#현재 기기와 연결된 계정이 인증이 아직 안됬는가?
+        if (Social.localUser.authenticated == false)
+        {
+            Social.localUser.Authenticate((bool IsSuccess) =>
+            {
+                if (IsSuccess == true)
+                    return;
+            });
+        }
+        else
         {
             Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
-
             Social.ShowLeaderboardUI();
         }
     }
@@ -106,7 +116,7 @@ public class UIManager : Singleton<UIManager>
         MaxWave_Txt.text = "High Point " + GM.Data.MaxWave.ToString();
 
         //#BGM 재생
-        SoundManager.Instance.PlayBGM("BG1", 1);
+        SoundManager.Instance.PlayBGM("BG1", 0.5f);
 
         GM.gameOverDelegate();
         GM.IsAdSee = false;
