@@ -16,19 +16,12 @@ public class SkinPong
     public bool IsAdSkin; //#광고스킨인지
     public bool IsAdSee; //#광고를 볼 수 있는지, 없는지
     public int AdNum;
-    public TextMeshProUGUI AdNum_Txt;
-
-    [Header("Img/Sprite 참조 관련")]
-    public Sprite Skin_Spirte;
-    public GameObject Lock_Img;
-    public Image SkinPong_Img;
 }
 
 public class ShopView : MonoBehaviour
 {
     [Header("상점 관련 참조")]
     public GameObject Shop_Panel;
-    public List<GameObject> PongSelect_Btn = new List<GameObject>();
     public TextMeshProUGUI SkinHave_Txt;
     public IAPButton Cat_Btn;
     public int SkinNum = 0;
@@ -49,6 +42,14 @@ public class ShopView : MonoBehaviour
     public int WafflelClearWave = 55;
     public int MarsClearWave = 60;
     public int OrangeClearWave = 65;
+
+    [Header("SKin별 Img/Sprite 참조 관련")]
+    public List<GameObject> PongSelect_Btn = new List<GameObject>();
+    public List<Sprite> Skin_Spirte = new List<Sprite>();
+    public List<GameObject> Lock_Img = new List<GameObject>();
+    public List<Image> SkinPong_Img = new List<Image>();
+
+    public List<TextMeshProUGUI> AdNum_Txt = new List<TextMeshProUGUI>();
 
     [Header("파티클 관련 참조")]
     public GameObject P_Cat;
@@ -79,8 +80,7 @@ public class ShopView : MonoBehaviour
             GM.Data.Pongs[_Num].IsUse = true;
             PongSelect_Btn[_Num].GetComponent<Image>().sprite = Select_Sprite;
 
-            GameManager.Instance.Pong.GetComponent<SpriteRenderer>().sprite =
-                GM.Data.Pongs[_Num].Skin_Spirte;
+            GameManager.Instance.Pong.GetComponent<SpriteRenderer>().sprite = Skin_Spirte[_Num];
 
             //#고양이 스킨 장착시
             if (GM.Data.Pongs[15].IsUse == true)
@@ -94,13 +94,10 @@ public class ShopView : MonoBehaviour
                 AdmobManager.Instance.ShowSkinRewardAd();
 
                 GM.Data.Pongs[_Num].AdNum++;
-                GM.Data.Pongs[_Num].AdNum_Txt.text = GM.Data.Pongs[_Num].AdNum.ToString() + "/3";
+                AdNum_Txt[_Num - 1].text = GM.Data.Pongs[_Num].AdNum.ToString() + "/3";
 
                 if (GM.Data.Pongs[_Num].AdNum == 3)
-                {
-                    Debug.Log("스킨 해제");
                     SkinClear(_Num);
-                }
             }
         }
     }
@@ -127,8 +124,20 @@ public class ShopView : MonoBehaviour
     {
         for (int i = 0; i < GM.Data.Pongs.Count; i++)
         {
+            //#Wave Skin& Ad Skin
             if (GM.Data.Pongs[i].IsSelect == true)
                 SkinClear(i);
+
+            //#Ad Num Txt
+            if(GM.Data.Pongs[i].IsAdSkin == true)
+                AdNum_Txt[i - 1].text = GM.Data.Pongs[i].AdNum.ToString() + "/3";
+
+            //#고양이 스킨을 구매했다면 스킨 해제
+            if (GM.Data.IsCatPurchase == true)
+            {
+                SkinClear(15);
+                Cat_Btn.buttonType = IAPButton.ButtonType.Restore;
+            }
         }
     }
 
@@ -136,7 +145,6 @@ public class ShopView : MonoBehaviour
     public void SkinWaveClear()
     {
         float _Wave = GameManager.Instance.Data.BeforeWave;
-        Debug.Log(_Wave);
 
         //#나선환
         if (_Wave >= SpiralClearWave)
@@ -188,8 +196,8 @@ public class ShopView : MonoBehaviour
     //#Wave따라 상호작용을 한다.
     public void SkinClear(int _Num)
     {
-        GM.Data.Pongs[_Num].SkinPong_Img.enabled = true;
-        GM.Data.Pongs[_Num].Lock_Img.SetActive(false);
+        SkinPong_Img[_Num].enabled = true;
+        Lock_Img[_Num].SetActive(false);
         GM.Data.Pongs[_Num].IsSelect = true;
 
         HaveSkinNum();
@@ -221,11 +229,7 @@ public class ShopView : MonoBehaviour
     }
 
     //#구매를 성공했을 때
-    public void CatSkinPurchaseComplete()
-    {
-        SkinClear(15);
-        Cat_Btn.buttonType = IAPButton.ButtonType.Restore;
-    }
+    public void CatSkinPurchaseComplete() => SkinClear(15);
 
     //#구매를 실패했을 때
     public void CatSkinRemovePurchaseFail() => Debug.Log("구매 실패");
