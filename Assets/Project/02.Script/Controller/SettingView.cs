@@ -17,12 +17,10 @@ public class SettingView : MonoBehaviour
     public Image SFX_Setting_Img;
     public Image Vibration_Setting_Img;
 
-    UIManager UM;
     GameManager GM;
 
     private void Start()
     {
-        UM = UIManager.Instance;
         GM = GameManager.Instance;
 
         PlayGamesPlatform.DebugLogEnabled = true;  //#디버그용 변수
@@ -46,6 +44,10 @@ public class SettingView : MonoBehaviour
             Vibration_Setting_Img.sprite = On_Sprite;
         else
             Vibration_Setting_Img.sprite = Off_Sprite;
+
+        //#Google Btn Off
+        if (GM.Data.IsGoogleLogin == true)
+            Google_Btn.SetActive(false);
         #endregion
     }
 
@@ -127,7 +129,5 @@ public class SettingView : MonoBehaviour
                 }
             });
         }
-        else 
-            Google_Btn.SetActive(false);
     }
 }

@@ -91,8 +91,11 @@ public class UIManager : Singleton<UIManager>
 
     public void LeaderBoardOn_Btn()
     {
+        Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
+        Social.ShowLeaderboardUI();
+
         //#현재 기기와 연결된 계정이 인증이 아직 안됬는가?
-        if (Social.localUser.authenticated == false && GM.Data.IsGoogleLogin == false)
+        if (Social.localUser.authenticated == false)
         {
             Social.localUser.Authenticate((bool IsSuccess) =>
             {
@@ -104,11 +107,6 @@ public class UIManager : Singleton<UIManager>
                     Social.ShowLeaderboardUI();
                 }
             });
-        }
-        else if (GM.Data.IsGoogleLogin == true || Social.localUser.authenticated == true)
-        {
-            Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
-            Social.ShowLeaderboardUI();
         }
     }
 

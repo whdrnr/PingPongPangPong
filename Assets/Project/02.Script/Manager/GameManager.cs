@@ -67,6 +67,10 @@ public class GameManager : Singleton<GameManager>
 
         //#Laod
         JsonManager.Instance.LoadGameData();
+
+        //#구글 로그인이 되어있다면 자동 구글로그인
+        if(Data.IsGoogleLogin == true)
+            Social.localUser.Authenticate((bool IsSuccess) => { });
     }
 
     void Update()
@@ -206,6 +210,7 @@ public class GameManager : Singleton<GameManager>
 
         SoundManager.Instance.StopBGM();
         SoundManager.Instance.PlaySFX("GameOver-SFX", 1);
+        JsonManager.Instance.SaveGameData();
 
         if (IsAdSee == false && CurWave >= 5) //#부활 광고 안보았다면
         {

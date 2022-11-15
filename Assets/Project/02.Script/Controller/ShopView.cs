@@ -117,7 +117,6 @@ public class ShopView : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        Debug.Log($"{GM.Data.Pongs[_Num].Name}은 광고 시청 가능");
         GM.Data.Pongs[_Num].IsAdSee = true;
 
         yield return null;

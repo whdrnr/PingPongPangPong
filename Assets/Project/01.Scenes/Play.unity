@@ -28085,12 +28085,13 @@ MonoBehaviour:
   MaxDieTime: 8
   CurDieTime: 0
   Data:
-    MaxWave: 3
-    BeforeWave: 3
+    MaxWave: 0
+    BeforeWave: 0
     CurSkin_Num: 0
     IsBGMOn: 1
     IsSFXOn: 1
     IsVibrationOn: 0
+    IsGoogleLogin: 0
     IsAdParchase: 0
     IsCatPurchase: 0
     Pongs:
