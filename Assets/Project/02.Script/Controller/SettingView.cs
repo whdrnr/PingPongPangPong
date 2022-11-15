@@ -116,15 +116,18 @@ public class SettingView : MonoBehaviour
     public void GoogleLogin_Btn_Click()
     {
         //#현재 기기와 연결된 계정이 인증이 아직 안됬는가?
-        if(Social.localUser.authenticated == false)
+        if(Social.localUser.authenticated == false && GM.Data.IsGoogleLogin == false)
         {
             Social.localUser.Authenticate((bool IsSuccess) =>
             {
-                if (IsSuccess == true)
+                if (IsSuccess == true)  //#로그인 성공시 상호작용
+                {
                     Google_Btn.SetActive(false);
+                    GM.Data.IsGoogleLogin = true;
+                }
             });
         }
-        else
+        else 
             Google_Btn.SetActive(false);
     }
 }

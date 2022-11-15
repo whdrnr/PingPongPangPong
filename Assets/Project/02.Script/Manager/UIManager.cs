@@ -68,6 +68,7 @@ public class UIManager : Singleton<UIManager>
     public void AdRemovePurchaseComplete()
     {
         GM.Data.IsAdParchase = true;
+        AdRemove_Btn.buttonType = IAPButton.ButtonType.Restore;
         AdmobManager.Instance.HideBannerAd();
     }
 
@@ -91,15 +92,20 @@ public class UIManager : Singleton<UIManager>
     public void LeaderBoardOn_Btn()
     {
         //#현재 기기와 연결된 계정이 인증이 아직 안됬는가?
-        if (Social.localUser.authenticated == false)
+        if (Social.localUser.authenticated == false && GM.Data.IsGoogleLogin == false)
         {
             Social.localUser.Authenticate((bool IsSuccess) =>
             {
-                if (IsSuccess == true)
-                    return;
+                if (IsSuccess == true)  //#로그인 성공시 상호작용
+                {
+                    GM.Data.IsGoogleLogin = true;
+
+                    Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
+                    Social.ShowLeaderboardUI();
+                }
             });
         }
-        else
+        else if (GM.Data.IsGoogleLogin == true || Social.localUser.authenticated == true)
         {
             Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
             Social.ShowLeaderboardUI();
