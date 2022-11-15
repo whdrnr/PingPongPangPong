@@ -547,10 +547,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080, y: -1370}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55995711
 MonoBehaviour:
@@ -958,6 +958,82 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!1 &113770394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 113770395}
+  - component: {fileID: 113770397}
+  - component: {fileID: 113770396}
+  m_Layer: 5
+  m_Name: 'Locked-Img '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &113770395
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113770394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5000002, y: 1.5000002, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 998254242}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 50}
+  m_SizeDelta: {x: 136, y: 143}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &113770396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113770394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: ab3ed0ca2065cd64c969c5d623b1e7a2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &113770397
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113770394}
+  m_CullTransparentMesh: 1
 --- !u!1 &115172040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1117,7 @@ GameObject:
   - component: {fileID: 148269657}
   - component: {fileID: 148269656}
   m_Layer: 5
-  m_Name: AD-Img
+  m_Name: CheezeAD-Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1194,7 +1270,7 @@ GameObject:
   - component: {fileID: 184308203}
   - component: {fileID: 184308202}
   m_Layer: 5
-  m_Name: 'Locked-Img    '
+  m_Name: 'BacketballLocked-Img    '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1541,7 +1617,7 @@ GameObject:
   - component: {fileID: 217955480}
   - component: {fileID: 217955479}
   m_Layer: 5
-  m_Name: Locked-Img
+  m_Name: MarsLocked-Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6935,10 +7011,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080, y: -810}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &334992034
 MonoBehaviour:
@@ -11992,7 +12068,7 @@ GameObject:
   - component: {fileID: 366534219}
   - component: {fileID: 366534218}
   m_Layer: 5
-  m_Name: 'Locked-Img   '
+  m_Name: 'CokieLocked-Img   '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12769,10 +12845,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080, y: -1930}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431911882
 MonoBehaviour:
@@ -13214,10 +13290,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -2490}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473070242
 MonoBehaviour:
@@ -13351,10 +13427,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -3050}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &477723285
 MonoBehaviour:
@@ -13510,7 +13586,7 @@ GameObject:
   - component: {fileID: 491786789}
   - component: {fileID: 491786788}
   m_Layer: 5
-  m_Name: 'AD-Img '
+  m_Name: 'JellyAD-Img '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13704,7 +13780,7 @@ GameObject:
   - component: {fileID: 551022989}
   - component: {fileID: 551022988}
   m_Layer: 5
-  m_Name: 'AdNum-Txt  '
+  m_Name: 'FriedEggAdNum-Txt  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18958,7 +19034,7 @@ GameObject:
   - component: {fileID: 622946045}
   - component: {fileID: 622946044}
   m_Layer: 5
-  m_Name: 'Locked-Img '
+  m_Name: 'OrangeLocked-Img '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19060,10 +19136,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -1370}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &637792176
 MonoBehaviour:
@@ -19519,7 +19595,7 @@ GameObject:
   - component: {fileID: 687263078}
   - component: {fileID: 687263077}
   m_Layer: 5
-  m_Name: Locked-Img
+  m_Name: WaffleLocked-Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19621,10 +19697,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080, y: -2490}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &696575160
 MonoBehaviour:
@@ -20058,7 +20134,7 @@ GameObject:
   - component: {fileID: 716242701}
   - component: {fileID: 716242700}
   m_Layer: 5
-  m_Name: Locked-Img
+  m_Name: SpiralLocked-Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20160,10 +20236,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -250}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746706664
 MonoBehaviour:
@@ -20296,10 +20372,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1080, y: -250}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747462100
 MonoBehaviour:
@@ -20867,10 +20943,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -810}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &779309826
 MonoBehaviour:
@@ -22843,10 +22919,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -1370}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966489946
 MonoBehaviour:
@@ -27846,13 +27922,14 @@ RectTransform:
   m_Children:
   - {fileID: 1421965008}
   - {fileID: 1240537762}
+  - {fileID: 113770395}
   m_Father: {fileID: 1911577534}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -250}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998254243
 MonoBehaviour:
@@ -27874,7 +27951,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 82ae39a754d97ef48896efb98cbca86c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c24a6d698c52af7468b4baccba4bf804, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -28008,12 +28085,14 @@ MonoBehaviour:
   MaxDieTime: 8
   CurDieTime: 0
   Data:
-    MaxWave: 0
-    BeforeWave: 0
+    MaxWave: 3
+    BeforeWave: 3
+    CurSkin_Num: 0
     IsBGMOn: 1
     IsSFXOn: 1
     IsVibrationOn: 0
     IsAdParchase: 0
+    IsCatPurchase: 0
     Pongs:
     - Name: Normal
       IsSelect: 1
@@ -28021,160 +28100,96 @@ MonoBehaviour:
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 27ab0b341022ded49b1d8157af8d24bf, type: 3}
-      Lock_Img: {fileID: 0}
-      SkinPong_Img: {fileID: 1421965009}
     - Name: CheezePong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 1
       IsAdSee: 1
       AdNum: 0
-      AdNum_Txt: {fileID: 1319565444}
-      Skin_Spirte: {fileID: 21300000, guid: df173c4ac10f48c438da3d8817255aba, type: 3}
-      Lock_Img: {fileID: 148269654}
-      SkinPong_Img: {fileID: 2039149585}
     - Name: JellyPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 1
       IsAdSee: 1
       AdNum: 0
-      AdNum_Txt: {fileID: 1365873139}
-      Skin_Spirte: {fileID: 21300000, guid: 589f354ee69ed1245a12b2116da099f0, type: 3}
-      Lock_Img: {fileID: 491786786}
-      SkinPong_Img: {fileID: 1152355738}
     - Name: FriedEggPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 1
       IsAdSee: 1
       AdNum: 0
-      AdNum_Txt: {fileID: 551022988}
-      Skin_Spirte: {fileID: 21300000, guid: 01e7c86c3e4259d4ea275b2a1ba5c39b, type: 3}
-      Lock_Img: {fileID: 2005734470}
-      SkinPong_Img: {fileID: 1974802379}
     - Name: SpiralPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: f2dc4145d3d30be42b7e47f0c18271c0, type: 3}
-      Lock_Img: {fileID: 716242698}
-      SkinPong_Img: {fileID: 1731317224}
     - Name: ZebraPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 09c0970ea102b6147b9237b7a2b25fb4, type: 3}
-      Lock_Img: {fileID: 1033321185}
-      SkinPong_Img: {fileID: 1907624571}
     - Name: LeopardPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 9de20b9bf1f9cba479a87bf1cfe9e7ae, type: 3}
-      Lock_Img: {fileID: 1644180217}
-      SkinPong_Img: {fileID: 369907673}
     - Name: CookiePong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 5c6d56f51fa26ff4a841bd3187deaa31, type: 3}
-      Lock_Img: {fileID: 366534216}
-      SkinPong_Img: {fileID: 308850968}
     - Name: BasketballPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 2bc7f178dffa170498b8540a73f8c4f1, type: 3}
-      Lock_Img: {fileID: 184308200}
-      SkinPong_Img: {fileID: 59086773}
     - Name: PearlPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: e4c166ad7a5ff614b87c643016b9a472, type: 3}
-      Lock_Img: {fileID: 1125477022}
-      SkinPong_Img: {fileID: 573993764}
     - Name: DonutPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: a94123e6be2acaa48b795e05135ab7bd, type: 3}
-      Lock_Img: {fileID: 1820641779}
-      SkinPong_Img: {fileID: 1739952365}
     - Name: CoinPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 9b4b6281f09748b44a92336140134253, type: 3}
-      Lock_Img: {fileID: 1306798093}
-      SkinPong_Img: {fileID: 1817497266}
     - Name: WafflePong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: 1b98db47c96a651499753d77b3296b00, type: 3}
-      Lock_Img: {fileID: 687263075}
-      SkinPong_Img: {fileID: 312315155}
     - Name: MarsPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: d5a5158fd9caff2429776939031972c3, type: 3}
-      Lock_Img: {fileID: 217955477}
-      SkinPong_Img: {fileID: 148838713}
     - Name: OrangePong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: c735ca9706d714042bd4b5364524e47c, type: 3}
-      Lock_Img: {fileID: 622946042}
-      SkinPong_Img: {fileID: 1666565134}
     - Name: CatPong
       IsSelect: 0
       IsUse: 0
       IsAdSkin: 0
       IsAdSee: 0
       AdNum: 0
-      AdNum_Txt: {fileID: 0}
-      Skin_Spirte: {fileID: 21300000, guid: cd2ad315ff340a44ca8906d95cdcbbc3, type: 3}
-      Lock_Img: {fileID: 2139990463}
-      SkinPong_Img: {fileID: 1563400885}
 --- !u!4 &1012569694
 Transform:
   m_ObjectHideFlags: 0
@@ -33149,7 +33164,7 @@ GameObject:
   - component: {fileID: 1033321188}
   - component: {fileID: 1033321187}
   m_Layer: 5
-  m_Name: 'Locked-Img '
+  m_Name: 'ZebraLocked-Img '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33960,7 +33975,7 @@ GameObject:
   - component: {fileID: 1125477025}
   - component: {fileID: 1125477024}
   m_Layer: 5
-  m_Name: Locked-Img
+  m_Name: PearlLocked-Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34317,10 +34332,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200, y: -1930}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1216111777
 MonoBehaviour:
@@ -35241,7 +35256,7 @@ GameObject:
   - component: {fileID: 1306798096}
   - component: {fileID: 1306798095}
   m_Layer: 5
-  m_Name: 'Locked-Img '
+  m_Name: 'CoinLocked-Img '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35324,7 +35339,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1309727835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35631,7 +35646,7 @@ GameObject:
   - component: {fileID: 1319565445}
   - component: {fileID: 1319565444}
   m_Layer: 5
-  m_Name: 'AdNum-Txt   '
+  m_Name: 'CheezeAdNum-Txt   '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36131,7 +36146,7 @@ GameObject:
   - component: {fileID: 1365873140}
   - component: {fileID: 1365873139}
   m_Layer: 5
-  m_Name: 'AdNum-Txt  '
+  m_Name: 'JellyAdNum-Txt  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37191,6 +37206,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shop_Panel: {fileID: 1453397144}
+  SkinHave_Txt: {fileID: 1900551689}
+  Cat_Btn: {fileID: 477723288}
+  SkinNum: 0
+  Select_Sprite: {fileID: 21300000, guid: c24a6d698c52af7468b4baccba4bf804, type: 3}
+  NonSelect_Sprite: {fileID: 21300000, guid: 82ae39a754d97ef48896efb98cbca86c, type: 3}
+  SpiralClearWave: 10
+  ZebraClearWave: 15
+  LeopardClearWave: 20
+  CookieClearWave: 25
+  BasketballClearWave: 30
+  PearlClearWave: 35
+  DonutlClearWave: 40
+  CoinClearWave: 45
+  WafflelClearWave: 50
+  MarsClearWave: 55
+  OrangeClearWave: 60
   PongSelect_Btn:
   - {fileID: 998254241}
   - {fileID: 746706662}
@@ -37208,22 +37239,61 @@ MonoBehaviour:
   - {fileID: 1596278621}
   - {fileID: 696575158}
   - {fileID: 477723283}
-  SkinHave_Txt: {fileID: 1900551689}
-  Cat_Btn: {fileID: 477723288}
-  SkinNum: 0
-  Select_Sprite: {fileID: 21300000, guid: c24a6d698c52af7468b4baccba4bf804, type: 3}
-  NonSelect_Sprite: {fileID: 21300000, guid: 82ae39a754d97ef48896efb98cbca86c, type: 3}
-  SpiralClearWave: 10
-  ZebraClearWave: 15
-  LeopardClearWave: 20
-  CookieClearWave: 25
-  BasketballClearWave: 30
-  PearlClearWave: 35
-  DonutlClearWave: 40
-  CoinClearWave: 45
-  WafflelClearWave: 50
-  MarsClearWave: 55
-  OrangeClearWave: 60
+  Skin_Spirte:
+  - {fileID: 21300000, guid: 27ab0b341022ded49b1d8157af8d24bf, type: 3}
+  - {fileID: 21300000, guid: df173c4ac10f48c438da3d8817255aba, type: 3}
+  - {fileID: 21300000, guid: 589f354ee69ed1245a12b2116da099f0, type: 3}
+  - {fileID: 21300000, guid: 01e7c86c3e4259d4ea275b2a1ba5c39b, type: 3}
+  - {fileID: 21300000, guid: f2dc4145d3d30be42b7e47f0c18271c0, type: 3}
+  - {fileID: 21300000, guid: 09c0970ea102b6147b9237b7a2b25fb4, type: 3}
+  - {fileID: 21300000, guid: 9de20b9bf1f9cba479a87bf1cfe9e7ae, type: 3}
+  - {fileID: 21300000, guid: 5c6d56f51fa26ff4a841bd3187deaa31, type: 3}
+  - {fileID: 21300000, guid: 2bc7f178dffa170498b8540a73f8c4f1, type: 3}
+  - {fileID: 21300000, guid: e4c166ad7a5ff614b87c643016b9a472, type: 3}
+  - {fileID: 21300000, guid: a94123e6be2acaa48b795e05135ab7bd, type: 3}
+  - {fileID: 21300000, guid: 9b4b6281f09748b44a92336140134253, type: 3}
+  - {fileID: 21300000, guid: 1b98db47c96a651499753d77b3296b00, type: 3}
+  - {fileID: 21300000, guid: d5a5158fd9caff2429776939031972c3, type: 3}
+  - {fileID: 21300000, guid: c735ca9706d714042bd4b5364524e47c, type: 3}
+  - {fileID: 21300000, guid: cd2ad315ff340a44ca8906d95cdcbbc3, type: 3}
+  Lock_Img:
+  - {fileID: 113770394}
+  - {fileID: 148269654}
+  - {fileID: 491786786}
+  - {fileID: 2005734470}
+  - {fileID: 716242698}
+  - {fileID: 1033321185}
+  - {fileID: 1644180217}
+  - {fileID: 366534216}
+  - {fileID: 184308200}
+  - {fileID: 1125477022}
+  - {fileID: 1820641779}
+  - {fileID: 1306798093}
+  - {fileID: 687263075}
+  - {fileID: 217955477}
+  - {fileID: 622946042}
+  - {fileID: 2139990463}
+  SkinPong_Img:
+  - {fileID: 1421965009}
+  - {fileID: 2039149585}
+  - {fileID: 1152355738}
+  - {fileID: 1974802379}
+  - {fileID: 1731317224}
+  - {fileID: 1907624571}
+  - {fileID: 369907673}
+  - {fileID: 308850968}
+  - {fileID: 59086773}
+  - {fileID: 573993764}
+  - {fileID: 1739952365}
+  - {fileID: 1817497266}
+  - {fileID: 312315155}
+  - {fileID: 148838713}
+  - {fileID: 1666565134}
+  - {fileID: 1563400885}
+  AdNum_Txt:
+  - {fileID: 1319565444}
+  - {fileID: 1365873139}
+  - {fileID: 551022988}
   P_Cat: {fileID: 5499263945624109591}
 --- !u!225 &1453397149
 CanvasGroup:
@@ -37859,10 +37929,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -810}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1584799795
 MonoBehaviour:
@@ -37995,10 +38065,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -2490}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596278623
 MonoBehaviour:
@@ -38336,7 +38406,7 @@ GameObject:
   - component: {fileID: 1644180220}
   - component: {fileID: 1644180219}
   m_Layer: 5
-  m_Name: 'Locked-Img  '
+  m_Name: 'LeopardLocked-Img  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39367,10 +39437,10 @@ RectTransform:
   m_Father: {fileID: 1911577534}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 640, y: -1930}
+  m_SizeDelta: {x: 400, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1759314377
 MonoBehaviour:
@@ -44744,7 +44814,7 @@ GameObject:
   - component: {fileID: 1820641782}
   - component: {fileID: 1820641781}
   m_Layer: 5
-  m_Name: Locked-Img
+  m_Name: DonutLocked-Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46291,7 +46361,7 @@ GameObject:
   - component: {fileID: 2005734473}
   - component: {fileID: 2005734472}
   m_Layer: 5
-  m_Name: 'AD-Img  '
+  m_Name: 'FriedEggAD-Img  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56647,7 +56717,7 @@ GameObject:
   - component: {fileID: 2139990466}
   - component: {fileID: 2139990465}
   m_Layer: 5
-  m_Name: $_Img
+  m_Name: Cat$_Img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

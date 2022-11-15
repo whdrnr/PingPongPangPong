@@ -88,14 +88,6 @@ public class GameManager : Singleton<GameManager>
                 ResetDoubleClick();
                 Application.Quit();
             }
-
-            //#Mobile Home
-            if(Input.GetKey(KeyCode.Home))
-                JsonManager.Instance.SaveGameData();
-
-            //Mobile Menu
-            if (Input.GetKey(KeyCode.Menu))
-                JsonManager.Instance.SaveGameData();
         }
     }
 
@@ -280,6 +272,14 @@ public class GameManager : Singleton<GameManager>
     {
         JsonManager.Instance.SaveGameData();
     }
+
+    private void OnApplicationPause(bool pause)
+    {
+        if(pause == true)
+            JsonManager.Instance.SaveGameData();
+        else
+            JsonManager.Instance.LoadGameData();
+    }
 }
 
 [System.Serializable]
@@ -287,12 +287,15 @@ public class Data
 {
     public int MaxWave;
     public int BeforeWave;
+    public int CurSkin_Num; //#현재 장착하고 있는 스킨 번호
 
     [Header("설정 bool 참조")]
     public bool IsBGMOn = true;
     public bool IsSFXOn = true;
     public bool IsVibrationOn = true;
+    public bool IsGoogleLogin; //#구글 로그인을 하였는지
     public bool IsAdParchase; //#광고를 구매하였는지
+    public bool IsCatPurchase; //#고양이 스킨 구매하였는지
 
     public List<SkinPong> Pongs = new List<SkinPong>();
 }
