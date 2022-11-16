@@ -128,7 +128,6 @@ public class UIManager : Singleton<UIManager>
 
         AD_Panel.SetActive(false);
         Die_Panel.SetActive(false);
-
         Main_Panel.SetActive(true);
     }
 
