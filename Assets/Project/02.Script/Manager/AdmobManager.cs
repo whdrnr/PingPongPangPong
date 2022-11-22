@@ -17,8 +17,6 @@ public class AdmobManager : Singleton<AdmobManager>
         LoadBannerAd();
         LoadFrontAd();
         LoadRewardAd();
-
-        GameManager.Instance.gameOverDelegate += ShowFrontAd;
     }
 
     AdRequest GetAdRequest()
@@ -37,7 +35,7 @@ public class AdmobManager : Singleton<AdmobManager>
         {
             AdSize adSize = AdSize.GetCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(AdSize.FullWidth);
 
-            bannerAd = new BannerView(bannerTestID, adSize, AdPosition.Bottom);
+            bannerAd = new BannerView(bannerID, adSize, AdPosition.Bottom);
             bannerAd.LoadAd(GetAdRequest());
         }
     }
@@ -53,7 +51,7 @@ public class AdmobManager : Singleton<AdmobManager>
 
     void LoadFrontAd()
     {
-        frontAd = new InterstitialAd(frontTestID);
+        frontAd = new InterstitialAd(frontID);
         frontAd.LoadAd(GetAdRequest());
     }
 
@@ -75,8 +73,8 @@ public class AdmobManager : Singleton<AdmobManager>
 
     void LoadRewardAd()
     {
-        GameOverRewardAd = new RewardedAd(rewardTestID);
-        SkinRewardAd = new RewardedAd(rewardTestID);
+        GameOverRewardAd = new RewardedAd(RewardID);
+        SkinRewardAd = new RewardedAd(SkinRewardID);
 
         RewardAdHandle();
 

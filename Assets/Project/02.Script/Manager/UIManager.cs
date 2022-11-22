@@ -91,7 +91,7 @@ public class UIManager : Singleton<UIManager>
 
     public void LeaderBoardOn_Btn()
     {
-        Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
+        Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard_ranking, (bool IsSuccess) => { });
         Social.ShowLeaderboardUI();
 
         //#현재 기기와 연결된 계정이 인증이 아직 안됬는가?
@@ -103,7 +103,7 @@ public class UIManager : Singleton<UIManager>
                 {
                     GM.Data.IsGoogleLogin = true;
 
-                    Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard, (bool IsSuccess) => { });
+                    Social.ReportScore(GameManager.Instance.Data.MaxWave, GPGSIds.leaderboard_ranking, (bool IsSuccess) => { }); ;
                     Social.ShowLeaderboardUI();
                 }
             });
@@ -112,6 +112,8 @@ public class UIManager : Singleton<UIManager>
 
     public void GmaeOver_Btn()
     {
+        if (GM.CurWave >= 5) AdmobManager.Instance.ShowFrontAd();
+
         //#UI On/Off
         FadeUI(0, 1, false, true);
 
